@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+	<title>timer</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="css/timer.css">
+	<script src="../js/pageManager.js"></script>
+	<script src="js/timer.js"></script>
+
+<body>
+	<div class="wrap">
+		<div class="title">
+			<p>시계</p>
+		</div>
+		<div class="tab">
+			<button class="tabBtn on">타이머</button>
+			<button class="tabBtn">스톱워치</button>
+		</div>
+		<div class="content">
+			<div class="cont1 on">
+				<div class="timer">
+					<div class="times">
+						<button class="selectTime" data-time="1000">+1초</button>
+						<button class="selectTime" data-time="5000">+5초</button>
+						<button class="selectTime" data-time="10000">+10초</button>
+						<button class="selectTime" data-time="30000">+30초</button>
+						<button class="selectTime" style="background: #2f5597;" data-time="60000">+1분</button>
+						<button class="selectTime" style="background: #2f5597;" data-time="300000">+5분</button>
+					</div>
+					<div id="timer">
+						<div class="t-min">
+							<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+								placeholder="0" class="t-min" maxlength="1">
+							<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+								placeholder="0" class="t-min" maxlength="1">
+						</div>
+						<span class="dot">:</span>
+						<div class="t-sec">
+							<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+								placeholder="0" class="t-sec" maxlength="1">
+							<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+								placeholder="0" class="t-sec" maxlength="1">
+						</div>
+						<span class="dot">:</span>
+						<div class="t-mir">
+							<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+								placeholder="0" class="t-mir" maxlength="1">
+							<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+								placeholder="0" class="t-mir" maxlength="1">
+						</div>
+					</div>
+					<button class="startTimer">시작</button>
+					<button class="stopTimer hide">정지</button>
+					<button class="resetTimer">초기화</button>
+				</div>
+			</div>
+			<div class="cont2">
+				<div class="stopwatch">
+					<div id="stopwatch">
+						<p class="min">00</p>
+						<p class="dot">:</p>
+						<p class="sec">00</p>
+						<p class="ms">00</p>
+					</div>
+					<button class="startStopwatch">시작</button>
+					<button class="stopStopwatch hide">정지</button>
+					<button class="recordStopwatch">기록</button>
+					<button class="resetStopwatch">초기화</button>
+					<div class="record"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+
+</html>

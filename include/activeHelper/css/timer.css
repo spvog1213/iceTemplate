@@ -1,0 +1,31 @@
+.title { color: #fff; background: #ff7c80; position: absolute; top: 0; left: 0; width: 200px; height: 100px; display: flex; justify-content: center; align-items: center; font-size: 40px; } 
+
+#stopwatch { display: flex; align-items: center; justify-content: center; position: absolute; top: 60px; left: 55px; border: 10px solid #ccf; border-radius: 30px; width: 644px; background: #000; height: 260px; } 
+.hide { display: none; } 
+#timer { display: flex; background: #1a316f; width: 970px; position: absolute; top: 92px; left: 35px; border: 35px solid #a6dbff; height: 369px; border-radius: 20px; align-items: center; justify-content: center; } 
+input { width: 95px; height: 160px; text-align: center; font-size: 163px; background: transparent; border: 0; outline: 0; color: #fff; } 
+input[type="text"]::placeholder { color: #fff; } 
+input[type="text"]:focus::placeholder { color: transparent; } 
+.tab { position: absolute; top: 120px; left: 50px; display: flex; align-items: flex-end; } 
+.tab > button.on { background: #3cc; color: #fff; width: 246px; height: 80px; margin-right: 17px; border-radius: 40px 40px 0 0; font-size: 30px; } 
+.tab > button { background: #b9eeed; color: #3cc; width: 246px; height: 60px; margin-right: 17px; border-radius: 40px 40px 0 0; font-size: 30px; } 
+.content { position: absolute; top: 200px; left: 25px; width: 1220px; height: 495px; border-radius: 30px; border: 3px solid #3cc; } 
+.content > div { display: none; } 
+.content > div.on { display: block; } 
+.times { display: flex; position: absolute; top: 42px; left: 84px; } 
+.times > button { color: #fff; width: 118px; background: #4472c4; margin-right: 14px; height: 50px; border-radius: 10px 10px 0 0; font-size: 30px; } 
+.times > button.on { pointer-events: none; } 
+.startTimer, .stopTimer { color: #fff; position: absolute; background: #a9d18e; width: 150px; height: 91px; top: 367px; right: 40px; border-radius: 10px; font-size: 40px; } 
+.resetTimer { position: absolute; top: 0px; right: 30px; width: 60px; height: 50px; background: #3cc; color: #fff; border-radius: 0 0 30px 30px; } 
+.timer .dot { font-size: 130px; color: #fff; } 
+.t-mir > input { font-size: 100px; width: 58px; height: 90px; margin-top: 20px; } 
+.stopwatch p { font-size: 150px; color: #5bc33b; } 
+.stopwatch .ms { font-size: 100px; margin-top: 20px; } 
+.startStopwatch, .stopStopwatch { color: #fff; position: absolute; background: #a9d18e; width: 286px; height: 91px; top: 350px; left: 60px; border-radius: 10px; font-size: 40px; } 
+.recordStopwatch { color: #fff; position: absolute; background: #ff9999; width: 286px; height: 91px; top: 350px; left: 400px; border-radius: 10px; font-size: 40px; } 
+.resetStopwatch { position: absolute; top: 0px; right: 30px; width: 60px; height: 50px; background: #3cc; color: #fff; border-radius: 0 0 30px 30px; } 
+.record { width: 433px; height: 378px; background: #ecf1f9; border: 6px solid #fcc; position: absolute; top: 67px; right: 24px; border-radius: 30px; opacity: 0.5; overflow-y: auto; } 
+.record > .time { width: 100%; display: flex; justify-content: center; align-items: center; height: 60px; } 
+.record > .time > .index { color: #f5b7bd; font-size: 40px; margin-right: 20px; } 
+.record > .time > p { color: #000; font-size: 40px; margin-top: 0px; } 
+#timer input.on { pointer-events: none; } 

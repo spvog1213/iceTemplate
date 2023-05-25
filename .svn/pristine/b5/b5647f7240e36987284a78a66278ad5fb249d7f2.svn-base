@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>활동 시킴이</title>
+  <link rel="stylesheet" type="text/css" href="css/choose.css" />
+  <script src="../js/pageManager.js"></script>
+  <script src="js/choose.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="centerBox js-centerBox">
+      <div class="icon"></div>
+    </div>
+    <!--// centerBox -->
+    <div class="text"></div>
+
+    <div class="step1Bg js-stepBg">
+      <div class="step1 js-step">
+        <div class="close js-close"></div>
+        <div class="step1Text js-stepText"></div>
+      </div>
+      <!--// step1 -->
+    </div>
+    <!--// step1Bg -->
+
+    <div class="list js-list"></div>
+
+    <div class="studentBG js-studentBG">
+      <div class="studentBox">
+        <input class="js-input" type="text" maxlength="2"
+          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="20" />
+        <div class="close js-studentBGclose"></div>
+        <div class="ok js-ok"></div>
+      </div>
+      <!--// studentBox -->
+    </div>
+    <!--// studentBG -->
+
+    <div class="reset js-reset"></div>
+    <div class="student js-student"></div>
+  </div>
+  <!--// container -->
+</body>
+
+</html>

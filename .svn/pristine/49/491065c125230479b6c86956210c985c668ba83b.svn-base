@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>몸 펴기 활동</title>
+  <link rel="stylesheet" type="text/css" href="css/relax.css" />
+  <script src="../js/pageManager.js"></script>
+  <script src="js/relax.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="startPage js-startPage">
+      <div class="list">
+        <div class="list_item list_item1">
+          <div class="item_title">
+            눈 운동
+          </div>
+          <!--// item_title -->
+
+          <div class="item item1 js-item" data-item="eye"></div>
+        </div>
+        <!--// list_item -->
+
+        <div class="list_item list_item2">
+          <div class="item_title">
+            목 운동
+          </div>
+          <!--// item_title -->
+
+          <div class="item item2 js-item" data-item="neck"></div>
+        </div>
+        <!--// list_item -->
+
+        <div class="list_item list_item3">
+          <div class="item_title">
+            어깨 운동
+          </div>
+          <!--// item_title -->
+
+          <div class="item item3 js-item" data-item="shoulder"></div>
+        </div>
+        <!--// list_item -->
+      </div>
+      <!--// list -->
+    </div>
+    <!--// startPage -->
+
+    <div class="mainPage js-mainPage">
+      <video id="video1" preload="auto">
+        <source src="images/relax/eye.mp4" type="video/mp4">
+      </video>
+
+      <div class="mainWrap">
+        <div class="home js-home"></div>
+
+        <div class="main_title">
+          <div class="icon"></div>
+
+          <div class="title">
+            <span class="big_T js-big_T"></span>
+            운동
+          </div>
+          <!---// title -->
+        </div>
+        <!--// main_title -->
+
+        <div class="control">
+          <div class="play js-play"></div>
+          <div class="stop js-stop"></div>
+        </div>
+        <!--// control -->
+      </div>
+      <!--// mainWrap -->
+    </div>
+    <!--// mainPage -->
+  </div>
+  <!--// container -->
+</body>
+
+</html>
