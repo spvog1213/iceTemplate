@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>enlargedContent</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/enlargedContent.css">
+  <script src="../include/js/pageManager.js"></script>
+  <style>
+    .menuContainer > button[data-sld-cont="1"]:before {content: 'TYPE 1';}
+    .menuContainer > button[data-sld-cont="2"]:before {content: 'TYPE 2';}
+    .menuContainer > button[data-sld-cont="1"]:after {content: 'vertical';}
+    .menuContainer > button[data-sld-cont="2"]:after {content: 'horizon';}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main>
+      <section class="menuContainer">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button>
+      </section>
+      <section class="contents">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <div class="js-enlargedContent enlargedContainer" data-max="3" data-type="vertical" data-step="10">
+                <div class="js-target enlargedTarget"></div>
+              </div>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <div class="js-enlargedContent enlargedContainer" data-max="5" data-type="horizon" data-step="10">
+                <div class="js-target enlargedTarget"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    // apng callback function
+    document.addEventListener('DOMContentLoaded', () => {
+      const enlargedContents = getEl('.js-enlargedContent').map(initEnlarger);
+      enlargedContents.forEach((content) => {
+        content.callback = {
+          min: (ENLARGE) => {
+            console.log("최소값");
+          },
+          max: (ENLARGE) => {
+            console.log("최대값")
+          },
+          controlling: (ENLARGE) => {
+            console.log(ENLARGE.scale);
+          }
+        }
+      });
+
+      /* 페이지 이동 혹은 팝업 내부에 있을 때 사이즈 초기화 기능  */
+      /* pageManager.sliders[0].callback = {
+        pageChange: () => {
+          enlargedContents.forEach((content) => content.init());
+        }
+      } */
+    });
+  </script>
+</body>
+</html>
