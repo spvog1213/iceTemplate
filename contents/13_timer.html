@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>draw</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/timer.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <main>
+      <section class="contents">
+        <div class="js-timer timer horizon" data-timer-time="60" data-timer-type="horizon"></div>
+        <div class="js-timer timer vertical" data-timer-time="60" data-timer-type="vertical"></div>
+      </section>
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loop(() => initTimer).then((initTimer) => {
+        const timerhorizon = initTimer(getEl(`.js-timer[data-timer-type="horizon"]`)[0], () => console.log('time horizon over'));
+        timerhorizon.start();
+        const timervertical = initTimer(getEl(`.js-timer[data-timer-type="vertical"]`)[0], () => console.log('time vertical over'));
+        timervertical.start();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+@charset "utf-8";
+
+/* menu */
+.menuContainer > button[data-sld-cont="1"]:before {content: 'TYPE 1';}
+.menuContainer > button[data-sld-cont="2"]:before {content: 'TYPE 2';}
+.menuContainer > button[data-sld-cont="3"]:before {content: 'TYPE 3';}
+.menuContainer > button[data-sld-cont="4"]:before {content: 'TYPE 4';}
+.menuContainer > button[data-sld-cont="5"]:before {content: 'TYPE 5';}
+.menuContainer > button[data-sld-cont="6"]:before {content: 'TYPE 6';}
+.menuContainer > button[data-sld-cont="1"]:after {content: 'default';}
+.menuContainer > button[data-sld-cont="2"]:after {content: 'multi canvas';}
+.menuContainer > button[data-sld-cont="3"]:after {content: 'multi draws';}
+
+/************************* custom *************************/
+.drawContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* padding: 10px; */
+  box-sizing: border-box;
+  --border-color: #EEE;
+  --active-color: rgb(255, 222, 37);
+}
+canvas {
+  touch-action: none;
+  background-color: #EEE;
+  cursor: pointer;
+}
+.optionContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: calc(30px + 40px);
+  left: 1150px;
+  width: 100px;
+  /* height: 400px; */
+  padding: 8px;
+  background: #FFF;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px 1px rgba(0, 0, 0, .2);
+}
+.optionContainer .hideDrawingButton {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  border-bottom: 1px solid var(--border-color);
+  background: #FFF url(../images/drawing/eye_open.png) center / auto 80% no-repeat;
+}
+.optionContainer .dragButton {
+  display: block;
+  position: relative;
+  /* bottom: 100%; */
+  width: 100%;
+  height: 20px;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: #EEE url(../images/drawing/dots.png) center / auto 30px no-repeat;
+}
+.optionContainer > section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.optionContainer > section:last-child {border: none;}
+.optionContainer > section button {pointer-events: auto;}
+
+/* hide mode */
+canvas.hide {
+  pointer-events: none;
+}
+.optionContainer.hide {
+  width: 50px; 
+  padding: 0;
+}
+/* .optionContainer.hide > button.dragButton, */
+.optionContainer.hide > section {display: none;}
+.optionContainer.hide > button.hideDrawingButton {border: none;}
+
+/* lineList */
+.lineList button {
+  opacity: .2;
+  position: relative;
+  width: 50%;
+  height: 40px;
+  background: center left 2px / auto 80% no-repeat;
+}
+.lineList button:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+	transform: rotate(90deg);
+	background: url(../images/drawing/pen_tool.png) right -16px top -18px / auto 90% no-repeat;
+  pointer-events: none;
+}
+.lineList button.straight {
+  background-image: url(../images/drawing/line_straight.png); 
+  border-right: 1px solid var(--border-color);
+}
+.lineList button.curve {
+  background-image: url(../images/drawing/line_curve.png);
+}
+.lineList button.hover,
+.lineList button.active {
+  opacity: 1;
+}
+
+/* brushList */
+.brushList button {
+  width: 50%;
+  height: 40px;
+  background: center / auto 80% no-repeat;
+  filter: grayscale(1);
+}
+.brushList button.hover, 
+.brushList button.active {
+  filter: none;
+}
+.brushList button.pen {
+  background-image: url(../images/drawing/pencil.png); 
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+.brushList button.highlighter {
+  background-image: url(../images/drawing/highlighter.png);
+  border-bottom: 1px solid var(--border-color);
+}
+.brushList button.eraser {
+  background-image: url(../images/drawing/eraser.png); 
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+.brushList button.removeline {
+  background-image: url(../images/drawing/eraser_line.png); 
+  border-bottom: 1px solid var(--border-color);
+}
+.brushList button.remove {
+  background-image: url(../images/drawing/remove.png);
+}
+
+/* colorList */
+.colorList button {
+  --radius: 22px;
+  width: var(--radius);
+  height: var(--radius);
+  margin: 3px;
+  border-radius: 50%;
+}
+.colorList button.active {
+  outline: 5px solid var(--active-color);
+}
+.colorList button.white {
+  border: 1px solid #CCC;
+}
+
+/* strokeList */
+.strokeList button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  min-height: 10px;
+  margin: 4px 0;
+}
+.strokeList button:before {
+  content: '';
+  display: block;
+  width: 80%;
+  border-radius: 20px;
+  background: #333;
+}
+.strokeList button.size_2:before {height: 2px;}
+.strokeList button.size_5:before {height: 5px;}
+.strokeList button.size_10:before {height: 10px;}
+.strokeList button.size_15:before {height: 15px;}
+.strokeList button.size_20:before {height: 20px;}
+.strokeList button.active:before {
+  outline: 5px solid var(--active-color);
+}
+
+/* page 2 */
+.sliderContent[data-sld-cont="2"] .drawContainer {
+  display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.sliderContent[data-sld-cont="2"] .drawContainer > .canvasContainer {
+  width: 500px;
+  height: 500px;
+  margin: 0 10px;
+}
+
+/* page 3 */
+.sliderContent[data-sld-cont="3"].selected  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sliderContent[data-sld-cont="3"] .drawContainer {
+  position: relative;
+  width: 700px;
+  height: 500px;
+  margin: 0 10px;
+}
+.sliderContent[data-sld-cont="3"] .optionContainer {
+  top: 10px;
+  left: 510px;
+}
+
+/**********************************************************/
+
+/************************* default ************************/
+/**********************************************************/
+
+
+
+
+/* test */

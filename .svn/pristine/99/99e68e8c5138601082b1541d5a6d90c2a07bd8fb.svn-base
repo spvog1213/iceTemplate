@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>popups</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/popup.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+<!--
+  class name
+  selected: 선택된 상태
+  popup: 팝업
+  minPopup: 팝업 최소화
+  openPopBtn: 팝업 열기 버튼
+  closePopBtn: 팝업 닫기 버튼
+
+  attribute name
+  data-pop-idx: 팝업 인덱스
+  data-pop-opts: 팝업 옵션
+  data-pop-inner: 팝업 내부 팝업 인덱스
+
+  popup options
+  noClose: 자동으로 닫히지 않음
+
+  popup animation
+  slidedown: 아래로 슬라이드
+  slideup: 위로 슬라이드
+  slideleft: 왼쪽으로 슬라이드
+  slideright: 오른쪽으로 슬라이드
+  zoomin: 확대
+  zoomout: 축소
+
+  popup callback
+  openPop: 팝업 열기
+  closePop: 팝업 닫기
+
+  * openPopBtn에 data-pop-idx 속성을 추가하면 해당 인덱스를 가진 팝업(js-popupContent)을 열 수 있습니다.
+  * js-popupContent에 data-pop-opts="noClose" 속성을 추가하면 자동으로 닫히지 않습니다.
+  * js-popupContent에 data-pop-inner 속성을 추가해서 팝업 내부에 팝업을 넣을 수 있습니다.
+-->
+
+<body>
+  <div class="wrap">
+    <main>
+      <!-- 상단 선택 Btn -->
+      <section class="menuContainer pink">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="3"></button>
+      </section>
+      <!-- // 상단 선택 Btn -->
+
+      <!-- 팝업 선택 Btn -->
+      <section class="contents">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <div>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="1"></button>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="2"></button>
+              </div>
+
+              <div>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="3"></button>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="4"></button>
+              </div>
+
+              <div>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="5"></button>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="6"></button>
+              </div>
+            </li>
+
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="7"></button>
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="8"></button>
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="9"></button>
+              <aside class="js-popupContent minPopup" data-pop-idx="7">
+                <p>POPUP 7</p>
+                <button class="js-closePopBtn closePopBtn"></button>
+              </aside>
+              <aside class="js-popupContent minPopup" data-pop-idx="8" data-pop-opts="noClose">
+                <p>POPUP 8</p>
+                <button class="js-closePopBtn closePopBtn"></button>
+              </aside>
+              <aside class="js-popupContent minPopup" data-pop-idx="9" data-pop-inner="10">
+                <p>POPUP 9</p>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="10"></button>
+                <button class="js-closePopBtn closePopBtn"></button>
+              </aside>
+              <aside class="js-popupContent minPopup" data-pop-idx="10">
+                <p>POPUP INNER</p>
+                <button class="js-closePopBtn closePopBtn"></button>
+              </aside>
+            </li>
+
+            <li class="js-sliderContent sliderContent" data-sld-cont="3">
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="11" data-sld-idx="2" data-sld-cont="1"></button>
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="11" data-sld-idx="2" data-sld-cont="2"></button>
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="11" data-sld-idx="2" data-sld-cont="3"></button>
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="11" data-sld-idx="2" data-sld-cont="4"></button>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- // 팝업 선택 Btn -->
+    </main>
+
+    <!-- 팝업 -->
+    <!-- js-popupContent에 클래스를 추가하여 animation 효과를 줄 수 있음 -->
+    <section class="js-popupContent popup slidedown" data-pop-idx="1">
+      <div class="popContentContainer">
+        <p>POPUP 1</p>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+
+    <section class="js-popupContent popup slideup" data-pop-idx="2">
+      <div class="popContentContainer">
+        <p>POPUP 2</p>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+
+    <section class="js-popupContent popup slideleft" data-pop-idx="3">
+      <div class="popContentContainer">
+        <p>POPUP 3</p>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+
+    <section class="js-popupContent popup slideright" data-pop-idx="4">
+      <div class="popContentContainer">
+        <p>POPUP 4</p>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+
+    <section class="js-popupContent popup zoomin" data-pop-idx="5">
+      <div class="popContentContainer">
+        <p>POPUP 5</p>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+
+    <section class="js-popupContent popup zoomout" data-pop-idx="6">
+      <div class="popContentContainer">
+        <p>POPUP 6</p>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+
+    <section class="js-popupContent popup zoomin" data-pop-idx="11">
+      <div class="popContentContainer">
+        <!-- data-sld-opts을 줄 수 있음 -->
+        <div class="js-slider sliderContainer" data-sld-idx="2" data-sld-opts="motion">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1"></li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2"></li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="3"></li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="4"></li>
+          </ul>
+          <button class="js-sliderPrevBtn sliderPrevButton"></button>
+          <button class="js-sliderNextBtn sliderNextButton"></button>
+          <button class="js-sliderTabs sliderTabs"></button>
+        </div>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+    <!-- // 팝업 -->
+
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // setting popup callback
+      loop(() => pageManager.popups).then(() => { // 모든 팝업에 callback을 설정
+        // pageManager.popups.forEach((popup) => { // 팝업을 순회하면서
+        //   popup.callback = { // callback을 설정
+        //     open: () => { // 팝업이 열릴 때
+        //       console.log('popup open callback');
+        //     },
+        //     close: () => { // 팝업이 닫힐 때
+        //       console.log('popup close callback');
+        //     }
+        //   }
+        // });
+
+        pageManager.getPopupByIndex(1).callback = {
+          open: (POPUP) =>{
+            console.log(POPUP);
+          },
+          close: (POPUP) => {
+            console.log(POPUP);
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

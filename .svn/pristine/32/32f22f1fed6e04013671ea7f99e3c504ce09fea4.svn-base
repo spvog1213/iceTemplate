@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>quiz_check</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/quiz.css">
+  <script src="../include/js/pageManager.js"></script>
+  <style>
+    /* menu */
+    .menuContainer > button[data-sld-cont="1"]:before {content: 'TYPE 1';}
+    .menuContainer > button[data-sld-cont="1"]:after {content: 'select';}
+    .menuContainer > button[data-sld-cont="2"]:before {content: 'TYPE 2';}
+    .menuContainer > button[data-sld-cont="2"]:after {content: 'select multi';}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main>
+      <section class="menuContainer yellow">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button>
+        <!-- <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="3"></button> -->
+        <!-- <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="4"></button> -->
+      </section>
+      <section class="contents">
+        <!-- 퀴즈 속성
+        class name
+        complete : 문제가 끝났을 때 붙습니다.
+        hideIcon : input이 활성화 되어 아이콘이 숨겨져 있을 경우
+        on : 버튼이 활성화 될 때 on 이 클래스에 붙습니다.
+        selected : select, choice에서 선택 중일 때 클래스에 붙습니다.
+        isAnswer : 오답과, 정답이 함께 보여야 할때 클래스에 붙습니다.
+        isDragging : 드래그 중일때 붙습니다.
+        dragged : 드래그를 했던 quizItem의 클래스에 붙습니다.
+        dropped : 드롭이 완료된 quizItem의 클래스에 붙습니다.
+        freeDrag : 위치가 자유로운 드래그 입니다.
+        nonEvent : 클릭 중일때 pointer-eventer : none 인 quizItem 입니다.
+        isClone : 복사 된 quizItem 입니다.
+
+        attribute name
+        data-quiz-type: 퀴즈 타입(input, essay, select, choice, truefalse, dragdrop, dragline)
+        data-quiz-opts:
+          - noReset: 초기화 안함
+          - noSolve: 사용자 답 체크 안함
+          - noAlert: 퀴즈 알림 사용 안함
+          - noSound: 정오답 사운드 없음
+          - example: 예시답(없으면 정답)
+          - allSolve: 전체 답 입력 확인
+          - showAnsButton: 정답 확인 버튼 초기 보이기
+          - showRedoButton: 다시하기 버튼 보이기
+          - resetAllItem: 오답일 때 사용자 답 전체 초기화
+          - resetEachItem: 오답일 때 오답만 초기화
+          - saveUserAnswer: 사용자 답 초기화 안함
+          - autoChangeButton: 전체 정답을 완료 한 경우 자동으로 다시하기 버튼으로 변경
+          - multiChoice: 정답이 복수일 때
+          //drag 
+          - multiDrop: 한 dropItem에 여러개의 dragItem 드랍 가능
+          - copyDrag: 정답인 경우 무제한 드래그
+          - freeDrag: 정답 상관없이 무제한 드래그
+        data-quiz-try: 정답 시도 횟수(default: 1회)
+        -->
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <!--- js-quizContainer | data-quiz-type, data-quiz-opts, data-quiz-try 등 설정 --->
+              <div class="js-quizContainer quizContainer" data-quiz-type="select" data-quiz-opts="noAlert" data-quiz-try="1" data-quiz-name="selectQuiz">
+                <!--- js-quizItem : 내용 | data-answer 에 정답(index)을 설정 --->
+                <div class="js-quizItem quizSelect" data-answer="5">
+                  <!--- js-selectTitle : 처음 보여질 제목 --->
+                  <div class="js-selectTitle quizSelectTitle">선택하세요.</div>
+                  <!--- js-selectList : 선택지가 되는 자식 노드들을 감싸는 부모 앨리먼트 --->
+                  <ul class="js-selectList quizSelectList">
+                    <li>select 1</li>
+                    <li>select 2</li>
+                    <li>select 3</li>
+                    <li>select 4</li>
+                    <li>answer</li>
+                  </ul>
+                  <!--- //js-selectList --->
+                </div>
+                <!--- //js-quizItem : 내용 --->
+                <button class="js-answerBtn answerBtn quizButton"></button>
+                <button class="js-redoBtn redoBtn quizButton"></button>
+              </div>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <div class="js-quizContainer quizContainer" data-quiz-type="select" data-quiz-opts="" data-quiz-try="3">
+                <!-- js-quizItem 안에 js-selectList을 모두 정답을 맞춰야지 정답이 확인 된다. -->
+                <div class="js-quizItem quizSelect" data-answer="1">
+                  <div class="js-selectTitle quizSelectTitle">선택하세요.</div>
+                  <ul class="js-selectList quizSelectList">
+                    <li>answer</li>
+                    <li>select 2</li>
+                    <li>select 3</li>
+                    <li>select 4</li>
+                    <li>select 5</li>
+                  </ul>
+                </div>
+                <div class="js-quizItem quizSelect" data-answer="2">
+                  <div class="js-selectTitle quizSelectTitle">선택하세요.</div>
+                  <ul class="js-selectList quizSelectList">
+                    <li>select 1</li>
+                    <li>answer</li>
+                    <li>select 3</li>
+                    <li>select 4</li>
+                    <li>select 5</li>
+                  </ul>
+                </div>
+                <div class="js-quizItem quizSelect" data-answer="3">
+                  <div class="js-selectTitle quizSelectTitle">선택하세요.</div>
+                  <ul class="js-selectList quizSelectList">
+                    <li>select 1</li>
+                    <li>select 2</li>
+                    <li>answer</li>
+                    <li>select 4</li>
+                    <li>select 5</li>
+                  </ul>
+                </div>
+                <button class="js-answerBtn answerBtn quizButton"></button>
+                <button class="js-redoBtn redoBtn quizButton"></button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <div class="js-quizAlert quizAlert">
+        <div class="solve"></div>
+        <div class="correct"></div>
+        <div class="first"></div>
+        <div class="second"></div>
+        <div class="answer"></div>
+        <div class="example"></div>
+      </div>
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loop(() => pageManager.quizzes).then((quizzes) => { //모든 QuizContant 불러오기
+        console.log(quizzes)
+        pageManager.findQuizByName('selectQuiz').callback = { // //data-quiz-name : selectQuiz에 콜백 설정
+          correct: (QUIZ) => {console.log('correct')}, //정답을 맞췄을 경우 console에서 correct가 적힌다.
+          incorrect: (QUIZ) => {console.log('incorrect')}, //오답일 경우 console에서 incorrect가 적힌다.
+          finish: (QUIZ) => {console.log('finish')}, //모두 오답이 되어 예시답을 보일 경우 console에서 finish가 적힌다.
+          redo: (QUIZ) => {console.log('redo')}, //다시 풀기위해 redo버튼이 숨겨졌을 경우 console에서 redo가 적힌다.
+          reset: (QUIZ) => {console.log('reset')}, //다시 풀기 버튼을 눌렀을 경우  console에서 reset가 적힌다. 
+          select: (QUIZ, currentList) => {console.log('select: ', currentList)} //선택했을 때 어떤 element를 선택했는지 보여준다.
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>players</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/players.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <main>
+      <section class="menuContainer olive">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="3"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="4"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="5"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="6"></button>
+      </section>
+      <section class="contents">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <div class="playerContainer">
+                <div class="js-player player" data-ply-type="audio" data-ply-idx="1">
+                  <audio class="js-media" src="media/sample_audio_1.mp3"></audio>
+                </div>
+                <div class="js-player player mini" data-ply-type="audio" data-ply-idx="2">
+                  <audio class="js-media" src="media/sample_audio_2.mp3"></audio>
+                </div>
+              </div>
+              <div class="js-mediaTarget target" data-ply-idx="1,2"></div>
+              <div class="js-syncContainer syncContainer" data-ply-idx="1,2">
+                <div class="js-syncTarget syncTarget"></div>
+                <div class="js-syncTarget syncTarget"></div>
+                <div class="js-syncTarget syncTarget"></div>
+                <div class="js-syncTarget syncTarget"></div>
+                <div class="js-syncTarget syncTarget"></div>
+              </div>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <div class="playerContainer">
+                <div class="js-player player" data-ply-type="video" data-ply-idx="3">
+                  <video class="js-media">
+                    <source src="media/sample_movie_1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="3">
+              <div class="playerContainer">
+                <div class="js-player player" data-ply-type="video" data-ply-idx="4">
+                  <video class="js-media">
+                    <source src="media/sample_movie_1.mp4" type="video/mp4">
+                  </video>
+                  <div class="js-scriptContainer scriptContainer" data-ply-idx="4">
+                    <div class="js-script script">
+                      <p>초와 알코올이 탈 때 나타나는 현상 관찰하기</p>
+                    </div>
+                    <div class="js-script script">
+                      <p>&lt;탐구 목표&gt;</p>
+                      <p>초와 알코올이 탈 때 나타나는 현상을 관찰할 수 있다.</p>
+                    </div>
+                    <div class="js-script script">
+                      <p>&lt;준비물&gt;</p>
+                      <p>초, 촛대, 알코올램프, 점화기, 실험복, 면장갑, 보안경을 준비합니다.</p>
+                    </div>
+                    <div class="js-script script">
+                      <p>먼저 촛대에 초를 세우고 불을 붙입니다.</p>
+                    </div>
+                    <div class="js-script script">
+                      <p>불을 다룰 때에는 화상을 입지 않도록 조심해요.</p>
+                    </div>
+                    <div class="js-script script">
+                      <p>점화기로 장난을 치지 않아요.</p>
+                    </div>
+                    <div class="js-script script">
+                      <p>불꽃 근처에는 탈 수 있는 물질을 두지 않아요.</p>
+                    </div>
+                    <div class="js-script script">
+                      <p>불꽃 근처에 젖은 수건을 준비해 놓아요.</p>
+                    </div>
+                    <div class="js-script script">
+                      <p>촛불의 모양, 색깔, 밝기, 손을 가까이 했을 때 느낌, 심지와 심지 근처의 변화 등을 관찰해 봅시다.</p>
+                    </div>
+                    <div class="js-script script">
+                      <p>이번에는 알코올램프에 불을 붙입니다. </p>
+                    </div>
+                    <div class="js-script script">
+                      <p>불꽃의 모양, 색깔, 밝기, 손을 가까이 했을 때의 느낌, 심지와 심지 근처의 변화 등을 관찰해 봅시다.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="4">
+              <div class="playerContainer">
+                <div class="js-player player" data-ply-type="video" data-ply-idx="5">
+                  <video class="js-media">
+                    <source src="media/sample_movie_1.mp4" type="video/mp4" />
+                    <track kind="captions" src="media/sample_movie_1.vtt" srclang="en" label="English" />
+                  </video>
+                </div>
+              </div>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="5">
+              <div class="playerContainer">
+                <div class="js-player player" data-ply-type="video" data-ply-idx="6" data-ply-opts="language, numSync, scene, again">
+                  <video class="js-media">
+                    <source src="media/sample_eng_movie.mp4" type="video/mp4">
+                  </video>
+
+                  <div class="js-scriptContainer scriptContainer" data-ply-idx="6">
+                    <div class="js-script script">
+                      <p>Hi! Hi! What’s your name? <i>Hi! Hi! What’s your name?</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>My name is Amy. <i>My name is Amy.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Hi, Amy. I’m Jiho. <i>Hi, Amy. I’m Jiho.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Hi, Jiho. <i>Hi, Jiho.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Bye, Amy. Bye, bye. <i>Bye, Amy. Bye, bye.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Bye, Jiho. Bye, bye. <i>Bye, Jiho. Bye, bye.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Hello! Hello! What’s your name? <i>Hello! Hello! What’s your name?</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>My name is Ben. <i>My name is Ben.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Hello, Ben. I’m Anne. <i>Hello, Ben. I’m Anne.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Hello, Anne. <i>Hello, Anne. </i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Bye, Ben. Bye, bye. <i>Bye, Ben. Bye, bye.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Bye, Anne. Bye, bye. <i>Bye, Anne. Bye, bye.</i></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="6">
+              <div class="playerContainer">
+                <div class="js-player player" data-ply-type="audio" data-ply-idx="7">
+                  <audio class="js-media" src="media/sample_audio_4.mp3"></audio>
+
+                  <div class="js-languageContainer languageContainer" data-ply-idx="7">
+                    <div class="js-languageTarget languageTarget">
+                      <p>Aa, Aa, <i>Aa, Aa,</i></p><br/>
+                      <p>Aa, Aa <i>Aa, Aa</i></p>
+                    </div>
+                    <div class="js-languageTarget languageTarget">
+                      <p>Bb, Bb, Bb, Bb <i>Bb, Bb, Bb, Bb</i></p>
+                    </div>
+                    <div class="js-languageTarget languageTarget">
+                      <p>Cc, Cc, Cc, Cc <i>Cc, Cc, Cc, Cc</i></p>
+                    </div>
+                    <div class="js-languageTarget languageTarget">
+                      <p>Aa, Bb, Cc <i>Aa, Bb, Cc</i></p>
+                    </div>
+                    <div class="js-languageTarget languageTarget">
+                      <p>Aa, Bb, Cc <i>Aa, Bb, Cc</i></p>
+                    </div>
+                    <div class="js-languageTarget languageTarget">
+                      <p>Aa, Bb, Cc <i>Aa, Bb, Cc</i></p>
+                    </div>
+                    <div class="js-languageTarget languageTarget">
+                      <p>Wow! <i>Wow!</i></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      pageManager.getPlayerByIndex('1').syncData = [
+        {start: 1, end: 3},
+        {start: 3, end: 5},
+        {start: 5, end: 7},
+        {start: 7, end: 9},
+        {start: 9, end: 11},
+      ]
+
+      pageManager.getPlayerByIndex('4').scriptData = [
+        {start: 2.480, end: 8.540},
+        {start: 12.480, end: 19.540},
+        {start: 19.540, end: 31.610},
+        {start: 31.610, end: 37.230},
+        {start: 37.230, end: 42.030},
+        {start: 42.030, end: 45.030},
+        {start: 45.630, end: 50.580},
+        {start: 50.580, end: 55.750},
+        {start: 55.750, end: 66.750},
+        {start: 66.750, end: 70.800},
+        {start: 70.800, end: 81.150},
+      ]
+      pageManager.getPlayerByIndex('4').bookMarkData = [
+        {time: 2.480},
+        {time: 12.480},
+        {time: 19.540},
+        {time: 31.610}
+      ]
+      
+      pageManager.getPlayerByIndex('6').sceneData = [
+        {start: 0, end: 9999},
+        {start: 0, end: 22.33},
+        {start: 22.34, end: 9999},
+      ]
+      pageManager.getPlayerByIndex('6').scriptData = [
+        {start: 4.17, end: 6.27},
+        {start: 7.37, end: 9.33},
+        {start: 10.57, end: 12.67},
+        {start: 13.73, end: 14.77},
+        {start: 16.9, end: 19.4},
+        {start: 20.17, end: 22.27},
+        {start: 26.6, end: 28.5},
+        {start: 29.6, end: 31.73},
+        {start: 32.97, end: 35.03},
+        {start: 36.13, end: 37.1},
+        {start: 39.33, end: 41.73},
+        {start: 42.6, end: 44.63},
+      ]
+      pageManager.getPlayerByIndex('6').callback = {
+        play : (media) => {
+          // console.log('play');
+        },
+        pause : (media) => {
+          // console.log('pause');
+        },
+        stop : (media) => {
+          // console.log('stop');
+        },
+        sync : (media, target) => {
+          // console.log('sync');
+        },
+      };
+    
+      pageManager.getPlayerByIndex('7').languageData = [
+        {start: [6.5, 8.2], end: [8.25, 9.93]},
+        {start: 10.23, end: 13.33},
+        {start: 13.5, end: 16.73},
+        {start: 18.76, end: 20.33},
+        {start: 22.26, end: 23.7},
+        {start: 25.26, end: 27.16},
+        {start: 28.9, end: 30.06}
+      ]
+    });
+  </script>
+</body>
+</html>

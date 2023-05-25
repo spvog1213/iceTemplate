@@ -1,0 +1,410 @@
+@charset "utf-8";
+
+/* menu */
+.menuContainer > button[data-sld-cont="1"]:after {content: 'sound player';}
+.menuContainer > button[data-sld-cont="2"]:after {content: 'video player';}
+.menuContainer > button[data-sld-cont="3"]:after {content: 'video player(in html)';}
+.menuContainer > button[data-sld-cont="4"]:after {content: 'video player(vtt)';}
+.menuContainer > button[data-sld-cont="5"]:after {content: 'video player(English)';}
+.menuContainer > button[data-sld-cont="6"]:after {content: 'sound player(English)';}
+
+
+/************************* custom *************************/
+.playerContainer {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  height: 100%;
+	font-family: "NanumSquareRoundEB";
+  font-size: 16px;
+}
+.player[data-ply-type="audio"] {
+  top: 50px;
+  margin: 0 20px;
+}
+.player[data-ply-type="audio"] .control {
+	width: 300px;
+  padding: 4px 10px;
+  border-radius: 30px;
+  background: #EEE;
+}
+.player[data-ply-type="audio"].mini .control {
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+}
+
+.player[data-ply-type="video"] {
+  top: 30px;
+  width: 1040px;
+  height: 585px;
+  overflow: hidden;
+}
+.player[data-ply-type="video"] video {
+  width: 100%;
+}
+.player[data-ply-type="video"] .control {
+  bottom: 10px;
+  left: calc(50% - 30%);
+  width: 60%;
+	padding: 4px 10px;
+  border-radius: 30px;
+  background: #EEE;
+  /* background: rgba(255, 255, 255, .5); */
+}
+
+/* buttons */
+.player button {
+  flex: 0 0 24px;
+  height: 24px;
+  margin: 0 2px;
+  background: center / contain no-repeat;
+}
+.player button.play {
+  background-image: url(../../include/images/player/control_play.png);
+  background-size: 85%;
+}
+.player button.pause {
+  display: none;
+  background-image: url(../../include/images/player/control_pause.png);
+}
+.player button.stop {
+  background-image: url(../../include/images/player/control_stop.png);
+}
+.player button.zoom {
+  order: 1;
+  background-image: url(../../include/images/player/control_maximize.png);
+  background-size: 80%;
+}
+.player button.script {
+  order: 1;
+  background-image: url(../../include/images/player/control_script.png);
+}
+.player button.videoPlayButton {
+  opacity: .5;
+  background-size: 200px;
+  background-image: url(../../include/images/player/control_videoPlay.png);
+}
+.player button.videoPlayButton.hover {
+  opacity: 1;
+}
+
+/* fullscreen */
+.isFullscreenMode .player button.zoom {
+  background-image: url(../../include/images/player/control_minimize.png);
+}
+
+/* timer */
+.player .timer {
+  color: gray;
+  font-size: .9em;
+  letter-spacing: -0.4px;
+}
+.player .timer > span {
+  width: 50px;
+}
+.player .timer > span:last-child {order: 1;}
+.player .timer:after {content: '/';}
+
+/* progress */
+.player .progressBar {
+  height: 6px;
+  border-radius: 10px;
+  background: linear-gradient(to right, tomato 0%, #CCC 0%);
+}
+.player .progressControl:before {
+  background: tomato;
+  border-radius: 50%;
+}
+
+/* audio targets */
+.target {
+  opacity: 0;
+  position: absolute;
+	top: 200px;
+	left: calc(50% - 200px);
+  width: 400px;
+  height: 400px;
+  background: url(../../include/images/player/player_target_1.png) center / contain no-repeat;
+  pointer-events: none;
+}
+.target.pause {
+  opacity: 1;
+  background-image: url(../../include/images/player/player_target_1.png);
+}
+.target.on {
+  opacity: 1;
+  transition: opacity .5s ease-out;
+  background-image: url(../../include/images/player/player_target_1_play.png);
+}
+
+/* sync */
+.syncContainer {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+}
+.syncContainer .syncTarget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 20px;
+  margin-bottom: 10px;
+  background: #EEE;
+}
+.syncContainer .syncTarget.on {
+  background: coral;
+}
+
+/* script */
+.player .scriptContainer {
+  display: none;
+  position: absolute;
+	top: 30px;
+	right: 10px;
+	width: 380px;
+	height: 500px;
+	padding: 16px;
+  text-align: justify;
+  line-height: 1.3;
+  word-spacing: 1px;
+  letter-spacing: -0.5px;
+  word-break: keep-all;
+	border-radius: 30px;
+	background: rgba(240, 240, 240, .9);
+	z-index: 1;
+}
+.player .scriptContainer.on {
+  display: block;
+}
+.player .scriptContainer > .script {
+  margin-bottom: 10px;
+}
+.player .scriptContainer > .script.on {
+  color: tomato;
+}
+
+/* bookmark */
+.player .bookMarkItem::after { top: -30px; width: 16px; height: 16px; background-color: red; left: calc(50% - 8px); }
+
+/* language player */
+.player .scriptContainer.languageScriptContainer .script.on, .player .languageTarget.on { color: #000; }
+.player .scriptContainer.languageScriptContainer .script i, .player .languageTarget i { color: blue; }
+.player .languageTarget { width: 380px; margin-bottom: 0; background: transparent; display: block; height: auto; }
+
+.player .numSyncContainer { position: absolute; top: 10px; left: 10px; }
+.player .numSyncTarget { display: inline-block; width: 25px; height: 25px; border-radius: 50%; background-color: #000; color: #fff; margin: 0 3px; text-align: center; line-height: 25px; }
+.player .numSyncTarget.isPlaying { background-color: red; }
+
+.player .sceneContainer { position: absolute; bottom: 50px; left: 10px; }
+.player .sceneTarget { display: inline-block; width: 83px; height: 56px; background-size: 100% 100%; margin: 0 3px; }
+.player .sceneTarget:nth-child(1) { background-image: url(../../include/images/player/allview.png); }
+.player .sceneTarget:nth-child(1).on { background-image: url(../../include/images/player/allview_hover.png); }
+.player .sceneTarget:nth-child(2) { background-image: url(../../include/images/player/scene1.png); }
+.player .sceneTarget:nth-child(2).on { background-image: url(../../include/images/player/scene1_hover.png); }
+.player .sceneTarget:nth-child(3) { background-image: url(../../include/images/player/scene2.png); }
+.player .sceneTarget:nth-child(3).on { background-image: url(../../include/images/player/scene2_hover.png); }
+
+/* progress */
+.player .agianContainer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; z-index: 1; }
+.player .agianContainer.on { display: block; }
+.player .agianBox { position: absolute; top: 400px; left: calc(50% - 150px); width: 300px; background-color: #eee; border-radius: 30px; padding:0 20px; }
+.player .agianProgressBar {
+  height: 6px;
+  border-radius: 10px;
+  background: linear-gradient(to right, tomato 0%, #CCC 0%);
+  margin: 15px 0;
+}
+.player .agianProgressControl:before {
+  background: tomato;
+  border-radius: 50%;
+}
+/**********************************************************/
+
+/************************* default ************************/
+.player,
+.player * {
+  position: relative;
+}
+.player .control {
+  display: flex;
+  align-items: center;
+}
+.player .control.hide {
+  animation: controlDown .3s ease-out forwards;
+  -webkit-animation: controlDown .3s ease-out forwards;
+}
+@keyframes controlDown {
+  100% { transform: translateY(100px); }
+}
+
+/* timer */
+.player .timer {
+  display: flex;
+  justify-content: center;
+}
+.player .timer > span {
+  display: block;
+  text-align: center;
+}
+
+/* progress */
+.player .progress {
+  width: 100%;
+  margin: 0 10px;
+}
+.player .progressBar {
+  width: 100%;
+}
+.player .progressControl {
+  position: absolute;
+  top: 50%;
+  width: 1px;
+  height: 1px;
+}
+.player .progressControl:before {
+  content: '';
+  display: block;
+  position: absolute;
+  /* 사이즈에 맞춰서 위치값 수정 필요 */
+  top: calc(-16px / 2);
+  left: calc(-16px / 2);
+  width: 16px;
+  height: 16px;
+}
+
+/* audio */
+.player[data-ply-type="audio"] button.zoom,
+.player[data-ply-type="audio"] button.script {display: none;}
+.player[data-ply-type="audio"] .progress {
+  width: 100%;
+  margin: 0 10px;
+}
+/* audio(mini) */
+.player[data-ply-type="audio"].mini .timer,
+.player[data-ply-type="audio"].mini .progress,
+.player[data-ply-type="audio"].mini button.stop {display: none;}
+
+/* video */
+.player .videoPosterImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: center / contain no-repeat;
+}
+.player .videoPlayButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.player[data-ply-type="video"] .control {
+  position: absolute;
+  z-index: 1;
+}
+.player button.script {
+  opacity: .2;
+  pointer-events: none;
+}
+.player button.script.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* bookmark */
+.player .bookMarkItem { position: absolute; top: 50%; width: 1px; height: 1px; }
+.player .bookMarkItem::after { content: ""; display: block; position: absolute; cursor: pointer; }
+
+/* language player */
+.player .scriptContainer.languageScriptContainer { text-align: left; }
+.player .scriptContainer.languageScriptContainer .script { display: none; }
+.player .scriptContainer.languageScriptContainer .script.on { display: block; }
+.player .scriptContainer.languageScriptContainer .script p { display: inline-block; position: relative; }
+.player .scriptContainer.languageScriptContainer .script i { position: absolute; top: 0; left: 0; width: 0%; height: 100%; white-space: nowrap; overflow: hidden; font-style: normal; }
+.player .scriptContainer.languageScriptContainer .script.inactive i { width: 0% !important; }
+
+.player .languageContainer { text-align: left; }
+.player .languageTarget p { cursor: pointer; display: inline-block; position: relative; }
+.player .languageTarget i { position: absolute; top: 0; left: 0; width: 0%; height: 100%; white-space: nowrap; overflow: hidden; font-style: normal; }
+.player .languageTarget.inactive i { width: 0% !important; }
+
+.player .numSyncTarget, .player .sceneTarget { cursor: pointer; }
+
+.player .agianProgressControl {
+  position: absolute;
+  top: 50%;
+  width: 1px;
+  height: 1px;
+}
+.player .agianProgressControl:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(-16px / 2);
+  left: calc(-16px / 2);
+  width: 16px;
+  height: 16px;
+}
+
+/* fullscreen */
+.appendFullscreen,
+.isFullscreenMode .player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.isFullscreenMode {}
+
+/* active */
+.player.isPlaying button.play,
+.player.isPlaying .videoPosterImage {display: none;}
+.player.isPlaying button.pause {display: block;}
+.player.isPlaying button.videoPlayButton.hover,
+.player.isPlaying button.videoPlayButton {opacity: 0;}
+
+.player.isPaused {}
+.player.isPaused .videoPosterImage {display: none;}
+.player.isPaused button.videoPlayButton.hover,
+.player.isPaused button.videoPlayButton {opacity: 0;}
+
+/* active(mini) */
+.player[data-ply-type="audio"].mini.isPlaying button.play,
+.player[data-ply-type="audio"].mini.isPlaying button.pause {display: none;}
+.player[data-ply-type="audio"].mini.isPlaying button.stop {display: block;}
+
+
+/**********************************************************/
+
+
+
+
+/* test */
+.player[data-ply-type="audio"] {
+	/* outline: 1px solid rgba(0, 0, 0, .2); */
+	padding: 20px;
+  outline: 1px solid #EEE;
+}
+.player:before {
+  display: block;
+  position: absolute;
+  bottom: 100%;
+  left: 4px;
+  padding: 1px 4px 2px;
+  font-size: .6em;
+  background: #CCC;
+}
+.player[data-ply-idx="1"]:before {content: 'SOUND PLAYER';}
+.player[data-ply-idx="2"]:before {content: 'MINI PLAYER';}
+
+.player[data-ply-type="video"][data-ply-idx="1"]:before {
+  content: 'VIDEO PLAYER';
+  top: 0;
+  bottom: auto;
+  z-index: 10;
+}

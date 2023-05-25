@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+/************************* default ************************/
+/**********************************************************/
+
+/************************* custom *************************/
+.timer {
+  position: absolute;
+  top: 30px;
+}
+.timer:before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  pointer-events: none;
+}
+.timerProgress {
+  position: absolute;
+  border-radius: 30px;
+  background-image: linear-gradient(#ffec00, #ffcb00);
+}
+.timerProgress:after {
+  content: '';
+  position: absolute;
+  width: calc(154px / 2);
+  height: calc(154px / 2);
+  background: url(../images/timer/img_baricon.png) center / contain no-repeat;
+}
+.timerClock {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: -14px;
+	left: -58px;
+	width: calc(40px + 14px);
+	height: calc(40px + 14px);
+	font-size: 30px;
+	border-radius: 50%;
+	border: #2fadff 7px solid;
+	background: #FFF;
+}
+
+
+.timer.horizon {
+  left: 80px;
+  width: calc(1228px / 2 - 14px);
+  height: calc(76px / 2 - 14px);
+}
+.timer.horizon:before {
+  width: calc(1228px / 2);
+  height: calc(76px / 2);
+  background: url(../images/timer/timer_bar.png) center / contain no-repeat;
+}
+.timer.horizon .timerProgress {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+}
+.timer.horizon .timerProgress:after {
+  top: -26px;
+  left: calc(-154px / 4);
+}
+
+.timer.vertical {
+  right: 50px;
+  width: calc(76px / 2 - 14px);
+  height: calc(1228px / 2 - 14px);
+}
+.timer.vertical:before {
+  width: calc(76px / 2);
+  height: calc(1228px / 2);
+  background: url(../images/timer/timer_bar_vertical.png) center / contain no-repeat;
+}
+.timer.vertical .timerProgress {
+  left: 0;
+  right: 0px;
+  bottom: 0px;
+  height: 100%;
+}
+.timer.vertical .timerProgress:after {
+  top: calc(-154px / 4);
+  left: -26px;
+}
+/**********************************************************/

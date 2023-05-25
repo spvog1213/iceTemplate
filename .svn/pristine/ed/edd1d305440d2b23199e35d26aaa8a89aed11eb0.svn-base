@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>quiz_dragline</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/quiz.css">
+  <script src="../include/js/pageManager.js"></script>
+  <style>
+    /* menu */
+    .menuContainer > button[data-sld-cont="1"]:before {content: 'TYPE 1';}
+    .menuContainer > button[data-sld-cont="2"]:before {content: 'TYPE 2';}
+    .menuContainer > button[data-sld-cont="3"]:before {content: 'TYPE 3';}
+    .menuContainer > button[data-sld-cont="1"]:after {content: 'dragline - default';}
+    .menuContainer > button[data-sld-cont="2"]:after {content: 'dragline - multiDrop';}
+    .menuContainer > button[data-sld-cont="3"]:after {content: 'dragline - freeDrag';}
+
+    .dropArea span {opacity: 0;}
+    .dragItemContainer > div {
+      flex: 0 0 45%;
+    }
+    .quizContainer[data-quiz-type="input"] {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      right: 90px;
+      height: 90%;
+    }
+    .quizInput {
+      width: 300px;
+      margin: 36px 0;
+    }
+
+    .quizContainer[data-quiz-type="input"] .quizItemBtn[data-item-idx="0"] {left: 20px; top: 70px;}
+    .quizContainer[data-quiz-type="input"] .quizItemBtn[data-item-idx="1"] {left: 20px; top: 210px;}
+    .quizContainer[data-quiz-type="input"] .quizItemBtn[data-item-idx="2"] {left: 20px; top: 350px;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main>
+      <section class="menuContainer mint">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <!-- <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button> -->
+        <!-- <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="3"></button> -->
+      </section>
+      <section class="contents">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+               <!--- js-quizContainer | data-quiz-type, data-quiz-opts, data-quiz-try 등 설정 > data-quiz-idx로 handler를 제어할 수 있습니다. --->
+              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="autoChangeButton">
+                <!-- js-quizSvgContainer : svg가 생성될 장소의 앨리먼트 -->
+                <svg class="js-quizSvgContainer quizSvgContainer"></svg>
+                <!-- dragItemContainer -->
+                <div class="dragItemContainer">
+                  <div class="dragArea">
+                    <!-- js-quizItem : data-type="drag" -->
+                    <div class="flexBox center"><span>SAMPLE 1</span><div class="js-quizItem draglineItem" data-type="drag" data-idx="1"></div></div>
+                    <div class="flexBox center"><span>SAMPLE 2</span><div class="js-quizItem draglineItem" data-type="drag" data-idx="2"></div></div>
+                    <div class="flexBox center"><span>SAMPLE 3</span><div class="js-quizItem draglineItem" data-type="drag" data-idx="3"></div></div>
+                    <!-- //js-quizItem : data-type="drag" -->
+                  </div>
+                  <div class="dropArea">
+                    <!-- js-quizItem : data-type="drop" -->
+                    <div class="flexBox center"><div class="js-quizItem draglineItem" data-type="drop" data-idx="1"></div><span>a</span></div>
+                    <div class="flexBox center"><div class="js-quizItem draglineItem" data-type="drop" data-idx="2"></div><span>a</span></div>
+                    <div class="flexBox center"><div class="js-quizItem draglineItem" data-type="drop" data-idx="3"></div><span>a</span></div>
+                     <!-- //js-quizItem : data-type="drop" -->
+                  </div>
+                </div>
+                <!-- //dragItemContainer -->
+              </div>
+              <!--- js-quizContainer | data-quiz-type, data-quiz-opts, data-quiz-try 등 설정 > data-quiz-idx로 handler를 제어할 수 있습니다. --->
+              <div class="js-quizContainer quizContainer" data-quiz-type="input">
+                <!--- js-quizItem : 내용 | data-answer 에 정답을 설정 --->
+                <input type="text" class="js-quizItem quizInput" data-answer="sample 1">
+                <input type="text" class="js-quizItem quizInput" data-answer="sample 2">
+                <input type="text" class="js-quizItem quizInput" data-answer="sample 3">
+              </div>
+              <!-- js-quizHandler | data-hdl-quiz = "js-quizContainer 의 data-quiz-idx로 제어할 수 있습니다. ',' 쉼표로 여러개를 제어할 수 있습니다. " -->
+              <div class="js-quizHandler" data-hdl-quiz="0,1">
+                <!-- 정답확인 handler -->
+                <button class="js-quizAnsHandler quizButton answerBtn"></button> 
+                <!-- 다시하기 handler -->
+                <button class="js-quizRedoHandler quizButton redoBtn"></button>
+              </div>
+              <!-- //js-quizHandler -->
+            </li>
+          </ul>
+        </div>
+      </section>
+      <div class="js-quizAlert quizAlert">
+        <div class="solve"></div>
+        <div class="correct"></div>
+        <div class="first"></div>
+        <div class="second"></div>
+        <div class="answer"></div>
+        <div class="example"></div>
+      </div>
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+    });
+  </script>
+</body>
+</html>

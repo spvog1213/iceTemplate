@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>draw</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/draw.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <main>
+      <section class="menuContainer olive">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="3"></button>
+      </section>
+      <section class="contents">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <div class="js-drawing drawContainer">
+                <canvas class="js-canvas"></canvas>
+              </div>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <div class="js-drawing drawContainer">
+                <div class="canvasContainer"><canvas class="js-canvas"></canvas></div>
+                <div class="canvasContainer"><canvas class="js-canvas"></canvas></div>
+              </div>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="3">
+              <div class="js-drawing drawContainer">
+                <canvas class="js-canvas"></canvas>
+              </div>
+              <div class="js-drawing drawContainer">
+                <canvas class="js-canvas"></canvas>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>template</title>
+  <link rel="stylesheet" href="main/styles/index.css">
+  <script src="include/js/pageManager.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <ul class="contents">
+      <li data-type="01_sliders"><span>SLIDER</span></li>
+      <li data-type="02_popups"><span>POPUP</span></li>
+      <li data-type="03_players"><span>PLAYER</span></li>
+      <li data-type="04_toggle"><span>TOGGLE</span></li>
+      <li data-type="05_draw"><span>DRAW</span></li>
+      <li data-type="06_quiz_input"><span>QUIZ - INPUT</span></li>
+      <li data-type="07_quiz_select"><span>QUIZ - SELECT</span></li>
+      <li data-type="08_quiz_choice"><span>QUIZ - CHOICE</span></li>
+      <li data-type="09_quiz_toggle"><span>QUIZ - TOGGLE</span></li>
+      <!-- <li data-type="07_quiz_check"><span>QUIZ - CHECK</span></li> -->
+      <!-- <li data-type="09_quiz_trueFalse"><span>QUIZ - TRUEFALSE</span></li> -->
+      <li data-type="10_quiz_dragdrop"><span>QUIZ - DRAGDROP</span></li>
+      <li data-type="11_quiz_dragline"><span>QUIZ - DRAGLINE</span></li>
+      <li data-type="12_quiz_handler"><span>QUIZ - HANDLER</span></li>
+    </ul>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const contents = document.querySelectorAll('.contents > li');
+      Array.prototype.forEach.call(contents, (content) => {
+        content.addEventListener('click', () => {
+          location.assign(`contents/${content.getAttribute('data-type')}.html`);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
