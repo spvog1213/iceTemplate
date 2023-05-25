@@ -4,27 +4,46 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
-  <title>draw</title>
+  <title>apng</title>
   <link rel="stylesheet" href="../include/css/style.css">
   <link rel="stylesheet" href="../include/css/apng.css">
   <script src="../include/js/pageManager.js"></script>
 </head>
+<!-- class 및 attribute
+* class
+- js-apng: apng를 사용할 요소에 추가합니다.
+
+* attribute
+- data-src: apng 경로 설정
+- data-auto-play: apng 자동 재생 설정 
+- data-loop: apng 반복 설정
+-->
+
 <body>
   <div class="wrap">
     <main>
       <section class="contents">
-        <div class="js-apng apngContainer" data-src="../include/images/apng/sample.png" data-auto-play="true" data-loop="true"></div>
+        <div class="js-apng apngContainer" data-src="../include/images/apng/sample.png" data-auto-play="false" data-loop="true" ></div>
       </section>
     </main>
   </div>
   <script>
+    // apng callback function
     document.addEventListener('DOMContentLoaded', () => {
-      // setting apng callback
       const apng = new APNG(getEl('.js-apng')[0]);
       loop(() => apng.player).then((player) => {
         apng.callback = {
           timeupdate: (APNG) => {
             console.log(APNG.currentFrameNumber);
+          },
+          play: (APNG) => {
+            console.log("재생")
+          },
+          pause: (APNG) => {
+            console.log("일시정지")
+          },
+          stop: (APNG) => {
+            console.log("정지")
           }
         }
       });

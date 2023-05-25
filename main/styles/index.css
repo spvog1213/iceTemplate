@@ -3,7 +3,6 @@
 @import '../../include/css/reset.css';
 @import '../../include/css/normalize.css';
 @import '../../include/css/font.css';
-@import 'layout.css';
 
 .contents {
   width: 50%;
@@ -44,3 +43,30 @@
   0% {height: 0;opacity: 0;}
   100% {height: 100%;opacity: 1;}
 }
+
+.activeHelper {
+  position: absolute;
+  top: 0px;
+  right: 10%;
+  padding: 0 4px;
+  border-radius: 8px;
+  border: 1px solid #DDD;
+}
+.activeHelper > li {
+  font-size: 0;
+  width: 50px;
+  height: 50px;
+  margin: 4px 0;
+  border-radius: 10px;
+  background: #F7F7F7 center / auto 70% no-repeat;
+  cursor: pointer;
+}
+.activeHelper > li:hover {
+  background-color: pink;
+}
+.activeHelper > li[data-type="board"] {background-image: url(../images/blackboard.png);}
+.activeHelper > li[data-type="timer"] {background-image: url(../images/stopwatch.png);}
+.activeHelper > li[data-type="group"] {background-image: url(../images/group.png);}
+.activeHelper > li[data-type="score"] {background-image: url(../images/scorecard.png);}
+.activeHelper > li[data-type="sticker"] {background-image: url(../images/verified.png);}
+.activeHelper > li[data-type="penalty"] {background-image: url(../images/yellow-card.png);}
