@@ -28,6 +28,14 @@
       <li data-type="11_quiz_dragline"><span>QUIZ - DRAGLINE</span></li>
       <li data-type="12_quiz_handler"><span>QUIZ - HANDLER</span></li>
     </ul>
+    <ul class="activeHelper">
+      <li data-type="board">BOARD</li>
+      <li data-type="timer">TIMER</li>
+      <li data-type="group">GROUP</li>
+      <li data-type="sticker">STICKER</li>
+      <li data-type="score">SCORE</li>
+      <li data-type="penalty">PENALTY</li>
+    </ul>
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -35,6 +43,13 @@
       Array.prototype.forEach.call(contents, (content) => {
         content.addEventListener('click', () => {
           location.assign(`contents/${content.getAttribute('data-type')}.html`);
+        });
+      });
+
+      const helpers = document.querySelectorAll('.activeHelper > li');
+      Array.prototype.forEach.call(helpers, (content) => {
+        content.addEventListener('click', () => {
+          window.open(`binder/activeHelper/${content.getAttribute('data-type')}.html`);
         });
       });
     });
