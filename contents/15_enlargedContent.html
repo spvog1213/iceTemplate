@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,12 +11,35 @@
   <link rel="stylesheet" href="../include/css/enlargedContent.css">
   <script src="../include/js/pageManager.js"></script>
   <style>
-    .menuContainer > button[data-sld-cont="1"]:before {content: 'TYPE 1';}
-    .menuContainer > button[data-sld-cont="2"]:before {content: 'TYPE 2';}
-    .menuContainer > button[data-sld-cont="1"]:after {content: 'vertical';}
-    .menuContainer > button[data-sld-cont="2"]:after {content: 'horizon';}
+    .menuContainer>button[data-sld-cont="1"]:before {
+      content: 'TYPE 1';
+    }
+
+    .menuContainer>button[data-sld-cont="2"]:before {
+      content: 'TYPE 2';
+    }
+
+    .menuContainer>button[data-sld-cont="1"]:after {
+      content: 'vertical';
+    }
+
+    .menuContainer>button[data-sld-cont="2"]:after {
+      content: 'horizon';
+    }
   </style>
 </head>
+<!-- class 및 attribute
+* class
+- js-enlargedContent: 확대/축소의 타겟의 요소를 감쌉니다.
+- js-target: 확대/축소의 타겟이 되는 요소에 추가합니다. 
+
+* attribute
+- data-max: 최댓값 (default max 값은 3입니다.)
+- data-min: 최솟값 (default min 값은 1입니다.)
+- data-type: enlargerControls 타입 설정 (horizon: 가로 / vertical: 세로)
+- data-step: progressBar의 controller 버튼이 이동하는 칸 수 (default step 값은 10입니다.)
+-->
+
 <body>
   <div class="wrap">
     <main>
@@ -26,11 +50,13 @@
       <section class="contents">
         <div class="js-slider sliderContainer" data-sld-idx="1">
           <ul class="sliderContentContainer">
+            <!-- verical enlargedContent -->
             <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
-              <div class="js-enlargedContent enlargedContainer" data-max="3" data-type="vertical" data-step="10">
+              <div class="js-enlargedContent enlargedContainer" data-type="vertical" data-step="10">
                 <div class="js-target enlargedTarget"></div>
               </div>
             </li>
+            <!-- horizon enlargedContent -->
             <li class="js-sliderContent sliderContent" data-sld-cont="2">
               <div class="js-enlargedContent enlargedContainer" data-max="5" data-type="horizon" data-step="10">
                 <div class="js-target enlargedTarget"></div>
@@ -42,19 +68,19 @@
     </main>
   </div>
   <script>
-    // apng callback function
+    // enlargedContent callback function
     document.addEventListener('DOMContentLoaded', () => {
       const enlargedContents = getEl('.js-enlargedContent').map(initEnlarger);
       enlargedContents.forEach((content) => {
         content.callback = {
           min: (ENLARGE) => {
-            console.log("최소값");
+            console.log("최솟값");
           },
           max: (ENLARGE) => {
-            console.log("최대값")
+            console.log("최댓값")
           },
           controlling: (ENLARGE) => {
-            console.log(ENLARGE.scale);
+            console.log(ENLARGE.scale, "scale");
           }
         }
       });
@@ -68,4 +94,5 @@
     });
   </script>
 </body>
+
 </html>

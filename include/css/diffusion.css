@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+
+/************************* custom *************************/
+.contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.diffusionImage {
+  opacity: 0;
+  width: calc(1522px / 2);
+  height: calc(1068px / 2);
+  background: url(../../contents/images/16_diffusion/16_diffusion_sample_color.png) center / contain no-repeat;
+}
+.diffusionImage.show {
+  opacity: 1;
+}
+/**********************************************************/
