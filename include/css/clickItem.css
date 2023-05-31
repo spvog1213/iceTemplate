@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+
+/************************* custom *************************/
+.contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.clickItem {
+  padding: 8px 20px 2px;
+  border-radius: 8px;
+  border: 1px solid #DDD;
+}
+.clickItem.hover {
+  transform: scale(.95);
+  background-color: #DDD;
+}
+
+.clickTarget {
+  display: none;
+  position: absolute;
+  top: 500px;
+  width: 100px;
+  height: 30px;
+  background-color: pink;
+}
+.clickTarget.on {
+  display: block;
+}
+.clickTarget.target_1 {left: calc(25% - 50px);}
+.clickTarget.target_2 {left: calc(50% - 50px);}
+.clickTarget.target_3 {left: calc(75% - 50px);}
+/**********************************************************/

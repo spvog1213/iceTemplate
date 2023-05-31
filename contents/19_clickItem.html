@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>clickItem</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/clickItem.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <main>
+      <section class="contents">
+        <button class="js-clickItem clickItem" data-click-idx="1">CLICK</button>
+        <div class="js-clickTarget clickTarget target_1" data-click-idx="1"></div>
+        <div class="js-clickTarget clickTarget target_2" data-click-idx="1" data-target-time="0.5"></div>
+        <div class="js-clickTarget clickTarget target_3" data-click-idx="1" data-target-time="1"></div>
+      </section>
+    </main>
+  </div>
+  <script>
+    // apng callback function
+    document.addEventListener('DOMContentLoaded', () => {
+      loop(() => pageManager.clickItems).then((clickItems) => {
+        clickItems.forEach((click) => {
+          click.callback = {
+            open: (CLICK, item) => {
+              console.log(item);
+            },
+            close: (CLICK, item) => {
+              console.log(item);
+            },
+            reset: (CLICK) => {},
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

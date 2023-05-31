@@ -1,4 +1,7 @@
 
+/* classname - scale */
+export const CLA_SCALE = 'js-scale';
+
 /* classname - active */
 export const CLA_ON = 'on';
 export const CLA_OFF = 'off';

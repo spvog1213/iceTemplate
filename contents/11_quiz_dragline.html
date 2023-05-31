@@ -149,7 +149,7 @@
             </li>
             <li class="js-sliderContent sliderContent" data-sld-cont="4">
               <!-- data-quiz-opts에서 freeDrag를 하여 idx와 상관없이 drop과 drag를 연결시킬 수 있습니다. -->
-              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="freeDrag, noSound, noAlert, allSolve, itemButton, autoChangeButton" data-quiz-try="1">
+              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="freeDrag, noSound, noAlert, showRedoButton, itemButton, showAnsButton" data-quiz-try="1">
                 <svg class="js-quizSvgContainer quizSvgContainer"></svg>
                 <div class="dragItemContainer">
                   <div class="dragArea">
@@ -169,13 +169,13 @@
             </li>
             <li class="js-sliderContent sliderContent" data-sld-cont="5">
               <!-- data-quiz-opts에서 freeDrag를 하여 idx와 상관없이 drop과 drag를 연결시킬 수 있습니다. -->
-              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="freeDrag, multiDrop, noSound, noAlert, showRedoButton" data-quiz-try="1">
+              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="freeDrag, multiDrop, noSound, noAlert, showRedoButton, itemButton, showAnsButton" data-quiz-try="1">
                 <svg class="js-quizSvgContainer quizSvgContainer"></svg>
                 <div class="dragItemContainer">
                   <div class="dragArea">
-                    <div class="flexBox center"><span>SAMPLE 1</span><div class="js-quizItem draglineItem" data-type="drag" data-idx="1"></div></div>
-                    <div class="flexBox center"><span>SAMPLE 2</span><div class="js-quizItem draglineItem" data-type="drag" data-idx="2"></div></div>
-                    <div class="flexBox center"><span>SAMPLE 3</span><div class="js-quizItem draglineItem" data-type="drag" data-idx="3"></div></div>
+                    <div class="flexBox center"><span>SAMPLE 1</span><div class="js-quizItem draglineItem" data-type="drag" data-idx="1,2,3"></div></div>
+                    <div class="flexBox center"><span>SAMPLE 2</span><div class="js-quizItem draglineItem" data-type="drag" data-idx="2,3"></div></div>
+                    <div class="flexBox center"><span>SAMPLE 3</span><div class="js-quizItem draglineItem" data-type="drag" data-idx="3,1"></div></div>
                   </div>
                   <div class="dropArea">
                     <div class="flexBox center"><div class="js-quizItem draglineItem" data-type="drop" data-idx="1"></div><span>SAMPLE 1</span></div>

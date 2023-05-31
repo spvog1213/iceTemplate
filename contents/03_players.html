@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,24 @@
   <link rel="stylesheet" href="../include/css/players.css">
   <script src="../include/js/pageManager.js"></script>
 </head>
+<!-- class 및 attribute
+* class
+- js-player: 미디어를 감싸는 요소에 추가합니다. (attribute: data-ply-type, data-ply-idx, data-ply-opts)
+- js-media: 미디어 요소에 추가합니다. src에 미디어 경로를 입력합니다.
+- js-mediaTarget: 미디어의 target이 되는 요소에 추가합니다.
+- js-syncContainer: js-syncTarget을 감싸는 요소에 추가합니다. (attribute: data-ply-idx)
+- js-syncTarget: js-syncContainer의 자식 요소에 추가합니다.
+- js-scriptContainer:  js-script를 감싸는 요소에 추가합니다. (attribute: data-ply-idx)
+- js-script: js-scriptContainer의 자식 요소에 추가합니다.
+- js-languageContainer: js-languageTarget을 감싸는 요소에 추가합니다. (attribute: data-ply-idx)
+- js-languageTarget: js-languageContainer의 자식 요소에 추가합니다.
+
+* attribute
+- data-ply-idx: player 인덱스 (1부터 시작 / 중복 불가)
+- data-ply-type: player 타입 설정 (audio: 오디오 / video: 비디오)
+- data-ply-opts: player 옵션 (language, numSync, scene, again, rolePlay)
+ -->
+
 <body>
   <div class="wrap">
     <main>
@@ -27,14 +46,21 @@
           <ul class="sliderContentContainer">
             <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
               <div class="playerContainer">
+                <!-- 오디오 -->
+                <!-- 기본 player -->
                 <div class="js-player player" data-ply-type="audio" data-ply-idx="1">
                   <audio class="js-media" src="media/sample_audio_1.mp3"></audio>
                 </div>
+                <!-- 미니 player -->
                 <div class="js-player player mini" data-ply-type="audio" data-ply-idx="2">
                   <audio class="js-media" src="media/sample_audio_2.mp3"></audio>
                 </div>
               </div>
+
+              <!-- mediaTarget -->
               <div class="js-mediaTarget target" data-ply-idx="1,2"></div>
+
+              <!-- sync Container -->
               <div class="js-syncContainer syncContainer" data-ply-idx="1,2">
                 <div class="js-syncTarget syncTarget"></div>
                 <div class="js-syncTarget syncTarget"></div>
@@ -43,6 +69,8 @@
                 <div class="js-syncTarget syncTarget"></div>
               </div>
             </li>
+
+            <!-- 비디오  -->
             <li class="js-sliderContent sliderContent" data-sld-cont="2">
               <div class="playerContainer">
                 <div class="js-player player" data-ply-type="video" data-ply-idx="3">
@@ -52,12 +80,16 @@
                 </div>
               </div>
             </li>
+
+            <!-- 비디오  -->
             <li class="js-sliderContent sliderContent" data-sld-cont="3">
               <div class="playerContainer">
                 <div class="js-player player" data-ply-type="video" data-ply-idx="4">
                   <video class="js-media">
                     <source src="media/sample_movie_1.mp4" type="video/mp4">
                   </video>
+
+                  <!-- script in html -->
                   <div class="js-scriptContainer scriptContainer" data-ply-idx="4">
                     <div class="js-script script">
                       <p>초와 알코올이 탈 때 나타나는 현상 관찰하기</p>
@@ -98,23 +130,28 @@
                 </div>
               </div>
             </li>
+
             <li class="js-sliderContent sliderContent" data-sld-cont="4">
               <div class="playerContainer">
                 <div class="js-player player" data-ply-type="video" data-ply-idx="5">
                   <video class="js-media">
                     <source src="media/sample_movie_1.mp4" type="video/mp4" />
+                    <!-- script in vtt -->
                     <track kind="captions" src="media/sample_movie_1.vtt" srclang="en" label="English" />
                   </video>
                 </div>
               </div>
             </li>
+
             <li class="js-sliderContent sliderContent" data-sld-cont="5">
               <div class="playerContainer">
-                <div class="js-player player" data-ply-type="video" data-ply-idx="6" data-ply-opts="language, numSync, scene, again">
+                <div class="js-player player" data-ply-type="video" data-ply-idx="6"
+                  data-ply-opts="language, numSync, scene, again">
                   <video class="js-media">
                     <source src="media/sample_eng_movie.mp4" type="video/mp4">
                   </video>
 
+                  <!-- script in html -->
                   <div class="js-scriptContainer scriptContainer" data-ply-idx="6">
                     <div class="js-script script">
                       <p>Hi! Hi! What’s your name? <i>Hi! Hi! What’s your name?</i></p>
@@ -156,6 +193,7 @@
                 </div>
               </div>
             </li>
+
             <li class="js-sliderContent sliderContent" data-sld-cont="6">
               <div class="playerContainer">
                 <div class="js-player player" data-ply-type="audio" data-ply-idx="7">
@@ -163,7 +201,7 @@
 
                   <div class="js-languageContainer languageContainer" data-ply-idx="7">
                     <div class="js-languageTarget languageTarget">
-                      <p>Aa, Aa, <i>Aa, Aa,</i></p><br/>
+                      <p>Aa, Aa, <i>Aa, Aa,</i></p><br />
                       <p>Aa, Aa <i>Aa, Aa</i></p>
                     </div>
                     <div class="js-languageTarget languageTarget">
@@ -188,13 +226,16 @@
                 </div>
               </div>
             </li>
+
             <li class="js-sliderContent sliderContent" data-sld-cont="7">
               <div class="playerContainer">
-                <div class="js-player player" data-ply-type="video" data-ply-idx="8" data-ply-opts="language, scene, rolePlay">
+                <div class="js-player player" data-ply-type="video" data-ply-idx="8"
+                  data-ply-opts="language, scene, rolePlay">
                   <video class="js-media">
                     <source src="media/sample_eng_movie.mp4" type="video/mp4">
                   </video>
 
+                  <!-- script in html -->
                   <div class="js-scriptContainer scriptContainer" data-ply-idx="8">
                     <div class="js-script script">
                       <p>Hi! Hi! What’s your name? <i>Hi! Hi! What’s your name?</i></p>
@@ -244,97 +285,98 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       pageManager.getPlayerByIndex('1').syncData = [
-        {start: 1, end: 3},
-        {start: 3, end: 5},
-        {start: 5, end: 7},
-        {start: 7, end: 9},
-        {start: 9, end: 11},
+        { start: 1, end: 3 },
+        { start: 3, end: 5 },
+        { start: 5, end: 7 },
+        { start: 7, end: 9 },
+        { start: 9, end: 11 },
       ]
 
       pageManager.getPlayerByIndex('4').scriptData = [
-        {start: 2.480, end: 8.540},
-        {start: 12.480, end: 19.540},
-        {start: 19.540, end: 31.610},
-        {start: 31.610, end: 37.230},
-        {start: 37.230, end: 42.030},
-        {start: 42.030, end: 45.030},
-        {start: 45.630, end: 50.580},
-        {start: 50.580, end: 55.750},
-        {start: 55.750, end: 66.750},
-        {start: 66.750, end: 70.800},
-        {start: 70.800, end: 81.150},
+        { start: 2.480, end: 8.540 },
+        { start: 12.480, end: 19.540 },
+        { start: 19.540, end: 31.610 },
+        { start: 31.610, end: 37.230 },
+        { start: 37.230, end: 42.030 },
+        { start: 42.030, end: 45.030 },
+        { start: 45.630, end: 50.580 },
+        { start: 50.580, end: 55.750 },
+        { start: 55.750, end: 66.750 },
+        { start: 66.750, end: 70.800 },
+        { start: 70.800, end: 81.150 },
       ]
       pageManager.getPlayerByIndex('4').bookMarkData = [
-        {time: 2.480},
-        {time: 12.480},
-        {time: 19.540},
-        {time: 31.610}
+        { time: 2.480 },
+        { time: 12.480 },
+        { time: 19.540 },
+        { time: 31.610 }
       ]
-      
+
       pageManager.getPlayerByIndex('6').sceneData = [
-        {start: 0, end: 9999},
-        {start: 0, end: 22.33},
-        {start: 22.34, end: 9999},
+        { start: 0, end: 9999 },
+        { start: 0, end: 22.33 },
+        { start: 22.34, end: 9999 },
       ]
       pageManager.getPlayerByIndex('6').scriptData = [
-        {start: 4.17, end: 6.27},
-        {start: 7.37, end: 9.33},
-        {start: 10.57, end: 12.67},
-        {start: 13.73, end: 14.77},
-        {start: 16.9, end: 19.4},
-        {start: 20.17, end: 22.27},
-        {start: 26.6, end: 28.5},
-        {start: 29.6, end: 31.73},
-        {start: 32.97, end: 35.03},
-        {start: 36.13, end: 37.1},
-        {start: 39.33, end: 41.73},
-        {start: 42.6, end: 44.63},
+        { start: 4.17, end: 6.27 },
+        { start: 7.37, end: 9.33 },
+        { start: 10.57, end: 12.67 },
+        { start: 13.73, end: 14.77 },
+        { start: 16.9, end: 19.4 },
+        { start: 20.17, end: 22.27 },
+        { start: 26.6, end: 28.5 },
+        { start: 29.6, end: 31.73 },
+        { start: 32.97, end: 35.03 },
+        { start: 36.13, end: 37.1 },
+        { start: 39.33, end: 41.73 },
+        { start: 42.6, end: 44.63 },
       ]
       pageManager.getPlayerByIndex('6').callback = {
-        play : (media) => {
-          // console.log('play');
+        play: (media) => {
+          console.log('play');
         },
-        pause : (media) => {
-          // console.log('pause');
+        pause: (media) => {
+          console.log('pause');
         },
-        stop : (media) => {
-          // console.log('stop');
+        stop: (media) => {
+          console.log('stop');
         },
-        sync : (media, target) => {
-          // console.log('sync');
+        sync: (media, target) => {
+          console.log('sync');
         },
       };
-    
+
       pageManager.getPlayerByIndex('7').languageData = [
-        {start: [6.5, 8.2], end: [8.25, 9.93]},
-        {start: 10.23, end: 13.33},
-        {start: 13.5, end: 16.73},
-        {start: 18.76, end: 20.33},
-        {start: 22.26, end: 23.7},
-        {start: 25.26, end: 27.16},
-        {start: 28.9, end: 30.06}
+        { start: [6.5, 8.2], end: [8.25, 9.93] },
+        { start: 10.23, end: 13.33 },
+        { start: 13.5, end: 16.73 },
+        { start: 18.76, end: 20.33 },
+        { start: 22.26, end: 23.7 },
+        { start: 25.26, end: 27.16 },
+        { start: 28.9, end: 30.06 }
       ]
 
       pageManager.getPlayerByIndex('8').sceneData = [
-        {start: 0, end: 9999},
-        {start: 0, end: 22.33},
-        {start: 22.34, end: 9999},
+        { start: 0, end: 9999 },
+        { start: 0, end: 22.33 },
+        { start: 22.34, end: 9999 },
       ]
       pageManager.getPlayerByIndex('8').scriptData = [
-        {start: 4.07, end: 6.27, char: 0},
-        {start: 7.27, end: 9.33, char: 1},
-        {start: 10.47, end: 12.67, char: 2},
-        {start: 13.63, end: 14.77, char: 0},
-        {start: 16.9, end: 19.4, char: 0}, 
-        {start: 20.07, end: 22.27, char: 1},
-        {start: 26.5, end: 28.5, char: 2},
-        {start: 29.6, end: 31.73, char: 1}, 
-        {start: 32.87, end: 35.03, char: 0},
-        {start: 36.03, end: 37.1, char: 1},
-        {start: 39.23, end: 41.73, char: 2},
-        {start: 42.5, end: 44.63, char: 0},
+        { start: 4.07, end: 6.27, char: 0 },
+        { start: 7.27, end: 9.33, char: 1 },
+        { start: 10.47, end: 12.67, char: 2 },
+        { start: 13.63, end: 14.77, char: 0 },
+        { start: 16.9, end: 19.4, char: 0 },
+        { start: 20.07, end: 22.27, char: 1 },
+        { start: 26.5, end: 28.5, char: 2 },
+        { start: 29.6, end: 31.73, char: 1 },
+        { start: 32.87, end: 35.03, char: 0 },
+        { start: 36.03, end: 37.1, char: 1 },
+        { start: 39.23, end: 41.73, char: 2 },
+        { start: 42.5, end: 44.63, char: 0 },
       ]
     });
   </script>
 </body>
+
 </html>
