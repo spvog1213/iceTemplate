@@ -104,3 +104,4 @@ section.contents {
 
 
 /* test */
+.quizSvgContainer line.complete{stroke: red;}

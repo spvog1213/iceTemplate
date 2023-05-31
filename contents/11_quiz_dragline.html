@@ -68,13 +68,14 @@
           - multiDrop: 한 dropItem에 여러개의 dragItem 드랍 가능
           - copyDrag: 정답인 경우 무제한 드래그
           - freeDrag: 정답 상관없이 무제한 드래그
+          - noAnswer: 정답 상관없이 무제한 드래그
         data-quiz-try: 정답 시도 횟수(default: 1회)
         -->
         <div class="js-slider sliderContainer" data-sld-idx="1">
           <ul class="sliderContentContainer">
             <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
               <!--- js-quizContainer | data-quiz-type, data-quiz-opts, data-quiz-try 등 설정 --->
-              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="autoChangeButton" data-quiz-try="1" data-quiz-name="draglineQuiz">
+              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="noAnswer, itemButton" data-quiz-try="1" data-quiz-name="draglineQuiz">
                 <!-- js-quizSvgContainer : svg가 생성될 장소의 앨리먼트 -->
                 <svg class="js-quizSvgContainer quizSvgContainer"></svg>
                 <!-- dragItemContainer -->
@@ -148,7 +149,7 @@
             </li>
             <li class="js-sliderContent sliderContent" data-sld-cont="4">
               <!-- data-quiz-opts에서 freeDrag를 하여 idx와 상관없이 drop과 drag를 연결시킬 수 있습니다. -->
-              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="freeDrag, noSound, noAlert, showRedoButton" data-quiz-try="1">
+              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="freeDrag, noSound, noAlert, allSolve, itemButton, autoChangeButton" data-quiz-try="1">
                 <svg class="js-quizSvgContainer quizSvgContainer"></svg>
                 <div class="dragItemContainer">
                   <div class="dragArea">

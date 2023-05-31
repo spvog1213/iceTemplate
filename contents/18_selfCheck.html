@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>selfCheck</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/selfCheck.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <main>
+      <section class="contents">
+        <div class="js-selfCheck selfCheck">
+          <div class="js-selfCheckItem star"></div>
+          <div class="js-selfCheckItem star"></div>
+          <div class="js-selfCheckItem star"></div>
+        </div>
+        <div class="js-selfCheck selfCheck">
+          <div class="js-selfCheckItem heart"></div>
+          <div class="js-selfCheckItem heart"></div>
+          <div class="js-selfCheckItem heart"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    // apng callback function
+    document.addEventListener('DOMContentLoaded', () => {
+      loop(() => pageManager.selfChecks).then((selfChecks) => {
+        selfChecks.forEach((check) => {
+          check.callback = {
+            click: (CHECK, item) => {
+              console.log(item);
+            },
+            reset: (CHECK) => {},
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

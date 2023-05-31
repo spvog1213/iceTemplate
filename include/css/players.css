@@ -7,6 +7,7 @@
 .menuContainer > button[data-sld-cont="4"]:after {content: 'video player(vtt)';}
 .menuContainer > button[data-sld-cont="5"]:after {content: 'video player(English)';}
 .menuContainer > button[data-sld-cont="6"]:after {content: 'sound player(English)';}
+.menuContainer > button[data-sld-cont="7"]:after {content: 'role player(English)';}
 
 
 /************************* custom *************************/
@@ -197,6 +198,21 @@
 .player .numSyncTarget { display: inline-block; width: 25px; height: 25px; border-radius: 50%; background-color: #000; color: #fff; margin: 0 3px; text-align: center; line-height: 25px; }
 .player .numSyncTarget.isPlaying { background-color: red; }
 
+.player .roleSyncContainer { position: absolute; bottom: 50px; right: 10px; }
+.player .rolePlayChar { display: inline-block; width: 49px; height: 49px; margin: 0 3px; background-size: 100% 100%; }
+.player .rolePlayChar0 { background-image: url(../../include/images/player/role_1.png); }
+.player .rolePlayChar1 { background-image: url(../../include/images/player/role_2.png); }
+.player .rolePlayChar2 { background-image: url(../../include/images/player/role_3.png); }
+.player .rolePlayChar0.isPlaying {  background-image: url(../../include/images/player/role_1_hover.png); }
+.player .rolePlayChar1.isPlaying {  background-image: url(../../include/images/player/role_2_hover.png); }
+.player .rolePlayChar2.isPlaying {  background-image: url(../../include/images/player/role_3_hover.png); }
+.player .rolePlayChar0.active {  background-image: url(../../include/images/player/role_1_check.png); }
+.player .rolePlayChar1.active {  background-image: url(../../include/images/player/role_2_check.png); }
+.player .rolePlayChar2.active {  background-image: url(../../include/images/player/role_3_check.png); }
+
+.player .roleContainer { position: absolute; top: 10px; left: 10px; }
+.player .roleContainer .roleSelectChar { display: inline-block; width: 60px; height: 60px; margin: 0 3px; background-size: 100% 100%; }
+
 .player .sceneContainer { position: absolute; bottom: 50px; left: 10px; }
 .player .sceneTarget { display: inline-block; width: 83px; height: 56px; background-size: 100% 100%; margin: 0 3px; }
 .player .sceneTarget:nth-child(1) { background-image: url(../../include/images/player/allview.png); }
@@ -332,7 +348,7 @@
 .player .languageTarget i { position: absolute; top: 0; left: 0; width: 0%; height: 100%; white-space: nowrap; overflow: hidden; font-style: normal; }
 .player .languageTarget.inactive i { width: 0% !important; }
 
-.player .numSyncTarget, .player .sceneTarget { cursor: pointer; }
+.player .numSyncTarget, .player .sceneTarget, .player .rolePlayChar, .player .roleSelectChar { cursor: pointer; }
 
 .player .agianProgressControl {
   position: absolute;

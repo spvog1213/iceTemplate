@@ -20,6 +20,7 @@
         <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="4"></button>
         <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="5"></button>
         <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="6"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="7"></button>
       </section>
       <section class="contents">
         <div class="js-slider sliderContainer" data-sld-idx="1">
@@ -187,6 +188,54 @@
                 </div>
               </div>
             </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="7">
+              <div class="playerContainer">
+                <div class="js-player player" data-ply-type="video" data-ply-idx="8" data-ply-opts="language, scene, rolePlay">
+                  <video class="js-media">
+                    <source src="media/sample_eng_movie.mp4" type="video/mp4">
+                  </video>
+
+                  <div class="js-scriptContainer scriptContainer" data-ply-idx="8">
+                    <div class="js-script script">
+                      <p>Hi! Hi! What’s your name? <i>Hi! Hi! What’s your name?</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>My name is Amy. <i>My name is Amy.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Hi, Amy. I’m Jiho. <i>Hi, Amy. I’m Jiho.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Hi, Jiho. <i>Hi, Jiho.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Bye, Amy. Bye, bye. <i>Bye, Amy. Bye, bye.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Bye, Jiho. Bye, bye. <i>Bye, Jiho. Bye, bye.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Hello! Hello! What’s your name? <i>Hello! Hello! What’s your name?</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>My name is Ben. <i>My name is Ben.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Hello, Ben. I’m Anne. <i>Hello, Ben. I’m Anne.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Hello, Anne. <i>Hello, Anne. </i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Bye, Ben. Bye, bye. <i>Bye, Ben. Bye, bye.</i></p>
+                    </div>
+                    <div class="js-script script">
+                      <p>Bye, Anne. Bye, bye. <i>Bye, Anne. Bye, bye.</i></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
       </section>
@@ -264,6 +313,26 @@
         {start: 22.26, end: 23.7},
         {start: 25.26, end: 27.16},
         {start: 28.9, end: 30.06}
+      ]
+
+      pageManager.getPlayerByIndex('8').sceneData = [
+        {start: 0, end: 9999},
+        {start: 0, end: 22.33},
+        {start: 22.34, end: 9999},
+      ]
+      pageManager.getPlayerByIndex('8').scriptData = [
+        {start: 4.07, end: 6.27, char: 0},
+        {start: 7.27, end: 9.33, char: 1},
+        {start: 10.47, end: 12.67, char: 2},
+        {start: 13.63, end: 14.77, char: 0},
+        {start: 16.9, end: 19.4, char: 0}, 
+        {start: 20.07, end: 22.27, char: 1},
+        {start: 26.5, end: 28.5, char: 2},
+        {start: 29.6, end: 31.73, char: 1}, 
+        {start: 32.87, end: 35.03, char: 0},
+        {start: 36.03, end: 37.1, char: 1},
+        {start: 39.23, end: 41.73, char: 2},
+        {start: 42.5, end: 44.63, char: 0},
       ]
     });
   </script>

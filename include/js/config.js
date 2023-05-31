@@ -55,6 +55,7 @@ export const OPT_NOANSWER = 'noAnswer';
 export const OPT_MULTIDROP = 'multiDrop'; // 한 dropItem에 여러개의 dragItem 드랍 가능
 export const OPT_FREEDRAG = 'freeDrag'; // 정답 상관없이 무제한 드래그
 export const OPT_COPYDRAG = 'copyDrag'; // 정답인 경우 무제한 드래그
+export const OPT_ITEM_BTN = 'itemButton'; // 개별정답버튼 생성
 
 /* event */
 export const EVT_CLICK = 'click';

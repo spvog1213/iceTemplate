@@ -154,3 +154,5 @@ transform: translateX(-50%); z-index: 4; background-repeat: no-repeat; backgroun
 .plate8 .target, .plate8 .dish { width:373px; height:209px; }
 
 .isClone.nonEvent{pointer-events: none;}
+.clone{pointer-events: none;}
+.clone.on{pointer-events: auto !important;}

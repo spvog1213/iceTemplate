@@ -7,6 +7,7 @@
 .menuContainer > button[data-sld-cont="4"]:before {content: 'TYPE 4';}
 .menuContainer > button[data-sld-cont="5"]:before {content: 'TYPE 5';}
 .menuContainer > button[data-sld-cont="6"]:before {content: 'TYPE 6';}
+.menuContainer > button[data-sld-cont="7"]:before {content: 'TYPE 7';}
 .menuContainer > button[data-sld-cont="1"]:after {content: 'circle tab';}
 .menuContainer > button[data-sld-cont="2"]:after {content: 'moveButton';}
 .menuContainer > button[data-sld-cont="3"]:after {content: 'motion';}

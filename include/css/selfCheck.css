@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+
+/************************* custom *************************/
+.contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.selfCheck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+.selfCheck .heart,
+.selfCheck .star {
+  width: 60px;
+  height: calc(124px / 2);
+  margin: 0 4px;
+  background:  center top / 100% auto no-repeat;
+  cursor: pointer;
+}
+.selfCheck .star {background-image: url(../images/selfCheck/ck_star.png);}
+.selfCheck .heart {background-image: url(../images/selfCheck/ch_heart.png);}
+
+.selfCheck .heart.hover,
+.selfCheck .star.hover {
+  transform: scale(1.1);
+}
+.selfCheck .heart.on,
+.selfCheck .star.on {
+  background-position-y: -66px;
+}
+
+@keyframes jello
+{
+    0%, 11.1%, to {transform: none}
+    22.2% {transform: skewX(-3deg) skewY(-3deg)}
+    33.3% {transform: skewX(3deg) skewY(3deg)}
+    44.4% {transform: skewX(-3.125deg) skewY(-3.125deg)}
+    55.5% {transform: skewX(1.5625deg) skewY(1.5625deg)}
+    66.6% {transform: skewX(-.78125deg) skewY(-.78125deg)}
+    77.7% {transform: skewX(.390625deg) skewY(.390625deg)}
+    88.8% {transform: skewX(-.1953125deg) skewY(-.1953125deg)}
+}
+.jello {
+  animation: jello .5s;
+  transform-origin: center;
+}
+/**********************************************************/
