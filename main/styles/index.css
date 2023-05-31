@@ -4,8 +4,16 @@
 @import '../../include/css/normalize.css';
 @import '../../include/css/font.css';
 
+
+.flexBox {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+}
 .contents {
-  width: 50%;
+  width: 40%;
   margin: 10% auto;
 }
 .contents > li {
@@ -46,8 +54,8 @@
 
 .activeHelper {
   position: absolute;
-  top: 0px;
-  right: 10%;
+	top: 106px;
+	right: 5%;
   padding: 0 4px;
   border-radius: 8px;
   border: 1px solid #DDD;
