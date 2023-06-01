@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+	<title>scoreboard</title>
+	<link rel="stylesheet" href="../../include/css/style.css">
+	<link rel="stylesheet" href="css/scoreboard.css">
+	<script src="js/scoreboard.js"></script>
+
+<body>
+	<div class="wrap">
+		<div class="title">
+			<p>점수판</p>
+		</div>
+		<div class="top">
+			<p>모둠 수 선택하기</p>
+			<button class="selectitem js-selectitem on" data-item="2">2</button>
+			<button class="selectitem js-selectitem" data-item="3">3</button>
+			<button class="selectitem js-selectitem" data-item="4">4</button>
+			<button class="selectitem js-selectitem" data-item="5">5</button>
+			<button class="selectitem js-selectitem" data-item="6">6</button>
+			<button class="selectitem js-selectitem" data-item="7">7</button>
+			<button class="selectitem js-selectitem" data-item="8">8</button>
+		</div>
+		<button class="reset js-reset">초기화</button>
+		<div class="content">
+			<div class="group js-group group1 on">
+				<p>1</p>
+				<input type="text" class="js-input" placeholder="0" oninput="this.value = this.value.replace(/[^-0-9]/g, '');" >
+				<button class="up js-Btn">up</button>
+				<button class="down js-Btn">down</button>
+			</div>
+			<div class="group js-group group2 on">
+				<p>2</p>
+				<input type="text" class="js-input" placeholder="0" oninput="this.value = this.value.replace(/[^-0-9]/g, '');" >
+				<button class="up js-Btn">up</button>
+				<button class="down js-Btn">down</button>
+			</div>
+			<div class="group js-group group3">
+				<p>3</p>
+				<input type="text" class="js-input" placeholder="0" oninput="this.value = this.value.replace(/[^-0-9]/g, '');" >
+				<button class="up js-Btn">up</button>
+				<button class="down js-Btn">down</button>
+			</div>
+			<div class="group js-group group4">
+				<p>4</p>
+				<input type="text" class="js-input" placeholder="0" oninput="this.value = this.value.replace(/[^-0-9]/g, '');" >
+				<button class="up js-Btn">up</button>
+				<button class="down js-Btn">down</button>
+			</div>
+			<div class="group js-group group5">
+				<p>5</p>
+				<input type="text" class="js-input" placeholder="0" oninput="this.value = this.value.replace(/[^-0-9]/g, '');" >
+				<button class="up js-Btn">up</button>
+				<button class="down js-Btn">down</button>
+			</div>
+			<div class="group js-group group6">
+				<p>6</p>
+				<input type="text" class="js-input" placeholder="0" oninput="this.value = this.value.replace(/[^-0-9]/g, '');" >
+				<button class="up js-Btn">up</button>
+				<button class="down js-Btn">down</button>
+			</div>
+			<div class="group js-group group7">
+				<p>7</p>
+				<input type="text" class="js-input" placeholder="0" oninput="this.value = this.value.replace(/[^-0-9]/g, '');" >
+				<button class="up js-Btn">up</button>
+				<button class="down js-Btn">down</button>
+			</div>
+			<div class="group js-group group8">
+				<p>8</p>
+				<input type="text" class="js-input" placeholder="0" oninput="this.value = this.value.replace(/[^-0-9]/g, '');" >
+				<button class="up js-Btn">up</button>
+				<button class="down js-Btn">down</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+
+</html>
