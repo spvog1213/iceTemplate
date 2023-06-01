@@ -23,8 +23,8 @@
   <div class="wrap">
     <main>
       <section class="contents">
-        <div class="js-timer timer horizon" data-timer-time="60" data-timer-type="horizon"></div>
-        <div class="js-timer timer vertical" data-timer-time="60" data-timer-type="vertical"></div>
+        <div class="js-timer timer horizon" data-timer-time="10" data-timer-type="horizon"></div>
+        <div class="js-timer timer vertical" data-timer-time="10" data-timer-type="vertical"></div>
       </section>
     </main>
   </div>
@@ -33,7 +33,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       loop(() => initTimer).then((initTimer) => {
         // horizon timer 실행
-        const timerhorizon = initTimer(getEl(`.js-timer[data-timer-type="horizon"]`)[0], () => alert('time horizon over'));
+        const timerhorizon = initTimer(getEl(`.js-timer[data-timer-type="horizon"]`)[0], () => console.log('time horizon over'));
         timerhorizon.start();
 
         // vertical timer 실행

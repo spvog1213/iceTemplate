@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+	<link rel="stylesheet" href="css/board.css">
+    <title>칠판</title>
+	
+	<script src="js/board.js"></script>
+</head>
+<body>
+<div id="container">
+    <div class="board">
+        <div autocomplete="off" class="textarea" contenteditable="true"></div>
+        <div class="placeholder">내용을 입력해 주세요.</div>
+        <canvas id="draw1" width="1920px" height="873px"></canvas>
+        <canvas id="draw2" width="1920px" height="873px"></canvas>
+    </div> <!--// board -->
+
+    <div class="toolBox">
+        <div class="textSelect selectBtn select"></div>
+        <div class="option textOption">
+            <span class="popOpen symbol" data-pop="1"></span>
+            <div class="pop pop1">
+                <span>※</span>
+                <span>★</span>
+                <span>▶</span>
+                <span>●</span>
+                <span>◎</span>
+                <span>♥</span>
+                <span>◆</span>
+                <span>■</span>
+                <span>♣</span>
+                <br>
+                <span>☞</span>
+                <span>☜</span>
+                <span>→</span>
+                <span>←</span>
+                <span>↑</span>
+                <span>↓</span>
+                <span>↔</span>
+                <br>
+                <span>①</span>
+                <span>②</span>
+                <span>③</span>
+                <span>④</span>
+                <span>⑤</span>
+                <span>⑥</span>
+                <span>⑦</span>
+                <span>⑧</span>
+                <span>⑨</span>
+                <br>
+                <span>Ⅰ</span>
+                <span>Ⅱ</span>
+                <span>Ⅲ</span>
+                <span>Ⅳ</span>
+                <span>Ⅴ</span>
+                <span>Ⅵ</span>
+                <span>Ⅶ</span>
+                <span>Ⅷ</span>
+                <span>Ⅸ</span>
+                <br>
+                <span>㉠</span>
+                <span>㉡</span>
+                <span>㉢</span>
+                <span>㉣</span>
+                <span>㉤</span>
+                <span>㉥</span>
+                <span>㉦</span>
+                <span>㉧</span>
+                <span>㉨</span>
+                <br>
+                <span>『</span>
+                <span>』</span>
+                <span>《</span>
+                <span>》</span>
+                <span>「</span>
+                <span>」</span>
+                <span>【</span>
+                <span>】</span>
+                <br>
+                <span>½</span>
+                <span>⅓</span>
+                <span>⅔</span>
+                <span>¼</span>
+                <span>¾</span>
+                <span>⅛</span>
+                <span>⅜</span>
+                <span>⅝</span>
+                <span>⅞</span>
+            </div>
+
+            <div class="fontSize">
+                <span class="sizeNum">60</span>
+                <span class="popOpen openFS" data-pop="2"></span>
+            </div>
+            <div class="pop pop2">
+                <span data-font="7">100</span>
+                <span data-font="6">90</span>
+                <span data-font="5">80</span>
+                <span data-font="4">70</span>
+                <span class="select first" data-font="3">60</span>
+                <span data-font="2">50</span>
+                <span data-font="1">40</span>
+            </div>
+
+            <div class="popOpen textColor" data-pop="3"></div>
+            <div class="pop pop3">
+                <span class="select first" data-color="#000000"></span>
+                <span data-color="#0000ff"></span>
+                <span data-color="#006600"></span>
+                <span data-color="#0099ff"></span>
+                <span data-color="#00ffff"></span>
+                <span data-color="#ff0000"></span>
+                <span data-color="#ffff00"></span>
+                <span data-color="#ffffff"></span>
+            </div>
+        </div> <!--// text -->
+
+        <div class="drawSelect selectBtn"></div>
+        <div class="option drawOption">
+            <span class="pen select" data-pen="1"></span>
+            <span class="pen" data-pen="10"></span>
+            <span class="pen" data-pen="marker"></span>
+            <span class="popOpen drawColor" data-pop="4"></span>
+            <div class="pop pop4">
+                <span class="select first" data-color="#000000"></span>
+                <span data-color="#7E1951"></span>
+                <span data-color="#7D3D1A"></span>
+                <span data-color="#557F19"></span>
+                <span data-color="#18807F"></span>
+                <span data-color="#2C1A80"></span>
+
+                <span data-color="#69646A"></span>
+                <span data-color="#B50E39"></span>
+                <span data-color="#B18112"></span>
+                <span data-color="#96B017"></span>
+                <span data-color="#14B162"></span>
+                <span data-color="#112CAF"></span>
+
+                <span data-color="#B2B2B2"></span>
+                <span data-color="#FE0002"></span>
+                <span data-color="#FF7F00"></span>
+                <span data-color="#FFE900"></span>
+                <span data-color="#0CFF0D"></span>
+                <span data-color="#0055FE"></span>
+
+                <span data-color="#FFFFFF"></span>
+                <span data-color="#FF99AC"></span>
+                <span data-color="#FFC79A"></span>
+                <span data-color="#FEEC98"></span>
+                <span data-color="#BBFF9C"></span>
+                <span data-color="#99D9FF"></span>
+            </div>
+            <span class="pen" data-pen="eraser"></span>
+            <span class="eraserAll"></span>
+        </div> <!--// draw -->
+
+        <div class="bgChange">
+            <div class="select" data-bg="white"></div>
+            <div data-bg="black"></div>
+            <div data-bg="note"></div>
+        </div> <!--// bgChange -->
+
+        <!-- <div class="print" onclick="printImg()"></div> -->
+        <div class="reset"></div>
+    </div> <!--// toolBox -->
+
+    <div class="bg"></div>
+</div> <!--// container -->
+</body>
+</html>

@@ -78,6 +78,6 @@ a, a:hover {
 img {
   -webkit-user-drag: none;
 }
-::selection:not(p){
+::selection:not(p, input, textarea){
   user-select: none;
 }
