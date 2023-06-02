@@ -42,7 +42,10 @@
 .quizSelect.complete,
 .quizChoice.complete,
 .quizTruefalse.complete,
-.quizCheckbox.complete {
+.quizCheckbox.complete,
+.dragItem.complete,
+.droparea.complete,
+.draglineItem.complete {
   pointer-events: none;
   cursor: default;
 }
@@ -83,12 +86,12 @@
   width: 100%;
   height: 100%;
 }
-.quizContainer .draglineItem {
+.draglineItem {
   /* position: absolute; */
   pointer-events: auto;
   cursor: pointer;
 }
-.quizContainer .draglineItem:before {
+.draglineItem:before {
   content: '';
   --size: -20px;
   position: absolute;

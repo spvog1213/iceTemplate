@@ -1,8 +1,8 @@
 @charset "utf-8";
 
 /* menu */
-.menuContainer > button[data-sld-cont="1"]:after {content: 'scroll(horizontal)';}
-.menuContainer > button[data-sld-cont="2"]:after {content: 'scroll(vertical)';}
+.menuContainer > button[data-sld-cont="1"]:after {content: 'scroll(basic)';}
+.menuContainer > button[data-sld-cont="2"]:after {content: 'scroll(horizontal)';}
 .menuContainer > button[data-sld-cont="3"]:after {content: 'scroll(touch move)';}
 .menuContainer > button[data-sld-cont="4"]:after {content: 'scroll(btn move)';}
 
@@ -12,10 +12,10 @@
 
 .scrollBg { top: 20px; right:10px; background-color: #ccc; border-radius: 20px; width: 10px; height: 600px; }
 .scrollSize { width: 100%; height: 100%; }
-.scrollMove { top: 0; left: 0; background-color: blueviolet; border-radius: 20px; width: 100%; height: 150px; }
+.scrollMove { background-color: blueviolet; border-radius: 20px; height: 150px; }
 
 .hscrollBg { top:auto; bottom: 20px; left: 10px; width: 1260px; height: 10px; }
-.hscrollBg .scrollMove { height: 100%; width: 150px; }
+.hscrollBg .scrollMove { width: 150px; }
 
 .scrollBtnContainer { right: 15px; top: 0; }
 .scrollBtnContainer > div { width: 30px; height: 30px; background-image: url(../images/scroll/arrow_on.svg); background-size: 50% 50%; background-position: 50% 50%; background-repeat: no-repeat; border: 1px solid #ddd; background-color: #fff; border-radius: 0 10px 10px 0; }
@@ -37,7 +37,8 @@
 
 .scrollBg { position: absolute; }
 .scrollSize { position: relative; }
-.scrollMove { position: absolute; cursor: pointer; }
+.scrollMove { top: 0; left: 0; position: absolute; cursor: pointer; width: 100%; }
+.hscrollBg .scrollMove { height: 100%; }
 
 .scrollBtnContainer { position: absolute; cursor: auto; }
 .scrollBtnContainer > div { cursor: pointer; } 

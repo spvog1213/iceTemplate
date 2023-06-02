@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +12,17 @@
   <link rel="stylesheet" href="../include/css/quiz.css">
   <script src="../include/js/pageManager.js"></script>
 </head>
+
 <body>
+  <!-- scroll 속성
+        attribute name
+        data-scroll-idx: 동일한 컨테이너라면 같아야 합니다.
+        data-scroll-opts:
+          - horizontal: 가로 모드
+          - dragMove: 누른 뒤 이동
+          - btnMove: 클릭했을 때 이동합니다  data-btn-move로 이동할 스크롤top값을 적어줄 수 있습니다.
+        data-btn-move : 버튼을 눌렀을 때 이동할 scrollTop 값을 적을 수 있습니다.
+        -->
   <div class="wrap js-scale">
     <main>
       <section class="menuContainer olive">
@@ -24,9 +35,12 @@
         <div class="js-slider sliderContainer" data-sld-idx="1">
           <ul class="sliderContentContainer">
             <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <!--- js-scrollContainer : 제일 상위 앨리먼트 (data-scroll-idx가 동일해야 함) --->
               <div class="js-scrollContainer scrollContainer" data-scroll-idx="0">
+                <!--- js-scrollBox : overflow hideen을 사용할 곳 (data-scroll-idx가 동일해야 함) --->
                 <div class="js-scrollBox scrollBox" data-scroll-idx="0">
-                  <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop" data-quiz-opts="autoChangeButton" data-quiz-try="1" data-quiz-name="dragdropQuiz">
+                  <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop"
+                    data-quiz-opts="autoChangeButton" data-quiz-try="1" data-quiz-name="dragdropQuiz">
                     <!--- js-quizItem : data-type="drop" 이면 drag가 들어올 공간 (data-idx가 동일해야 함) --->
                     <div class="js-quizItem droparea" data-type="drop" data-idx="1"><span>TYPE 1</span></div>
                     <div class="js-quizItem droparea" data-type="drop" data-idx="2"><span>TYPE 2</span></div>
@@ -48,7 +62,8 @@
             <li class="js-sliderContent sliderContent" data-sld-cont="2">
               <div class="js-scrollContainer scrollContainer" data-scroll-idx="1" data-scroll-opt="horizontal">
                 <div class="js-scrollBox scrollBox" data-scroll-idx="1">
-                  <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop" data-quiz-opts="autoChangeButton" data-quiz-try="1" data-quiz-name="dragdropQuiz">
+                  <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop"
+                    data-quiz-opts="autoChangeButton" data-quiz-try="1" data-quiz-name="dragdropQuiz">
                     <!--- js-quizItem : data-type="drop" 이면 drag가 들어올 공간 (data-idx가 동일해야 함) --->
                     <div class="js-quizItem droparea" data-type="drop" data-idx="1"><span>TYPE 1</span></div>
                     <div class="js-quizItem droparea" data-type="drop" data-idx="2"><span>TYPE 2</span></div>
@@ -70,7 +85,8 @@
             <li class="js-sliderContent sliderContent" data-sld-cont="3">
               <div class="js-scrollContainer scrollContainer" data-scroll-idx="2" data-scroll-opt="dragMove">
                 <div class="js-scrollBox scrollBox" data-scroll-idx="2">
-                  <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop" data-quiz-opts="autoChangeButton" data-quiz-try="1" data-quiz-name="dragdropQuiz">
+                  <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop"
+                    data-quiz-opts="autoChangeButton" data-quiz-try="1" data-quiz-name="dragdropQuiz">
                     <!--- js-quizItem : data-type="drop" 이면 drag가 들어올 공간 (data-idx가 동일해야 함) --->
                     <div class="js-quizItem droparea" data-type="drop" data-idx="1"><span>TYPE 1</span></div>
                     <div class="js-quizItem droparea" data-type="drop" data-idx="2"><span>TYPE 2</span></div>
@@ -90,9 +106,11 @@
               </div> <!--// scrollContainer -->
             </li>
             <li class="js-sliderContent sliderContent" data-sld-cont="4">
-              <div class="js-scrollContainer scrollContainer" data-scroll-idx="3" data-scroll-opt="btnMove" data-btn-move="0, 50, 200, 640">
+              <div class="js-scrollContainer scrollContainer" data-scroll-idx="3" data-scroll-opt="btnMove"
+                data-btn-move="0, 50, 200, 640">
                 <div class="js-scrollBox scrollBox" data-scroll-idx="3">
-                  <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop" data-quiz-opts="autoChangeButton" data-quiz-try="1" data-quiz-name="dragdropQuiz">
+                  <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop"
+                    data-quiz-opts="autoChangeButton" data-quiz-try="1" data-quiz-name="dragdropQuiz">
                     <!--- js-quizItem : data-type="drop" 이면 drag가 들어올 공간 (data-idx가 동일해야 함) --->
                     <div class="js-quizItem droparea" data-type="drop" data-idx="1"><span>TYPE 1</span></div>
                     <div class="js-quizItem droparea" data-type="drop" data-idx="2"><span>TYPE 2</span></div>
@@ -131,13 +149,14 @@
       });
 
       pageManager.getScrollByIndex('3').callback = {
-        scroll : (media) => {
+        scroll: (media, scrollTop) => {
           // console.log('scroll');
+          console.log(scrollTop);
         },
-        startPos : (media) => {
+        startPos: (media) => {
           // console.log('startPos');
         },
-        endPos : (media) => {
+        endPos: (media) => {
           // console.log('endPos');
         },
       };
@@ -146,4 +165,5 @@
     });
   </script>
 </body>
+
 </html>

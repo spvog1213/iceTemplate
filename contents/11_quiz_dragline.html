@@ -149,7 +149,7 @@
             </li>
             <li class="js-sliderContent sliderContent" data-sld-cont="4">
               <!-- data-quiz-opts에서 freeDrag를 하여 idx와 상관없이 drop과 drag를 연결시킬 수 있습니다. -->
-              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="freeDrag, noSound, noAlert, showRedoButton, itemButton, showAnsButton" data-quiz-try="1">
+              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="freeDrag, noSound, noAlert, itemButton, showAnsButton" data-quiz-try="1">
                 <svg class="js-quizSvgContainer quizSvgContainer"></svg>
                 <div class="dragItemContainer">
                   <div class="dragArea">
@@ -169,7 +169,7 @@
             </li>
             <li class="js-sliderContent sliderContent" data-sld-cont="5">
               <!-- data-quiz-opts에서 freeDrag를 하여 idx와 상관없이 drop과 drag를 연결시킬 수 있습니다. -->
-              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="freeDrag, multiDrop, noSound, noAlert, showRedoButton, itemButton, showAnsButton" data-quiz-try="1">
+              <div class="js-quizContainer quizContainer" data-quiz-type="dragline" data-quiz-opts="freeDrag, multiDrop, noSound, noAlert, itemButton, showAnsButton, autoChangeButton" data-quiz-try="1">
                 <svg class="js-quizSvgContainer quizSvgContainer"></svg>
                 <div class="dragItemContainer">
                   <div class="dragArea">
@@ -202,7 +202,7 @@
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      loop(() => pageManager.quizzes).then((quizzes) => { //모든 QuizContant 불러오기
+      /* loop(() => pageManager.quizzes).then((quizzes) => { //모든 QuizContant 불러오기
         console.log(quizzes)
         pageManager.findQuizByName('draglineQuiz').callback = { //data-quiz-name : draglineQuiz에 콜백 설정
           correct: (QUIZ) => {console.log('correct')}, //정답을 맞췄을 경우 console에서 correct가 적힌다.
@@ -213,7 +213,7 @@
           dragCorrect: (QUIZ, dragItem, dropItem) => {console.log('dragCorrect: ', dragItem)}, //dragItem을 정답인 drop장소에 옮겼을 경우 console에서 옮긴 element를 보여준다.
           dragIncorrect: (QUIZ, dragItem) => {console.log('dragIncorrect: ', dragItem)} //dragItem을 오답인 drop장소에 옮겼을 경우 console에서 옮긴 element를 보여준다.
         }
-      });
+      }); */
     });
   </script>
 </body>
