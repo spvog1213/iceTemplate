@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>popups</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/players.css">
+  <link rel="stylesheet" href="../include/css/popup_d.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+<!--
+  class name
+  selected: 선택된 상태
+  popup: 팝업
+  minPopup: 팝업 최소화
+  openPopBtn: 팝업 열기 버튼
+  closePopBtn: 팝업 닫기 버튼
+
+  attribute name
+  data-pop-idx: 팝업 인덱스
+  data-pop-opts: 팝업 옵션
+  data-pop-inner: 팝업 내부 팝업 인덱스
+
+  popup options
+  noClose: 자동으로 닫히지 않음
+
+  popup animation
+  slidedown: 아래로 슬라이드
+  slideup: 위로 슬라이드
+  slideleft: 왼쪽으로 슬라이드
+  slideright: 오른쪽으로 슬라이드
+  zoomin: 확대
+  zoomout: 축소
+
+  popup callback
+  openPop: 팝업 열기
+  closePop: 팝업 닫기
+
+  * openPopBtn에 data-pop-idx 속성을 추가하면 해당 인덱스를 가진 팝업(js-popupContent)을 열 수 있습니다.
+  * js-popupContent에 data-pop-opts="noClose" 속성을 추가하면 자동으로 닫히지 않습니다.
+  * js-popupContent에 data-pop-inner 속성을 추가해서 팝업 내부에 팝업을 넣을 수 있습니다.
+-->
+
+<body>
+  <div class="wrap">
+    <main>
+      <!-- 상단 선택 Btn -->
+      <section class="menuContainer pink">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <!-- <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button> -->
+        <!-- <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="3"></button> -->
+      </section>
+      <!-- // 상단 선택 Btn -->
+
+      <!-- 팝업 선택 Btn -->
+      <section class="contents">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <div>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="1" data-sld-idx="91" data-sld-cont="1"></button>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="1" data-sld-idx="91" data-sld-cont="2"></button>
+                <!-- <button class="js-openPopBtn openPopBtn" data-pop-idx="2"></button> -->
+              </div>
+
+              <!-- <div>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="3"></button>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="4"></button>
+              </div>
+
+              <div>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="5"></button>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="6"></button>
+              </div> -->
+            </li>
+
+            <!-- <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="7"></button>
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="8"></button>
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="9"></button>
+              <aside class="js-popupContent minPopup" data-pop-idx="7">
+                <p>POPUP 7</p>
+                <button class="js-closePopBtn closePopBtn"></button>
+              </aside>
+              <aside class="js-popupContent minPopup" data-pop-idx="8" data-pop-opts="noClose">
+                <p>POPUP 8</p>
+                <button class="js-closePopBtn closePopBtn"></button>
+              </aside>
+              <aside class="js-popupContent minPopup" data-pop-idx="9" data-pop-inner="10">
+                <p>POPUP 9</p>
+                <button class="js-openPopBtn openPopBtn" data-pop-idx="10"></button>
+                <button class="js-closePopBtn closePopBtn"></button>
+              </aside>
+              <aside class="js-popupContent minPopup" data-pop-idx="10">
+                <p>POPUP INNER</p>
+                <button class="js-closePopBtn closePopBtn"></button>
+              </aside>
+            </li>
+
+            <li class="js-sliderContent sliderContent" data-sld-cont="3">
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="11" data-sld-idx="2" data-sld-cont="1"></button>
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="11" data-sld-idx="2" data-sld-cont="2"></button>
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="11" data-sld-idx="2" data-sld-cont="3"></button>
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="11" data-sld-idx="2" data-sld-cont="4"></button>
+            </li> -->
+          </ul>
+        </div>
+      </section>
+      <!-- // 팝업 선택 Btn -->
+    </main>
+
+    <!-- 팝업 -->
+    <!-- js-popupContent에 클래스를 추가하여 animation 효과를 줄 수 있음 -->
+    <section class="js-popupContent popup slidedown" data-pop-idx="1">
+      <div class="popContentContainer">
+        <!-- <p>POPUP 1</p> -->
+        <button class="js-closePopBtn closePopBtn"></button>
+
+        <button class="js-sliderBtn popSceneBtn selected" data-sld-idx="91" data-sld-cont="1">장면 1</button>
+        <button class="js-sliderBtn popSceneBtn" data-sld-idx="91" data-sld-cont="2">장면 2</button>
+
+        <div class="js-slider sliderContainer" data-sld-idx="91">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <div class="playerBtnBox">
+                <button class="js-sliderBtn slidePlayer selected" data-sld-idx="81" data-sld-cont="1">장면 1 듣기</button>
+                <button class="js-sliderBtn slidePlayer" data-sld-idx="81" data-sld-cont="2">장면 1 따라 말하기</button>
+                <button class="js-sliderBtn slidePlayer" data-sld-idx="81" data-sld-cont="3">장면 1 역할 놀이</button>
+              </div>
+              <div class="js-slider sliderContainer" data-sld-idx="81">
+                <ul class="sliderContentContainer">
+                  <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+                    <div class="playerContainer">
+                      <div class="js-player player" data-ply-type="video" data-ply-idx="1" data-ply-opts="language, numSync, scene, again">
+                        <video class="js-media">
+                          <source src="media/sample_eng_movie.mp4" type="video/mp4">
+                        </video>
+      
+                        <!-- script in html -->
+                        <div class="js-scriptContainer scriptContainer" data-ply-idx="1">
+                          <div class="js-script script">
+                            <p>Hi! Hi! What’s your name? <i>Hi! Hi! What’s your name?</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>My name is Amy. <i>My name is Amy.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hi, Amy. I’m Jiho. <i>Hi, Amy. I’m Jiho.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hi, Jiho. <i>Hi, Jiho.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Amy. Bye, bye. <i>Bye, Amy. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Jiho. Bye, bye. <i>Bye, Jiho. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello! Hello! What’s your name? <i>Hello! Hello! What’s your name?</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>My name is Ben. <i>My name is Ben.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello, Ben. I’m Anne. <i>Hello, Ben. I’m Anne.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello, Anne. <i>Hello, Anne. </i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Ben. Bye, bye. <i>Bye, Ben. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Anne. Bye, bye. <i>Bye, Anne. Bye, bye.</i></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="js-sliderContent sliderContent selected" data-sld-cont="2">
+                    <div class="playerContainer">
+                      <div class="js-player player" data-ply-type="video" data-ply-idx="2" data-ply-opts="language, numSync, scene, again">
+                        <video class="js-media">
+                          <source src="media/sample_eng_movie.mp4" type="video/mp4">
+                        </video>
+      
+                        <!-- script in html -->
+                        <div class="js-scriptContainer scriptContainer" data-ply-idx="2">
+                          <div class="js-script script">
+                            <p>Hi! Hi! What’s your name? <i>Hi! Hi! What’s your name?</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>My name is Amy. <i>My name is Amy.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hi, Amy. I’m Jiho. <i>Hi, Amy. I’m Jiho.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hi, Jiho. <i>Hi, Jiho.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Amy. Bye, bye. <i>Bye, Amy. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Jiho. Bye, bye. <i>Bye, Jiho. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello! Hello! What’s your name? <i>Hello! Hello! What’s your name?</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>My name is Ben. <i>My name is Ben.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello, Ben. I’m Anne. <i>Hello, Ben. I’m Anne.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello, Anne. <i>Hello, Anne. </i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Ben. Bye, bye. <i>Bye, Ben. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Anne. Bye, bye. <i>Bye, Anne. Bye, bye.</i></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="js-sliderContent sliderContent selected" data-sld-cont="3">
+                    <div class="playerContainer">
+                      <div class="js-player player" data-ply-type="video" data-ply-idx="3" data-ply-opts="language, scene, rolePlay">
+                        <video class="js-media">
+                          <source src="media/sample_eng_movie.mp4" type="video/mp4">
+                        </video>
+      
+                        <!-- script in html -->
+                        <div class="js-scriptContainer scriptContainer" data-ply-idx="3">
+                          <div class="js-script script">
+                            <p>Hi! Hi! What’s your name? <i>Hi! Hi! What’s your name?</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>My name is Amy. <i>My name is Amy.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hi, Amy. I’m Jiho. <i>Hi, Amy. I’m Jiho.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hi, Jiho. <i>Hi, Jiho.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Amy. Bye, bye. <i>Bye, Amy. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Jiho. Bye, bye. <i>Bye, Jiho. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello! Hello! What’s your name? <i>Hello! Hello! What’s your name?</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>My name is Ben. <i>My name is Ben.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello, Ben. I’m Anne. <i>Hello, Ben. I’m Anne.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello, Anne. <i>Hello, Anne. </i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Ben. Bye, bye. <i>Bye, Ben. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Anne. Bye, bye. <i>Bye, Anne. Bye, bye.</i></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <div class="playerBtnBox">
+                <button class="js-sliderBtn slidePlayer selected" data-sld-idx="82" data-sld-cont="1">장면 2 듣기</button>
+                <button class="js-sliderBtn slidePlayer" data-sld-idx="82" data-sld-cont="2">장면 2 따라 말하기</button>
+                <button class="js-sliderBtn slidePlayer" data-sld-idx="82" data-sld-cont="3">장면 2 역할 놀이</button>
+              </div>
+              <div class="js-slider sliderContainer" data-sld-idx="82">
+                <ul class="sliderContentContainer">
+                  <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+                    <div class="playerContainer">
+                      <div class="js-player player" data-ply-type="video" data-ply-idx="4" data-ply-opts="language, numSync, scene, again">
+                        <video class="js-media">
+                          <source src="media/sample_eng_movie.mp4" type="video/mp4">
+                        </video>
+      
+                        <!-- script in html -->
+                        <div class="js-scriptContainer scriptContainer" data-ply-idx="4">
+                          <div class="js-script script">
+                            <p>Hi! Hi! What’s your name? <i>Hi! Hi! What’s your name?</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>My name is Amy. <i>My name is Amy.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hi, Amy. I’m Jiho. <i>Hi, Amy. I’m Jiho.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hi, Jiho. <i>Hi, Jiho.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Amy. Bye, bye. <i>Bye, Amy. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Jiho. Bye, bye. <i>Bye, Jiho. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello! Hello! What’s your name? <i>Hello! Hello! What’s your name?</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>My name is Ben. <i>My name is Ben.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello, Ben. I’m Anne. <i>Hello, Ben. I’m Anne.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello, Anne. <i>Hello, Anne. </i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Ben. Bye, bye. <i>Bye, Ben. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Anne. Bye, bye. <i>Bye, Anne. Bye, bye.</i></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="js-sliderContent sliderContent selected" data-sld-cont="2">
+                    <div class="playerContainer">
+                      <div class="js-player player" data-ply-type="video" data-ply-idx="5" data-ply-opts="language, numSync, scene, again">
+                        <video class="js-media">
+                          <source src="media/sample_eng_movie.mp4" type="video/mp4">
+                        </video>
+      
+                        <!-- script in html -->
+                        <div class="js-scriptContainer scriptContainer" data-ply-idx="5">
+                          <div class="js-script script">
+                            <p>Hi! Hi! What’s your name? <i>Hi! Hi! What’s your name?</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>My name is Amy. <i>My name is Amy.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hi, Amy. I’m Jiho. <i>Hi, Amy. I’m Jiho.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hi, Jiho. <i>Hi, Jiho.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Amy. Bye, bye. <i>Bye, Amy. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Jiho. Bye, bye. <i>Bye, Jiho. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello! Hello! What’s your name? <i>Hello! Hello! What’s your name?</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>My name is Ben. <i>My name is Ben.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello, Ben. I’m Anne. <i>Hello, Ben. I’m Anne.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello, Anne. <i>Hello, Anne. </i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Ben. Bye, bye. <i>Bye, Ben. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Anne. Bye, bye. <i>Bye, Anne. Bye, bye.</i></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="js-sliderContent sliderContent selected" data-sld-cont="3">
+                    <div class="playerContainer">
+                      <div class="js-player player" data-ply-type="video" data-ply-idx="6" data-ply-opts="language, scene, rolePlay">
+                        <video class="js-media">
+                          <source src="media/sample_eng_movie.mp4" type="video/mp4">
+                        </video>
+      
+                        <!-- script in html -->
+                        <div class="js-scriptContainer scriptContainer" data-ply-idx="6">
+                          <div class="js-script script">
+                            <p>Hi! Hi! What’s your name? <i>Hi! Hi! What’s your name?</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>My name is Amy. <i>My name is Amy.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hi, Amy. I’m Jiho. <i>Hi, Amy. I’m Jiho.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hi, Jiho. <i>Hi, Jiho.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Amy. Bye, bye. <i>Bye, Amy. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Jiho. Bye, bye. <i>Bye, Jiho. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello! Hello! What’s your name? <i>Hello! Hello! What’s your name?</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>My name is Ben. <i>My name is Ben.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello, Ben. I’m Anne. <i>Hello, Ben. I’m Anne.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Hello, Anne. <i>Hello, Anne. </i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Ben. Bye, bye. <i>Bye, Ben. Bye, bye.</i></p>
+                          </div>
+                          <div class="js-script script">
+                            <p>Bye, Anne. Bye, bye. <i>Bye, Anne. Bye, bye.</i></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="js-popupContent popup slideup" data-pop-idx="2">
+      <div class="popContentContainer">
+        <p>POPUP 2</p>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+
+    <section class="js-popupContent popup slideleft" data-pop-idx="3">
+      <div class="popContentContainer">
+        <p>POPUP 3</p>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+
+    <section class="js-popupContent popup slideright" data-pop-idx="4">
+      <div class="popContentContainer">
+        <p>POPUP 4</p>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+
+    <section class="js-popupContent popup zoomin" data-pop-idx="5">
+      <div class="popContentContainer">
+        <p>POPUP 5</p>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+
+    <section class="js-popupContent popup zoomout" data-pop-idx="6">
+      <div class="popContentContainer">
+        <p>POPUP 6</p>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section> -->
+
+    <section class="js-popupContent popup zoomin" data-pop-idx="999">
+      <div class="popContentContainer">
+        <!-- data-sld-opts을 줄 수 있음 -->
+        <div class="js-slider sliderContainer" data-sld-idx="2" data-sld-opts="motion">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1"></li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2"></li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="3"></li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="4"></li>
+          </ul>
+          <button class="js-sliderPrevBtn sliderPrevButton"></button>
+          <button class="js-sliderNextBtn sliderNextButton"></button>
+          <button class="js-sliderTabs sliderTabs"></button>
+        </div>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+    <!-- // 팝업 -->
+
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // setting popup callback
+      loop(() => pageManager.popups).then(() => { // 모든 팝업에 callback을 설정
+        // pageManager.popups.forEach((popup) => { // 팝업을 순회하면서
+        //   popup.callback = { // callback을 설정
+        //     open: () => { // 팝업이 열릴 때
+        //       console.log('popup open callback');
+        //     },
+        //     close: () => { // 팝업이 닫힐 때
+        //       console.log('popup close callback');
+        //     }
+        //   }
+        // });
+
+        pageManager.getPopupByIndex(1).callback = {
+          open: (POPUP) =>{
+            console.log(POPUP);
+          },
+          close: (POPUP) => {
+            console.log(POPUP);
+          }
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      pageManager.getPlayerByIndex('1').sceneData = [
+        { start: 0, end: 9999 },
+        { start: 0, end: 22.33 },
+        { start: 22.34, end: 9999 },
+      ]
+      pageManager.getPlayerByIndex('1').scriptData = [
+        { start: 4.17, end: 6.27 },
+        { start: 7.37, end: 9.33 },
+        { start: 10.57, end: 12.67 },
+        { start: 13.73, end: 14.77 },
+        { start: 16.9, end: 19.4 },
+        { start: 20.17, end: 22.27 },
+        { start: 26.6, end: 28.5 },
+        { start: 29.6, end: 31.73 },
+        { start: 32.97, end: 35.03 },
+        { start: 36.13, end: 37.1 },
+        { start: 39.33, end: 41.73 },
+        { start: 42.6, end: 44.63 },
+      ]
+      pageManager.getPlayerByIndex('1').callback = {
+        play: (media) => {
+          console.log('play');
+        },
+        pause: (media) => {
+          console.log('pause');
+        },
+        stop: (media) => {
+          console.log('stop');
+        },
+        sync: (media, target) => {
+          console.log('sync');
+        },
+      };
+
+      pageManager.getPlayerByIndex('2').sceneData = [
+        { start: 0, end: 9999 },
+        { start: 0, end: 22.33 },
+        { start: 22.34, end: 9999 },
+      ]
+      pageManager.getPlayerByIndex('2').scriptData = [
+        { start: 4.17, end: 6.27 },
+        { start: 7.37, end: 9.33 },
+        { start: 10.57, end: 12.67 },
+        { start: 13.73, end: 14.77 },
+        { start: 16.9, end: 19.4 },
+        { start: 20.17, end: 22.27 },
+        { start: 26.6, end: 28.5 },
+        { start: 29.6, end: 31.73 },
+        { start: 32.97, end: 35.03 },
+        { start: 36.13, end: 37.1 },
+        { start: 39.33, end: 41.73 },
+        { start: 42.6, end: 44.63 },
+      ]
+      pageManager.getPlayerByIndex('2').callback = {
+        play: (media) => {
+          console.log('play');
+        },
+        pause: (media) => {
+          console.log('pause');
+        },
+        stop: (media) => {
+          console.log('stop');
+        },
+        sync: (media, target) => {
+          console.log('sync');
+        },
+      };
+
+      pageManager.getPlayerByIndex('3').sceneData = [
+        { start: 0, end: 9999 },
+        { start: 0, end: 22.33 },
+        { start: 22.34, end: 9999 },
+      ]
+      pageManager.getPlayerByIndex('3').scriptData = [
+        { start: 4.07, end: 6.27, char: 0 },
+        { start: 7.27, end: 9.33, char: 1 },
+        { start: 10.47, end: 12.67, char: 2 },
+        { start: 13.63, end: 14.77, char: 0 },
+        { start: 16.9, end: 19.4, char: 0 },
+        { start: 20.07, end: 22.27, char: 1 },
+        { start: 26.5, end: 28.5, char: 2 },
+        { start: 29.6, end: 31.73, char: 1 },
+        { start: 32.87, end: 35.03, char: 0 },
+        { start: 36.03, end: 37.1, char: 1 },
+        { start: 39.23, end: 41.73, char: 2 },
+        { start: 42.5, end: 44.63, char: 0 },
+      ]
+
+      pageManager.getPlayerByIndex('4').sceneData = [
+        { start: 0, end: 9999 },
+        { start: 0, end: 22.33 },
+        { start: 22.34, end: 9999 },
+      ]
+      pageManager.getPlayerByIndex('4').scriptData = [
+        { start: 4.17, end: 6.27 },
+        { start: 7.37, end: 9.33 },
+        { start: 10.57, end: 12.67 },
+        { start: 13.73, end: 14.77 },
+        { start: 16.9, end: 19.4 },
+        { start: 20.17, end: 22.27 },
+        { start: 26.6, end: 28.5 },
+        { start: 29.6, end: 31.73 },
+        { start: 32.97, end: 35.03 },
+        { start: 36.13, end: 37.1 },
+        { start: 39.33, end: 41.73 },
+        { start: 42.6, end: 44.63 },
+      ]
+      pageManager.getPlayerByIndex('4').callback = {
+        play: (media) => {
+          console.log('play');
+        },
+        pause: (media) => {
+          console.log('pause');
+        },
+        stop: (media) => {
+          console.log('stop');
+        },
+        sync: (media, target) => {
+          console.log('sync');
+        },
+      };
+
+      pageManager.getPlayerByIndex('5').sceneData = [
+        { start: 0, end: 9999 },
+        { start: 0, end: 22.33 },
+        { start: 22.34, end: 9999 },
+      ]
+      pageManager.getPlayerByIndex('5').scriptData = [
+        { start: 4.17, end: 6.27 },
+        { start: 7.37, end: 9.33 },
+        { start: 10.57, end: 12.67 },
+        { start: 13.73, end: 14.77 },
+        { start: 16.9, end: 19.4 },
+        { start: 20.17, end: 22.27 },
+        { start: 26.6, end: 28.5 },
+        { start: 29.6, end: 31.73 },
+        { start: 32.97, end: 35.03 },
+        { start: 36.13, end: 37.1 },
+        { start: 39.33, end: 41.73 },
+        { start: 42.6, end: 44.63 },
+      ]
+      pageManager.getPlayerByIndex('5').callback = {
+        play: (media) => {
+          console.log('play');
+        },
+        pause: (media) => {
+          console.log('pause');
+        },
+        stop: (media) => {
+          console.log('stop');
+        },
+        sync: (media, target) => {
+          console.log('sync');
+        },
+      };
+
+      pageManager.getPlayerByIndex('6').sceneData = [
+        { start: 0, end: 9999 },
+        { start: 0, end: 22.33 },
+        { start: 22.34, end: 9999 },
+      ]
+      pageManager.getPlayerByIndex('6').scriptData = [
+        { start: 4.07, end: 6.27, char: 0 },
+        { start: 7.27, end: 9.33, char: 1 },
+        { start: 10.47, end: 12.67, char: 2 },
+        { start: 13.63, end: 14.77, char: 0 },
+        { start: 16.9, end: 19.4, char: 0 },
+        { start: 20.07, end: 22.27, char: 1 },
+        { start: 26.5, end: 28.5, char: 2 },
+        { start: 29.6, end: 31.73, char: 1 },
+        { start: 32.87, end: 35.03, char: 0 },
+        { start: 36.03, end: 37.1, char: 1 },
+        { start: 39.23, end: 41.73, char: 2 },
+        { start: 42.5, end: 44.63, char: 0 },
+      ]
+    });
+  </script>
+</body>
+
+</html>

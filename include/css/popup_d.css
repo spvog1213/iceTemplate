@@ -1,0 +1,253 @@
+@charset "utf-8";
+
+/* menu */
+.menuContainer > button[data-sld-cont="1"]:after {content: 'full';}
+.menuContainer > button[data-sld-cont="2"]:after {content: 'mini';}
+.menuContainer > button[data-sld-cont="3"]:after {content: 'slide';}
+
+/************************* custom *************************/
+.sliderContentContainer > li.selected,
+.sliderContentContainer > li > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sliderContentContainer > li[data-sld-cont="1"].selected {
+  flex-direction: column;
+}
+
+/* popup */
+section.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .7);
+}
+.popContentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  right: 50px;
+  bottom: 50px;
+  background: #FFF;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+
+.minPopup {
+  position: absolute;
+  width: 260px;
+  height: 200px;
+  font-size: .6em;
+  background: #FFF;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+aside.minPopup.on {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+aside.minPopup[data-pop-idx="9"].on {
+  flex-direction: column;
+}
+.minPopup[data-pop-idx="7"] {top: 20px; left: 242px;}
+.minPopup[data-pop-idx="8"] {top: 20px; left: calc(242px + (270px * 1));}
+.minPopup[data-pop-idx="9"] {top: 20px; left: calc(242px + (270px * 2));}
+
+/* buttons */
+.openPopBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 250px;
+  height: 120px;
+	margin: 10px;
+  font-size: .4em;
+  border-radius: 20px;
+  background: #DDD;
+  overflow: hidden;
+}
+.openPopBtn.hover {
+  font-weight: bold;
+}
+.openPopBtn:before {
+  content: '';
+  position: absolute;
+  top: -500px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: pink;
+  pointer-events: none;
+}
+.openPopBtn.hover:before {
+  animation: popButtonHover .5s ease-out forwards;
+  -webkit-animation: popButtonHover .5s ease-out forwards;
+}
+@keyframes popButtonHover {
+  0% {opacity: 0;}
+  100% {top: -150px; left: -100px;}
+}
+
+.openPopBtn:after {
+  position: relative;
+}
+.openPopBtn[data-pop-idx="1"]:after {content: 'POPUP 1 - slidedown';}
+.openPopBtn[data-pop-idx="2"]:after {content: 'POPUP 2 - slideup';}
+.openPopBtn[data-pop-idx="3"]:after {content: 'POPUP 3 - slideleft';}
+.openPopBtn[data-pop-idx="4"]:after {content: 'POPUP 4 - slideright';}
+.openPopBtn[data-pop-idx="5"]:after {content: 'POPUP 5 - zoomin';}
+.openPopBtn[data-pop-idx="6"]:after {content: 'POPUP 6 - zoomout';}
+.openPopBtn[data-pop-idx="7"]:after {content: 'POPUP 7 - default';}
+.openPopBtn[data-pop-idx="8"]:after {content: 'POPUP 8 - noClose';}
+.openPopBtn[data-pop-idx="9"]:after {content: 'POPUP 9 - inner';}
+.openPopBtn[data-pop-idx="10"]:after {content: 'POPUP 10(inner)';}
+.openPopBtn[data-pop-idx="11"][data-sld-cont="1"]:after {content: 'POPUP PAGE 1';}
+.openPopBtn[data-pop-idx="11"][data-sld-cont="2"]:after {content: 'POPUP PAGE 2';}
+.openPopBtn[data-pop-idx="11"][data-sld-cont="3"]:after {content: 'POPUP PAGE 3';}
+.openPopBtn[data-pop-idx="11"][data-sld-cont="4"]:after {content: 'POPUP PAGE 4';}
+
+.openPopBtn[data-pop-idx="10"] {
+	width: 180px;
+	height: 70px;
+	margin-top: 30px;
+}
+
+.closePopBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 30px;
+  height: 30px;
+}
+.closePopBtn:before {content: 'X';}
+/**********************************************************/
+
+/************************* default ************************/
+section.popup,
+.minPopup {
+  display: none;
+  overflow: hidden;
+}
+section.popup.on,
+.minPopup.on {
+  display: block;
+  animation: openPopup .3s ease-in-out forwards;
+  -webkit-animation: openPopup .3s ease-in-out forwards;
+}
+section.popup.slidedown.on .popContentContainer {
+  animation: slidedown .3s ease-in-out forwards;
+  -webkit-animation: slidedown .3s ease-in-out forwards;
+}
+section.popup.slideup.on .popContentContainer {
+  animation: slideup .3s ease-in-out forwards;
+  -webkit-animation: slideup .3s ease-in-out forwards;
+}
+section.popup.slideleft.on .popContentContainer {
+  animation: slideleft .3s ease-in-out forwards;
+  -webkit-animation: slideleft .3s ease-in-out forwards;
+}
+section.popup.slideright.on .popContentContainer {
+  animation: slideright .3s ease-in-out forwards;
+  -webkit-animation: slideright .3s ease-in-out forwards;
+}
+section.popup.zoomin.on .popContentContainer {
+  animation: zoomin .3s ease-in-out forwards;
+  -webkit-animation: zoomin .3s ease-in-out forwards;
+}
+section.popup.zoomout.on .popContentContainer {
+  animation: zoomout .3s ease-in-out forwards;
+  -webkit-animation: zoomout .3s ease-in-out forwards;
+}
+@keyframes openPopup {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+/**********************************************************/
+
+
+
+/* test */
+.popup .sliderContent[data-sld-cont="1"] {background: #EEE;}
+.popup .sliderContent[data-sld-cont="2"] {background: #DDD;}
+.popup .sliderContent[data-sld-cont="3"] {background: #CCC;}
+.popup .sliderContent[data-sld-cont="4"] {background: #BBB;}
+
+
+.popup .popContentContainer {
+  top: 30px; bottom: 30px;
+}
+
+.popup .popContentContainer .sliderContainer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+.popup .closePopBtn {z-index: 100;}
+
+.popup .popSceneBtn {
+  position: absolute;
+  top: 10px; left: 10px;
+  z-index: 100;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: #fff;
+  border: 2px solid black;
+}
+
+.popup .popSceneBtn.selected {
+  background: #000;
+  color: #fff;
+}
+.popup .popSceneBtn+.popSceneBtn {
+  left: 100px;
+}
+
+.popup .playerBtnBox {
+  position: absolute;
+  top: 10px; right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup .slidePlayer {
+  z-index: 100;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #fff;
+  border: 2px solid black;
+}
+.popup .slidePlayer+.slidePlayer {
+  margin-left: 10px;
+}
+.popup .slidePlayer.selected {
+  background: #000;
+  color: #fff;
+}
+
+.popup .player[data-ply-type="video"] {
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+
+.popup .player .numSyncContainer {
+  top: 60px;
+  left: auto;
+  right: 15px;
+}
+
+.popup .player .roleContainer {
+  left: 200px;
+}
