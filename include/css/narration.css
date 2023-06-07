@@ -1,4 +1,42 @@
 @charset "utf-8";
 
 /************************* custom *************************/
+.contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.narrationBtn {
+  position: absolute;
+  top: 220px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: url(../images/narration/play.png) center/ contain no-repeat;
+}
+.narrationBtn.isPlaying {
+  background-image: url(../images/narration/stop.png);
+}
+
+.narrationBtn[data-narr-idx="1"] {left: 360px;}
+.narrationBtn[data-narr-idx="2"] {left: 860px;}
+
+.narrationTarget {
+  margin: 0 50px;
+  width: 198px;
+  height: 250px;
+  background: center / contain no-repeat;
+}
+.narrationTarget[data-narr-idx="1"] {
+  background-image: url(../../contents/images/21_narration/21_narration_1_default.png);
+}
+.narrationTarget[data-narr-idx="2"] {
+  background-image: url(../../contents/images/21_narration/21_narration_2_default.png);
+}
+.narrationTarget[data-narr-idx="1"].isPlaying {
+  background-image: url(../../contents/images/21_narration/21_narration_1_motion.gif);
+}
+.narrationTarget[data-narr-idx="2"].isPlaying {
+  background-image: url(../../contents/images/21_narration/21_narration_2_motion.gif);
+}
 /**********************************************************/

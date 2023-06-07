@@ -32,7 +32,9 @@
         <div class="js-slider sliderContainer" data-sld-idx="1">
           <ul class="sliderContentContainer">
             <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <!-- js-magnifyBtn : js-magnify에서 data-mag-idx 가 같은 돋보기를 실행 시키는 버튼 -->
               <button class="js-magnifyBtn magnifyBtn" data-mag-idx="1">CLICK</button>
+              <!-- js-magnify / magnifyContent : 이미지가 들어가는 곳 | 다른 attr로 data-mag-scale를 설정해줄 수 있다. 기본 scale은 3 --> 
               <div class="js-magnify magnifyContent" data-mag-idx="1"></div>
             </li>
             <li class="js-sliderContent sliderContent" data-sld-cont="2">
@@ -59,16 +61,16 @@
   <script>
     // apng callback function
     document.addEventListener('DOMContentLoaded', () => {
-      loop(() => pageManager.magnify).then((magnify) => {
+      loop(() => pageManager.magnify).then((magnify) => { //모든 돋보기 실행
         magnify.forEach((mag) => {
           mag.callback = {
-            start: (MAG) => {
+            start: (MAG) => { //실행시키기 위해 btn을 click 했을 때
               console.log('start');
             },
-            move: (MAG) => {
+            move: (MAG) => { //실행된 돋보기를 움직일 때
               console.log('move');
             },
-            end: (MAG) => {
+            end: (MAG) => { //마치기 위해 다시 btn을 click 했을 때
               console.log('end');
             },
             reset: (MAG) => {},

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>comparison</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/popup.css">
+  <link rel="stylesheet" href="../include/css/comparison.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+<body>
+  <div class="wrap js-scale">
+    <main>
+      <section class="menuContainer olive">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button>
+      </section>
+      <section class="contents">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <div class="js-comparison comparison" data-comparison-index="0" data-comparison-start="30"> 
+                <!-- data-comparison-start 시작 퍼센트 없으면 기본값 50 -->
+                <!-- data-comparison-index 안들어가도 자동으로 순서대로 숫자가 들어가긴함 -->
+                <span class="js-comparisonLabel comparisonLabel leftLabel"></span>
+                <span class="js-comparisonLabel comparisonLabel rightLabel"></span>
+                <div class="js-comparisonImgConatiner comparisonImgConatiner">
+                  <div class="js-comparisonImg comparisonImg leftImgBox">
+                    <img src="../include/images/comparison/img_1.jpg" alt="" />
+                  </div>
+                  <div class="js-comparisonImg comparisonImg rightImgBox">
+                    <img src="../include/images/comparison/img_2.jpg" alt="" />
+                  </div> 
+                  <div class="js-comparisonDragBar comparisonDragBar">
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+              </div> <!--// comparison -->
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="1" data-comparison-idx="0"></button>
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="1" data-comparison-idx="1"></button>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="js-popupContent popup slidedown" data-pop-idx="1">
+        <div class="popContentContainer">
+          <div class="js-comparison comparison" data-comparison-index="1">
+            <span class="js-comparisonLabel comparisonLabel leftLabel"></span>
+            <span class="js-comparisonLabel comparisonLabel rightLabel"></span>
+            <div class="js-comparisonImgConatiner comparisonImgConatiner">
+              <div class="js-comparisonImg comparisonImg leftImgBox">
+                <img src="../include/images/comparison/img_1.jpg" alt="" />
+              </div>
+              <div class="js-comparisonImg comparisonImg rightImgBox">
+                <img src="../include/images/comparison/img_2.jpg" alt="" />
+              </div> 
+              <div class="js-comparisonDragBar comparisonDragBar">
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div> <!--// comparison -->
+          
+          <button class="js-closePopBtn closePopBtn"></button>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loop(() => pageManager.popups).then(() => {
+        pageManager.getPopupByIndex(1).callback = {
+          open: (POPUP, OPENBTN) =>{
+            const openIdx = Number(OPENBTN.attr('data-comparison-idx'));
+
+            if (openIdx == 0) pageManager.getComparisonByIndex(1).numberMove(70);
+            else pageManager.getComparisonByIndex(1).numberMove(30);
+          },
+          close: (POPUP) => {
+            // console.log(POPUP);
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

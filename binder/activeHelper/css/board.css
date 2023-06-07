@@ -161,10 +161,10 @@ li { list-style: none; }
 
 
 
-.hide{display: none;}
 
-textarea.hide, canvas.hide{z-index: 0;}
-textarea, canvas{z-index: 1;}
+
+.bgContainer textarea.hide, canvas.hide{z-index: 0;}
+.bgContainer textarea, canvas{z-index: 1;}
 .color_wrap.on, .stroke_wrap.on, .size_wrap.on, .style_wrap.on{display: block;}
 
 .color_btn.on ~ .color_wrap,
@@ -172,3 +172,8 @@ textarea, canvas{z-index: 1;}
 .color_btn.on ~ .color_wrap,
 .size_btn.on ~ .size_wrap,
 .style_btn.on ~ .style_wrap{display: block;}
+.bgContainer.mouse{cursor: url("../images/board/cursor_pen.png") 0 70, auto;}
+.bgContainer.erase{cursor: url("../images/board/erase_m.png"), auto;}
+
+.bgContainer .btn_wrap .write_area.on .bold_btn.on{background-position: 0 -33px !important;}
+.bgContainer .btn_wrap .draw_area.on .erase_btn.on{background-position: 0 -38px !important;}

@@ -9,6 +9,15 @@
   <link rel="stylesheet" href="../include/css/narration.css">
   <script src="../include/js/pageManager.js"></script>
 </head>
+<!-- class 및 attribute
+* class
+- js-narrationBtn: narration을 재생하는 버튼에 class로 입력합니다.
+- js-narrationTarget: narration을 재생하는 버튼을 클릭 시 활성화되는 요소에 class로 입력합니다.
+
+* attribute
+- data-narr-idx: narration의 index를 설정합니다. js-narrationBtn 클릭 시 해당 index의 js-narrationTarget이 활성화됩니다.
+- data-narr-src: js-narrationBtn 클릭 시 재생될 narration 파일의 경로를 설정합니다.
+-->
 <body>
   <div class="js-scale wrap">
     <main>
@@ -17,24 +26,21 @@
         <div class="js-narrationTarget narrationTarget target_1" data-narr-idx="1"></div>
         <button class="js-narrationBtn narrationBtn" data-narr-idx="2" data-narr-src="./media/sample_narration_2.mp3"></button>
         <div class="js-narrationTarget narrationTarget target_2" data-narr-idx="2"></div>
-        <!-- 
-        <div class="js-narrationTarget narrationTarget target_3" data-narr-idx="1" data-target-time="1"></div> -->
       </section>
     </main>
   </div>
   <script>
-    // apng callback function
+    // narration callback function
     document.addEventListener('DOMContentLoaded', () => {
       loop(() => pageManager.narrations).then((narrations) => {
         narrations.forEach((narr) => {
           narr.callback = {
-            open: (narr, item) => {
+            play: (narr, item) => {
               console.log(item);
             },
-            close: (narr, item) => {
+            stop: (narr, item) => {
               console.log(item);
             },
-            reset: (narr) => {},
           }
         });
       });

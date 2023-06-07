@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+/* menu */
+.menuContainer > button[data-sld-cont="1"]:after {content: 'basic';}
+.menuContainer > button[data-sld-cont="2"]:after {content: 'popup';}
+
+/************************* custom *************************/
+.comparisonImgConatiner { width: 942px; height:468px; margin:0 auto; position:relative; border: 8px solid #000; border-radius: 30px; box-sizing: content-box; }
+
+.comparisonLabel { width: 61px; height: 296px; }
+.comparisonLabel.leftLabel { background: url(../../include/images/comparison/tag1.png) no-repeat; }
+.comparisonLabel.rightLabel { background: url(../../include/images/comparison/tag2.png) no-repeat; }
+
+.comparisonImg img { width: 942px; } /* comparisonImgConatiner width값 */
+
+.comparisonDragBar { width:5px; background-color: #ffe509; }
+.comparisonDragBar > div { width:35px; height:52px; background: url(../../include/images/comparison/dragarrow.png) no-repeat; }
+.comparisonDragBar > div:nth-child(1) { transform: rotate(180deg) translateY(-50%); }
+/**********************************************************/
+
+/************************* default ************************/
+.comparisonImgConatiner { overflow:hidden; }
+.comparison { position: relative; }
+
+.comparisonLabel { position: absolute; }
+.comparisonLabel.leftLabel { right: 100%; top: 50%; transform: translateY(-50%); }
+.comparisonLabel.rightLabel { left: 100%; top: 50%; transform: translateY(-50%); }
+.comparisonLabel.inactive { display: none; }
+
+.comparisonImg { height:100%; position:absolute; overflow:hidden; width: 50%; }
+.comparisonImg img { position:absolute; top:0px; height:100%; max-width: none; }
+.leftImgBox { left:0px; background-color: #000; }
+.leftImgBox img { left:0px; opacity: 0.5; }
+.rightImgBox { right:0px; }
+.rightImgBox img { right:0px; }
+
+.comparisonDragBar { position:absolute; top:0; height:100%; cursor: move; left:50%; }
+.comparisonDragBar > div { position:absolute; left: 50%; top: 50%; transform: rotate(0deg) translateY(-50%); transform-origin: 0 0; }
+.comparisonDragBar > div.inactive { display: none; }
+/**********************************************************/
