@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>narration</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/narration.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+<body>
+  <div class="js-scale wrap">
+    <main>
+      <section class="contents">
+        <button class="js-narrationBtn narrationBtn" data-narr-idx="1" data-narr-src="./media/sample_narration_1.mp3"></button>
+        <div class="js-narrationTarget narrationTarget target_1" data-narr-idx="1"></div>
+        <button class="js-narrationBtn narrationBtn" data-narr-idx="2" data-narr-src="./media/sample_narration_2.mp3"></button>
+        <div class="js-narrationTarget narrationTarget target_2" data-narr-idx="2"></div>
+        <!-- 
+        <div class="js-narrationTarget narrationTarget target_3" data-narr-idx="1" data-target-time="1"></div> -->
+      </section>
+    </main>
+  </div>
+  <script>
+    // apng callback function
+    document.addEventListener('DOMContentLoaded', () => {
+      loop(() => pageManager.narrations).then((narrations) => {
+        narrations.forEach((narr) => {
+          narr.callback = {
+            open: (narr, item) => {
+              console.log(item);
+            },
+            close: (narr, item) => {
+              console.log(item);
+            },
+            reset: (narr) => {},
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

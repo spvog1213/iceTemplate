@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>magnify</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/popup.css">
+  <link rel="stylesheet" href="../include/css/magnify.css">
+  <script src="../include/js/pageManager.js"></script>
+  <style>
+    /* menu */
+    .menuContainer > button[data-sld-cont="1"]:before {content: 'TYPE 1';}
+    .menuContainer > button[data-sld-cont="2"]:before {content: 'TYPE 2';}
+    .menuContainer > button[data-sld-cont="2"]:before {content: 'TYPE 3';}
+    .menuContainer > button[data-sld-cont="1"]:after {content: 'magnify - default';}
+    .menuContainer > button[data-sld-cont="2"]:after {content: 'magnify - multi';}
+    .menuContainer > button[data-sld-cont="3"]:after {content: 'magnify - popup';}
+  </style>
+</head>
+<body>
+  <div class="js-scale wrap">
+    <main>
+      <section class="menuContainer mint">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="3"></button>
+      </section>
+      <section class="contents">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <button class="js-magnifyBtn magnifyBtn" data-mag-idx="1">CLICK</button>
+              <div class="js-magnify magnifyContent" data-mag-idx="1"></div>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <button class="js-magnifyBtn magnifyBtn" data-mag-idx="2">CLICK</button>
+              <div class="js-magnify magnifyContent" data-mag-idx="2" data-mag-scale="2"></div>
+              <button class="js-magnifyBtn magnifyBtn" data-mag-idx="3">CLICK</button>
+              <div class="js-magnify magnifyContent" data-mag-idx="3" data-mag-scale="1.5"></div>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="3">
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="1"></button>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <section class="js-popupContent popup slidedown" data-pop-idx="1">
+      <div class="popContentContainer">
+        <button class="js-magnifyBtn magnifyBtn" data-mag-idx="4">CLICK</button>
+        <div class="js-magnify magnifyContent" data-mag-idx="4" data-mag-scale="4"></div>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
+  </div>
+  <script>
+    // apng callback function
+    document.addEventListener('DOMContentLoaded', () => {
+      loop(() => pageManager.magnify).then((magnify) => {
+        magnify.forEach((mag) => {
+          mag.callback = {
+            start: (MAG) => {
+              console.log('start');
+            },
+            move: (MAG) => {
+              console.log('move');
+            },
+            end: (MAG) => {
+              console.log('end');
+            },
+            reset: (MAG) => {},
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

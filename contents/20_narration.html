@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>narration</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/narration.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+
+<body>
+  <div class="js-scale wrap">
+    <main>
+      <section class="menuContainer olive">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="3"></button>
+      </section>
+      <section class="contents">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="3">
+              
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      /* loop(() => pageManager.drawings).then((drawings) => { //모든 drawingContant 불러오기
+        console.log(drawings)
+      }); */
+    });
+  </script>
+</body>
+
+</html>
