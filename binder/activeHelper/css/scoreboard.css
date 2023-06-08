@@ -6,9 +6,9 @@
 
 .top button.on { background: #548235; } 
 
-.content { position: absolute; top: 100px; width: 100%; height: 620px; background: #FFEBEB; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; } 
+.content {position: absolute;top: 100px;width: 100%;height: 980px;background: #FFEBEB;display: flex;justify-content: space-around;align-items: center;flex-wrap: wrap;} 
 
-.group {width: 280px;height: 250px;text-align: center;margin-top: 50px;background: #CFE0F0;border-radius: 50% 50% 0 0;position: relative;margin: 20px;display: none;} 
+.group {width: 280px;height: 250px;text-align: center;margin-top: 50px;background: #CFE0F0;border-radius: 50% 50% 0 0;position: relative;margin: 60px;display: none;} 
 .group.on{display: block;}
 .group p{color: #FF7C80;font-size: 50px;margin-top: 30px;}
 .group input{width: 80%;height: 70px;text-align: center;font-size: 30px;}
@@ -18,3 +18,5 @@
 .reset{ position: absolute; top: 0px; right: 30px; width: 60px; height: 50px; background: #3cc; color: #fff; border-radius: 0 0 30px 30px; } 
 input[type="text"]::placeholder { color: #000; } 
 input[type="text"]:focus::placeholder { color: transparent; } 
+
+#container {position: relative;width: 1920px;height: 1080px;} 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <link rel="stylesheet" href="css/roulette.css">
+    <title>벌칙 고르기</title>
+    <script src="js/roulette.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <span class="penalty on js-tab"></span>
+        <span class="customPenalty js-tab"></span>
+        <div class="pList">
+            <div class="viewList on js-content">
+                <label class="viewText view1" type="text">한 번 봐주기</label>
+                <label class="viewText view2" type="text">입술을 움직여 이름 쓰기</label>
+                <label class="viewText view3" type="text">짝꿍 부탁 들어주기</label>
+                <label class="viewText view4" type="text">성대모사하기</label>
+                <label class="viewText view5" type="text">모창하기</label>
+                <label class="viewText view6" type="text">노래 부르기</label>
+                <label class="viewText view7" type="text">엉덩이로 영어 낱말 쓰기</label>
+                <label class="viewText view8" type="text">코끼리 코 하고 10바퀴 돌기</label>
+            </div>
+            <div class="changList js-content">
+                <input class="changeText text1" type="text" value="한 번 봐주기" data-value="한 번 봐주기" data-idx="0"
+                    maxlength="15">
+                <input class="changeText text2" type="text" value="입술을 움직여 이름 쓰기" data-value="입술을 움직여 이름 쓰기"
+                    data-idx="1" maxlength="15">
+                <input class="changeText text3" type="text" value="짝꿍 부탁 들어주기" data-value="짝꿍 부탁 들어주기" data-idx="2"
+                    maxlength="15">
+                <input class="changeText text4" type="text" value="성대모사하기" data-value="성대모사하기" data-idx="3"
+                    maxlength="15">
+                <input class="changeText text5" type="text" value="모창하기" data-value="모창하기" data-idx="4" maxlength="15">
+                <input class="changeText text6" type="text" value="노래 부르기" data-value="노래 부르기" data-idx="5"
+                    maxlength="15">
+                <input class="changeText text7" type="text" value="엉덩이로 영어 낱말 쓰기" data-value="엉덩이로 영어 낱말 쓰기"
+                    data-idx="6" maxlength="15">
+                <input class="changeText text8" type="text" value="코끼리 코 하고 10바퀴 돌기" data-value="코끼리 코 하고 10바퀴 돌기"
+                    data-idx="7" maxlength="15">
+            </div>
+            <span class="start"></span>
+            <span class="stop"></span>
+        </div>
+        <div class="roulette">
+            <label class="textbox textView1" data-idx="0">한 번 봐주기</label>
+            <label class="textbox textView2" data-idx="1">입술을 움직여 이름 쓰기</label>
+            <label class="textbox textView3" data-idx="2">짝꿍 부탁 들어주기</label>
+            <label class="textbox textView4" data-idx="3">성대모사하기</label>
+            <label class="textbox textView5" data-idx="4">모창하기</label>
+            <label class="textbox textView6" data-idx="5">노래 부르기</label>
+            <label class="textbox textView7" data-idx="6">엉덩이로 영어 낱말 쓰기</label>
+            <label class="textbox textView8" data-idx="7">코끼리 코 하고 10바퀴 돌기</label>
+        </div>
+        <div class="bg-img"></div>
+    </div>
+</body>
+
+</html>

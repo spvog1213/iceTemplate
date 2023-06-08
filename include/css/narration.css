@@ -1,8 +1,9 @@
 @charset "utf-8";
 
 /************************* custom *************************/
-.contents {
+.narration .sliderContentContainer > li[data-sld-cont="1"].selected {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
@@ -18,8 +19,10 @@
   background-image: url(../images/narration/stop.png);
 }
 
-.narrationBtn[data-narr-idx="1"] {left: 360px;}
-.narrationBtn[data-narr-idx="2"] {left: 860px;}
+.narrationBtn[data-narr-idx="1"] {left: 220px;}
+.narrationBtn[data-narr-idx="2"] {left: 720px;}
+.narrationBtn[data-narr-idx="3"] {left: 660px;}
+.narrationBtn[data-narr-idx="4"] {top: 190px; left: 250px;}
 
 .narrationTarget {
   margin: 0 50px;
@@ -28,15 +31,26 @@
   background: center / contain no-repeat;
 }
 .narrationTarget[data-narr-idx="1"] {
-  background-image: url(../../contents/images/21_narration/21_narration_1_default.png);
-}
-.narrationTarget[data-narr-idx="2"] {
-  background-image: url(../../contents/images/21_narration/21_narration_2_default.png);
+  background-image: url(../../contents/images/21_narration/21_narration_1.png);
 }
 .narrationTarget[data-narr-idx="1"].isPlaying {
-  background-image: url(../../contents/images/21_narration/21_narration_1_motion.gif);
+  background-image: url(../../contents/images/21_narration/21_narration_1.gif);
+}
+.narrationTarget[data-narr-idx="2"] {
+  background-image: url(../../contents/images/21_narration/21_narration_2.png);
 }
 .narrationTarget[data-narr-idx="2"].isPlaying {
-  background-image: url(../../contents/images/21_narration/21_narration_2_motion.gif);
+  background-image: url(../../contents/images/21_narration/21_narration_2.gif);
+}
+.narrationTarget[data-narr-idx="3"] {
+  background-image: url(../../contents/images/21_narration/21_narration_3.png);
+}
+.narrationTarget[data-narr-idx="3"].isPlaying {
+  background-image: url(../../contents/images/21_narration/21_narration_3.gif);
+}
+
+.narrationTarget[data-narr-idx="4"] {
+  width: calc(678px / 2);
+  height: calc(608px / 2);
 }
 /**********************************************************/

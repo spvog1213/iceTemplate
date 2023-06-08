@@ -6,8 +6,17 @@
   <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
   <title>narration</title>
   <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/popup.css">
   <link rel="stylesheet" href="../include/css/narration.css">
   <script src="../include/js/pageManager.js"></script>
+  <style>
+    /* menu */
+    .menuContainer > button[data-sld-cont="1"]:before {content: 'TYPE 1';}
+    .menuContainer > button[data-sld-cont="2"]:before {content: 'TYPE 2';}
+    .menuContainer > button[data-sld-cont="1"]:after {content: 'narration - default';}
+    .menuContainer > button[data-sld-cont="2"]:after {content: 'narration - multi mp3';}
+  </style>
 </head>
 <!-- class 및 attribute
 * class
@@ -17,23 +26,53 @@
 * attribute
 - data-narr-idx: narration의 index를 설정합니다. js-narrationBtn 클릭 시 해당 index의 js-narrationTarget이 활성화됩니다.
 - data-narr-src: js-narrationBtn 클릭 시 재생될 narration 파일의 경로를 설정합니다.
+- data-play-turm: js-narrationBtn 클릭 시 재생될 narration 파일의 재생 텀(간격)을 설정합니다. (default: 1)
+- data-target-play: js-narrationTarget이 활성화될 때 재생될 narration의 index를 설정합니다.
+- data-target-type: js-narrationTarget이 활성화될 때 재생될 narration의 타입을 설정합니다.
 -->
 <body>
   <div class="js-scale wrap">
     <main>
-      <section class="contents">
-        <button class="js-narrationBtn narrationBtn" data-narr-idx="1" data-narr-src="./media/sample_narration_1.mp3"></button>
-        <div class="js-narrationTarget narrationTarget target_1" data-narr-idx="1"></div>
-        <button class="js-narrationBtn narrationBtn" data-narr-idx="2" data-narr-src="./media/sample_narration_2.mp3"></button>
-        <div class="js-narrationTarget narrationTarget target_2" data-narr-idx="2"></div>
+      <section class="menuContainer mint">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button>
+      </section>
+      <section class="contents narration">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <button class="js-narrationBtn narrationBtn" data-narr-idx="1" data-narr-src="./media/sample_narration_1.mp3"></button>
+              <div class="js-narrationTarget narrationTarget" data-src="./images/21_narration/21_narration_1" data-narr-idx="1"></div>
+              <button class="js-narrationBtn narrationBtn" data-narr-idx="2" data-narr-src="./media/sample_narration_2.mp3"></button>
+              <div class="js-narrationTarget narrationTarget" data-src="./images/21_narration/21_narration_2" data-narr-idx="2"></div>
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="1"></button>
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <button class="js-narrationBtn narrationBtn" 
+                data-narr-idx="4" 
+                data-narr-src="./media/sample_narration_1.mp3,./media/sample_narration_2.mp3,./media/sample_narration_3.mp3"
+                data-play-turm="2"> 
+              </button>
+              <div class="js-narrationTarget js-apng narrationTarget" data-narr-idx="4" data-target-play="1,3" data-target-type="apng" data-src="./images/21_narration/21_narration_4.png" data-loop="true"></div>
+              <div class="js-narrationTarget js-apng narrationTarget" data-narr-idx="4" data-target-play="2" data-target-type="apng" data-src="./images/21_narration/21_narration_4.png" data-loop="true"></div>
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
+    <section class="js-popupContent popup slidedown" data-pop-idx="1" data-narr-idx="3">
+      <div class="popContentContainer">
+        <button class="js-narrationBtn narrationBtn" data-narr-idx="3" data-narr-src="./media/sample_narration_3.mp3"></button>
+        <div class="js-narrationTarget narrationTarget" data-src="./images/21_narration/21_narration_3" data-narr-idx="3"></div>
+        <button class="js-closePopBtn closePopBtn"></button>
+      </div>
+    </section>
   </div>
   <script>
     // narration callback function
     document.addEventListener('DOMContentLoaded', () => {
       loop(() => pageManager.narrations).then((narrations) => {
-        narrations.forEach((narr) => {
+        /* narrations.forEach((narr) => {
           narr.callback = {
             play: (narr, item) => {
               console.log(item);
@@ -42,7 +81,7 @@
               console.log(item);
             },
           }
-        });
+        }); */
       });
     });
   </script>
