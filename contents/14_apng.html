@@ -15,15 +15,17 @@
 
 * attribute
 - data-src: apng 경로 설정
-- data-auto-play: apng 자동 재생 설정 
-- data-loop: apng 반복 설정
+- autoPlay: apng 자동 재생 설정 
+- loop: apng 반복 설정
+- playButton: playButton 생성
+- clickableCanvas: canvas 클릭 여부
 -->
 
 <body>
   <div class="wrap">
     <main>
       <section class="contents">
-        <div class="js-apng apngContainer" data-src="../include/images/apng/sample.png" data-auto-play="false" data-loop="true" ></div>
+        <div class="js-apng apngContainer" data-src="../include/images/apng/sample.png" data-apng-opts="playButton, clickableCanvas,  loop"></div>
       </section>
     </main>
   </div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>scratch</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/popup.css">
+  <link rel="stylesheet" href="../include/css/scratch.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+<body>
+  <div class="wrap js-scale">
+    <main>
+      <section class="menuContainer olive">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button>
+      </section>
+      <section class="contents">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <!-- data-scratch-size 지우는 크기 없으면 기본값 30 -->
+              <!-- data-scratch-per 완료 퍼센트 없으면 기본값 70 -->
+              <!-- data-scratch-idx 안들어가도 자동으로 순서대로 숫자가 들어가긴함 -->
+              <div class="js-scratchContainer scratchContainer" data-scratch-idx="0" data-scratch-per="90" data-scratch-size="50">
+                <img class="js-scratchImg scratchImg" src="../include/images/scratch/scratch_bg.png" alt="" />
+              </div> <!--// scratch -->
+
+              <div class="js-scratchContainer scratchContainer" data-scratch-idx="1">
+                <img class="js-scratchImg scratchImg" src="../include/images/scratch/scratch_bg2.png" alt="" />
+              </div> <!--// scratch -->
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <button class="js-openPopBtn openPopBtn" data-pop-idx="1"></button>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="js-popupContent popup slidedown" data-pop-idx="1">
+        <div class="popContentContainer">
+          <div class="js-scratchContainer scratchContainer" data-scratch-idx="2">
+            <img class="js-scratchImg scratchImg" src="../include/images/scratch/scratch_bg.png" alt="" />
+          </div> <!--// scratch -->
+          
+          <button class="js-closePopBtn closePopBtn"></button>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loop(() => pageManager.scratches).then(() => {
+        pageManager.getScratchByIndex(0).callback = {
+          start: (SCRATCH) =>{
+            // console.log('start');
+          },
+          move: (SCRATCH) => {
+            // console.log('move');
+          },
+          end: (SCRATCH) => {
+            // console.log('end');
+          },
+          finish: (SCRATCH) => {
+            // console.log('finish');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

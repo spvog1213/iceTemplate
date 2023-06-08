@@ -50,6 +50,7 @@
         <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="3"></button>
         <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="4"></button>
         <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="5"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="6"></button>
       </section>
       <!-- // 상단 선택 Btn -->
 
@@ -134,6 +135,48 @@
                 <div class="js-sliderTabs sliderTabs" data-tab-name="slideDot"></div>
               </div>
             </li>
+
+            <li class="js-sliderContent sliderContent" data-sld-cont="6">
+              <div class="js-slider sliderContainer sizeCustom horizon" data-sld-idx="7" data-sld-opts="moveSideMotion" data-cont-show="3" data-sld-name="sliderHorizon">
+                <ul class="sliderContentContainer inner">
+                  <li class="js-sliderContent sliderContent selected" data-sld-cont="1"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="2"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="3"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="4"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="5"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="6"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="7"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="8"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="9"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="10"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="11"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="12"><div class="innerBox"></div></li>
+                  <!-- <li class="js-sliderContent sliderContent" data-sld-cont="13"><div class="innerBox"></div></li> -->
+                </ul>
+                <button class="js-sliderPrevBtn sliderPrevButton"></button>
+                <button class="js-sliderNextBtn sliderNextButton"></button>
+                <div class="js-sliderTabs sliderTabs" data-tab-name="slideDot"></div>
+              </div>
+              <div class="js-slider sliderContainer sizeCustom vertical" data-sld-idx="8" data-sld-opts="moveSideMotion, vertical" data-cont-show="3" data-sld-name="sliderVertical">
+                <ul class="sliderContentContainer inner">
+                  <li class="js-sliderContent sliderContent selected" data-sld-cont="1"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="2"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="3"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="4"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="5"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="6"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="7"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="8"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="9"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="10"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="11"><div class="innerBox"></div></li>
+                  <li class="js-sliderContent sliderContent" data-sld-cont="12"><div class="innerBox"></div></li>
+                  <!-- <li class="js-sliderContent sliderContent" data-sld-cont="13"><div class="innerBox"></div></li> -->
+                </ul>
+                <button class="js-sliderPrevBtn sliderPrevButton"></button>
+                <button class="js-sliderNextBtn sliderNextButton"></button>
+              </div>
+            </li>
           </ul>
         </div>
       </section>
@@ -151,6 +194,7 @@
             }
           }
         });
+        pageManager.sliders[0].pageChange(6);
         /* pageManager.getSliderByIndex(1).callback = {
           pageChange: (SLIDER) => {
             console.log('SLIDER:', SLIDER);

@@ -38,6 +38,7 @@ export const SND_MUTE = 'mute';
 export const OPT_TITLE = 'title';
 export const OPT_MOTION = 'motion';
 export const OPT_MOTION_SIDE = 'moveSideMotion';
+export const OPT_VERTICAL = 'vertical';
 /* options - popup */
 export const OPT_NOCLOSE = 'noClose';
 /* options - quiz */

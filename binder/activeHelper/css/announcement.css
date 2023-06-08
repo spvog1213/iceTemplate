@@ -1,4 +1,4 @@
-body { background: url(../images/annoucement/bg.png) no-repeat center/contain; } 
+/* body { background: url(../images/annoucement/bg.png) no-repeat center/contain; }  */
 
 .title { color: #fff; background: #9999ff; position: absolute; top: 0; left: 0; width: 390px; height: 140px; display: flex; justify-content: center; align-items: center; font-size: 40px; } 
 

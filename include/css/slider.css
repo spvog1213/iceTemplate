@@ -13,6 +13,7 @@
 .menuContainer > button[data-sld-cont="3"]:after {content: 'motion';}
 .menuContainer > button[data-sld-cont="4"]:after {content: 'title';}
 .menuContainer > button[data-sld-cont="5"]:after {content: 'change left value';}
+.menuContainer > button[data-sld-cont="6"]:after {content: 'mini slider';}
 
 /************************* custom *************************/
 .sliderContentContainer.inner {
@@ -142,6 +143,79 @@
   flex: 0 0 100%;
   display: block;
 }
+
+/* size custom */
+.sliderContainer.sizeCustom.horizon {
+	top: 200px;
+	left: 60px;
+  width: 700px;
+  height: 200px;
+}
+.sizeCustom.horizon .sliderContentContainer.inner {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* outline: none; */
+}
+.sizeCustom.horizon .sliderContent {
+  flex: 0 0 230px;
+  display: block;
+  height: 200px;
+}
+.sizeCustom.horizon .sliderContent.selected .innerBox {
+  box-shadow: inset 0 0 0 3px tomato;
+}
+.sizeCustom.horizon .sliderContent:before {
+  content: none;
+}
+.sizeCustom.horizon .sliderContent .innerBox {
+  width: calc(100% - 8px);
+  height: 100%;
+}
+.sliderContainer.sizeCustom .sliderPrevButton {left: -40px;}
+.sliderContainer.sizeCustom .sliderNextButton {right: -40px;}
+.sliderContainer.sizeCustom .sliderTabs {bottom: -34px;}
+
+.sliderContainer.sizeCustom.vertical {
+	position: absolute;
+	top: 60px;
+	left: 950px;
+	width: 240px;
+	height: 500px;
+}
+.sizeCustom.vertical .sliderContentContainer.inner {
+  flex-direction: column;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* outline: none; */
+}
+.sizeCustom.vertical .sliderContent {
+  flex: 0 0 170px;
+  display: block;
+  width: 100%;
+}
+.sizeCustom.vertical .sliderContent.selected .innerBox {
+  box-shadow: inset 0 0 0 3px tomato;
+}
+.sizeCustom.vertical .sliderContent:before {
+  content: none;
+}
+.sizeCustom.vertical .sliderContent .innerBox {
+  width: 100%;
+  height: calc(100% - 8px);
+}
+.sliderContainer.sizeCustom.vertical .sliderPrevButton {
+	left: 100px;
+	top: -76px;
+	transform: rotate(90deg);
+}
+.sliderContainer.sizeCustom.vertical .sliderNextButton {
+  top: auto;
+	left: 100px;
+	bottom: -76px;
+	transform: rotate(90deg);
+}
 /**********************************************************/
 
 
@@ -152,6 +226,7 @@ section.contents > .sliderContainer,
 .sliderContentContainer.inner {
   outline: 1px solid rgba(0, 0, 0, .1);
 }
+.sliderContent .innerBox:before,
 .sliderContent:before {
   content: '';
   display: block;
@@ -168,13 +243,36 @@ section.contents > .sliderContainer,
 .sliderContent[data-sld-cont="3"]:before {content: 'PAGE 3';}
 .sliderContent[data-sld-cont="4"]:before {content: 'PAGE 4';}
 .sliderContent[data-sld-cont="5"]:before {content: 'PAGE 5';}
+.sliderContent[data-sld-cont="6"]:before {content: 'PAGE 6';}
 
 .inner .sliderContent[data-sld-cont="1"] {background: #EEE;}
 .inner .sliderContent[data-sld-cont="2"] {background: #DDD;}
 .inner .sliderContent[data-sld-cont="3"] {background: #CCC;}
 .inner .sliderContent[data-sld-cont="4"] {background: #BBB;}
-.inner .sliderContent[data-sld-cont="5"] {background: #BBB;}
 
+/* size custom */
+.sliderContent[data-sld-cont="1"] > .innerBox:before {content: 'PAGE 1';}
+.sliderContent[data-sld-cont="2"] > .innerBox:before {content: 'PAGE 2';}
+.sliderContent[data-sld-cont="3"] > .innerBox:before {content: 'PAGE 3';}
+.sliderContent[data-sld-cont="4"] > .innerBox:before {content: 'PAGE 4';}
+.sliderContent[data-sld-cont="5"] > .innerBox:before {content: 'PAGE 5';}
+.sliderContent[data-sld-cont="6"] > .innerBox:before {content: 'PAGE 6';}
+.sliderContent[data-sld-cont="7"] > .innerBox:before {content: 'PAGE 7';}
+.sliderContent[data-sld-cont="8"] > .innerBox:before {content: 'PAGE 8';}
+.sliderContent[data-sld-cont="9"] > .innerBox:before {content: 'PAGE 9';}
+.sliderContent[data-sld-cont="10"] > .innerBox:before {content: 'PAGE 10';}
+.sliderContent[data-sld-cont="11"] > .innerBox:before {content: 'PAGE 11';}
+.sliderContent[data-sld-cont="12"] > .innerBox:before {content: 'PAGE 12';}
+.sliderContent[data-sld-cont="13"] > .innerBox:before {content: 'PAGE 13';}
+
+.sizeCustom.vertical .inner .sliderContent,
+.sizeCustom.horizon .inner .sliderContent {background: none;}
+.inner .sliderContent[data-sld-cont="1"] > .innerBox {background: #EEE;}
+.inner .sliderContent[data-sld-cont="2"] > .innerBox {background: #DDD;}
+.inner .sliderContent[data-sld-cont="3"] > .innerBox {background: #CCC;}
+.inner .sliderContent[data-sld-cont="4"] > .innerBox {background: #BBB;}
+.inner .sliderContent[data-sld-cont="5"] > .innerBox {background: #CCC;}
+.inner .sliderContent[data-sld-cont="6"] > .innerBox {background: #DDD;}
 
 .sliderTit {
   background: yellow;
