@@ -5,12 +5,14 @@
 .menuContainer > button[data-sld-cont="2"]:after {content: 'popup';}
 
 /************************* custom *************************/
-.scratchContainer { width: 300px; height: 200px; }
+.textBox { width: 300px; height: 200px; display: block !important; position: relative; margin: 20px; border: 1px solid red; padding: 20px; font-size: 30px; text-align: center; background-color: beige; }
+
+.scratchContainer { width: 300px; height: 200px; top: 0; left: 0; }
 .scratchCursor { margin-top: -30px; margin-left: -5px; width: 36px; height: 36px; background-image: url('../../include/images/scratch/scratch_cursor.png'); }
 /**********************************************************/
 
 /************************* default ************************/
-.scratchContainer { overflow: hidden; cursor: none; position: relative; }
+.scratchContainer { overflow: hidden; cursor: none; position: absolute; }
 .scratchContainer.inactive { display: none; }
 .scratchContainer canvas { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) translateZ(0); max-width: none; }
 .scratchContainer img { width: auto; height: auto; max-width: none; display: none; }

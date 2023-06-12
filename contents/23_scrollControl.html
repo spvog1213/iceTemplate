@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>scrollControl</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/scrollControl.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <main>
+      <section class="menuContainer olive">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="3"></button>
+      </section>
+      <section class="contents">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <div class="js-scrollControlContainer scrollControlContainer" data-ctrl-opt="video, vertical">
+                <video class="js-scrollTarget scrollTarget">
+                  <source src="../include/images/scrollControl/video.mp4" type="video/mp4" />
+                </video>
+
+                <div class="scrollControlBox">
+                  <div class="js-scrollControl scrollControl">
+                    <div class="js-scrollControlBar scrollControlBar"></div>
+                    <div class="js-scrollControlDot scrollControlDot"></div>
+                  </div> <!--// scrollControl -->
+                </div> <!--// scrollControlBox -->
+              </div> <!--// scrollControlContainer -->
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <div class="js-scrollControlContainer scrollControlContainer" data-ctrl-opt="image, src" data-src-num="30" data-src="../include/images/scrollControl/src/img_" data-src-type="png">
+                <img src="../include/images/scrollControl/src/img_1.png" class="js-scrollTarget scrollTarget centerImg" />
+
+                <div class="scrollControlBox">
+                  <div class="js-scrollControl scrollControl">
+                    <div class="js-scrollControlBar scrollControlBar"></div>
+                    <div class="js-scrollControlDot scrollControlDot"></div>
+                  </div> <!--// scrollControl -->
+                </div> <!--// scrollControlBox -->
+              </div> <!--// scrollControlContainer -->
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="3">
+              <div class="js-scrollControlContainer scrollControlContainer" data-ctrl-opt="image, opacity">
+                <img src="../include/images/scrollControl/src/img_1.png" class="js-scrollTarget scrollTarget centerImg" />
+
+                <div class="scrollControlBox">
+                  <div class="js-scrollControl scrollControl">
+                    <div class="js-scrollControlBar scrollControlBar"></div>
+                    <div class="js-scrollControlDot scrollControlDot"></div>
+                  </div> <!--// scrollControl -->
+                </div> <!--// scrollControlBox -->
+              </div> <!--// scrollControlContainer -->
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    // document.addEventListener('DOMContentLoaded', () => {
+    //   loop(() => pageManager.scratches).then(() => {
+    //     pageManager.getScratchByIndex(0).callback = {
+    //       start: (SCRATCH) =>{
+    //         // console.log('start');
+    //       },
+    //       move: (SCRATCH) => {
+    //         // console.log('move');
+    //       },
+    //       end: (SCRATCH) => {
+    //         // console.log('end');
+    //       },
+    //       finish: (SCRATCH) => {
+    //         // console.log('finish');
+    //       }
+    //     }
+    //   });
+    // });
+  </script>
+</body>
+</html>
