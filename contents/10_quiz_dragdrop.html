@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,16 +12,40 @@
   <script src="../include/js/pageManager.js"></script>
   <style>
     /* menu */
-    .menuContainer > button[data-sld-cont="1"]:before {content: 'TYPE 1';}
-    .menuContainer > button[data-sld-cont="2"]:before {content: 'TYPE 2';}
-    .menuContainer > button[data-sld-cont="3"]:before {content: 'TYPE 3';}
-    .menuContainer > button[data-sld-cont="4"]:before {content: 'TYPE 4';}
-    .menuContainer > button[data-sld-cont="1"]:after {content: 'dragdrop - default';}
-    .menuContainer > button[data-sld-cont="2"]:after {content: 'dragdrop - multiDrop';}
-    .menuContainer > button[data-sld-cont="3"]:after {content: 'dragdrop - copyDrag';}
-    .menuContainer > button[data-sld-cont="4"]:after {content: 'dragdrop - freeDrag';}
+    .menuContainer>button[data-sld-cont="1"]:before {
+      content: 'TYPE 1';
+    }
+
+    .menuContainer>button[data-sld-cont="2"]:before {
+      content: 'TYPE 2';
+    }
+
+    .menuContainer>button[data-sld-cont="3"]:before {
+      content: 'TYPE 3';
+    }
+
+    .menuContainer>button[data-sld-cont="4"]:before {
+      content: 'TYPE 4';
+    }
+
+    .menuContainer>button[data-sld-cont="1"]:after {
+      content: 'dragdrop - default';
+    }
+
+    .menuContainer>button[data-sld-cont="2"]:after {
+      content: 'dragdrop - multiDrop';
+    }
+
+    .menuContainer>button[data-sld-cont="3"]:after {
+      content: 'dragdrop - copyDrag';
+    }
+
+    .menuContainer>button[data-sld-cont="4"]:after {
+      content: 'dragdrop - freeDrag';
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <main>
@@ -32,46 +57,49 @@
       </section>
       <section class="contents">
         <!-- 퀴즈 속성
-        class name
-        complete : 문제가 끝났을 때 붙습니다.
-        hideIcon : input이 활성화 되어 아이콘이 숨겨져 있을 경우
-        on : 버튼이 활성화 될 때 on 이 클래스에 붙습니다.
-        selected : select, choice에서 선택 중일 때 클래스에 붙습니다.
-        isAnswer : 오답과, 정답이 함께 보여야 할때 클래스에 붙습니다.
-        isDragging : 드래그 중일때 붙습니다.
-        dragged : 드래그를 했던 quizItem의 클래스에 붙습니다.
-        dropped : 드롭이 완료된 quizItem의 클래스에 붙습니다.
-        freeDrag : 위치가 자유로운 드래그 입니다.
-        nonEvent : 클릭 중일때 pointer-eventer : none 인 quizItem 입니다.
-        isClone : 복사 된 quizItem 입니다.
+          class name
+          - complete : 문제가 끝났을 때 붙습니다.
+          - hideIcon : input이 활성화 되어 아이콘이 숨겨져 있을 경우
+          - on : 버튼이 활성화 될 때 on 이 클래스에 붙습니다.
+          - selected : select, choice에서 선택 중일 때 클래스에 붙습니다.
+          - isAnswer : 오답과, 정답이 함께 보여야 할때 클래스에 붙습니다.
+          //drag
+          - isDragging : 드래그 중일때 붙습니다.
+          - dragged : 드래그를 했던 quizItem의 클래스에 붙습니다.
+          - dropped : 드롭이 완료된 quizItem의 클래스에 붙습니다.
+          - freeDrag : 위치가 자유로운 드래그 입니다.
+          - nonEvent : 클릭 중일때 pointer-eventer : none 인 quizItem 입니다.
+          - isClone : 복사 된 quizItem 입니다.
 
-        attribute name
-        data-quiz-type: 퀴즈 타입(input, essay, select, choice, truefalse, dragdrop, dragline)
-        data-quiz-opts:
-          - noReset: 초기화 안함
-          - noSolve: 사용자 답 체크 안함
-          - noAlert: 퀴즈 알림 사용 안함
-          - noSound: 정오답 사운드 없음
-          - example: 예시답(없으면 정답)
-          - allSolve: 전체 답 입력 확인
-          - showAnsButton: 정답 확인 버튼 초기 보이기
-          - showRedoButton: 다시하기 버튼 보이기
-          - resetAllItem: 오답일 때 사용자 답 전체 초기화
-          - resetEachItem: 오답일 때 오답만 초기화
-          - saveUserAnswer: 사용자 답 초기화 안함
-          - autoChangeButton: 전체 정답을 완료 한 경우 자동으로 다시하기 버튼으로 변경
-          - multiChoice: 정답이 복수일 때
-          //drag 
-          - multiDrop: 한 dropItem에 여러개의 dragItem 드랍 가능
-          - copyDrag: 정답인 경우 무제한 드래그
-          - freeDrag: 정답 상관없이 무제한 드래그
-        data-quiz-try: 정답 시도 횟수(default: 1회)
-        -->
+          attribute name
+          data-quiz-type: 퀴즈 타입(input, essay, select, choice, truefalse, dragdrop, dragline)
+          data-quiz-opts:
+           - noReset: 초기화 안함
+           - noSolve: 사용자 답 체크 안함
+           - noAlert: 퀴즈 알림 사용 안함
+           - noSound: 정오답 사운드 없음
+           - example: 예시답(없으면 정답)
+           - allSolve: 전체 답 입력 확인
+           - showAnsButton: 정답 확인 버튼 초기 보이기
+           - showRedoButton: 다시하기 버튼 보이기
+           - resetAllItem: 오답일 때 사용자 답 전체 초기화
+           - resetEachItem: 오답일 때 오답만 초기화
+           - saveUserAnswer: 사용자 답 초기화 안함
+           - autoChangeButton: 전체 정답을 완료 한 경우 자동으로 다시하기 버튼으로 변경
+           - multiChoice: 정답이 복수일 때
+           - itemButton: 개별 정답 버튼을 생성
+           //drag 
+           - multiDrop: 한 dropItem에 여러개의 dragItem 드랍 가능
+           - copyDrag: 정답인 경우 무제한 드래그
+           - freeDrag: 정답 상관없이 무제한 드래그
+          data-quiz-try: 정답 시도 횟수(default: 1회)
+         -->
         <div class="js-slider sliderContainer" data-sld-idx="1">
           <ul class="sliderContentContainer">
             <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
               <!--- js-quizContainer | data-quiz-type, data-quiz-opts, data-quiz-try 등 설정 --->
-              <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop" data-quiz-opts="autoChangeButton" data-quiz-try="1" data-quiz-name="dragdropQuiz">
+              <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop" data-quiz-opts="autoChangeButton"
+                data-quiz-try="1" data-quiz-name="dragdropQuiz">
                 <!--- js-quizItem : data-type="drop" 이면 drag가 들어올 공간 (data-idx가 동일해야 함) --->
                 <div class="js-quizItem droparea" data-type="drop" data-idx="1"><span>TYPE 1</span></div>
                 <div class="js-quizItem droparea" data-type="drop" data-idx="2"><span>TYPE 2</span></div>
@@ -89,7 +117,8 @@
               </div>
             </li>
             <li class="js-sliderContent sliderContent" data-sld-cont="2">
-              <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop" data-quiz-opts="multiDrop, autoChangeButton" data-quiz-try="1">
+              <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop"
+                data-quiz-opts="multiDrop, autoChangeButton" data-quiz-try="1">
                 <div class="js-quizItem droparea" data-type="drop" data-idx="1,2"><span>TYPE 1, 2</span></div>
                 <div class="js-quizItem droparea" data-type="drop" data-idx="2,3"><span>TYPE 2, 3</span></div>
                 <div class="js-quizItem droparea" data-type="drop" data-idx="1,3"><span>TYPE 1, 3</span></div>
@@ -103,7 +132,8 @@
               </div>
             </li>
             <li class="js-sliderContent sliderContent" data-sld-cont="3">
-              <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop" data-quiz-opts="copyDrag, showRedoButton" data-quiz-try="1">
+              <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop"
+                data-quiz-opts="copyDrag, showRedoButton" data-quiz-try="1">
                 <div class="js-quizItem droparea" data-type="drop" data-idx="1"><span>TYPE 1</span></div>
                 <div class="js-quizItem droparea" data-type="drop" data-idx="2"><span>TYPE 2</span></div>
                 <div class="js-quizItem droparea" data-type="drop" data-idx="3"><span>TYPE 3</span></div>
@@ -117,7 +147,8 @@
               </div>
             </li>
             <li class="js-sliderContent sliderContent" data-sld-cont="4">
-              <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop" data-quiz-opts="freeDrag, noSound, noAlert, showRedoButton" data-quiz-try="1">
+              <div class="js-quizContainer quizContainer" data-quiz-type="dragdrop"
+                data-quiz-opts="freeDrag, noSound, noAlert, showRedoButton" data-quiz-try="1">
                 <div class="js-quizItem droparea" data-type="drop" data-idx="1"><span>TYPE 1</span></div>
                 <div class="js-quizItem droparea" data-type="drop" data-idx="2"><span>TYPE 2</span></div>
                 <div class="js-quizItem droparea" data-type="drop" data-idx="3"><span>TYPE 3</span></div>
@@ -148,16 +179,17 @@
       loop(() => pageManager.quizzes).then((quizzes) => { //모든 QuizContant 불러오기
         console.log(quizzes)
         pageManager.findQuizByName('dragdropQuiz').callback = { //data-quiz-name : dragdropQuiz에 콜백 설정
-          correct: (QUIZ) => {console.log('correct')}, //정답을 맞췄을 경우 console에서 correct가 적힌다.
-          incorrect: (QUIZ) => {console.log('incorrect')}, //오답일 경우 console에서 incorrect가 적힌다.
-          finish: (QUIZ) => {console.log('finish')}, //모두 오답이 되어 예시답을 보일 경우 console에서 finish가 적힌다.
-          redo: (QUIZ) => {console.log('redo')}, //다시 풀기위해 redo버튼이 숨겨졌을 경우 console에서 redo가 적힌다.
-          reset: (QUIZ) => {console.log('reset')}, //다시 풀기 버튼을 눌렀을 경우  console에서 reset가 적힌다. 
-          dragCorrect: (QUIZ, dragItem, dropItem) => {console.log('dragCorrect: ', dragItem)}, //dragItem을 정답인 drop장소에 옮겼을 경우 console에서 옮긴 element를 보여준다.
-          dragIncorrect: (QUIZ, dragItem) => {console.log('dragIncorrect: ', dragItem)} //dragItem을 오답인 drop장소에 옮겼을 경우 console에서 옮긴 element를 보여준다.
+          correct: (QUIZ) => { console.log('correct') }, //정답을 맞췄을 경우 console에서 correct가 적힌다.
+          incorrect: (QUIZ) => { console.log('incorrect') }, //오답일 경우 console에서 incorrect가 적힌다.
+          finish: (QUIZ) => { console.log('finish') },  //try를 끝내거나, 정답을 맞춰 예시답을 보일 경우 console에서 finish가 적힌다.
+          redo: (QUIZ) => { console.log('redo') }, //다시 풀기위해 redo버튼이 숨겨졌을 경우 console에서 redo가 적힌다.
+          reset: (QUIZ) => { console.log('reset') }, //다시 풀기 버튼을 눌렀을 경우  console에서 reset가 적힌다. 
+          dragCorrect: (QUIZ, dragItem, dropItem) => { console.log('dragCorrect: ', dragItem) }, //dragItem을 정답인 drop장소에 옮겼을 경우 console에서 옮긴 element를 보여준다.
+          dragIncorrect: (QUIZ, dragItem) => { console.log('dragIncorrect: ', dragItem) } //dragItem을 오답인 drop장소에 옮겼을 경우 console에서 옮긴 element를 보여준다.
         }
       });
     });
   </script>
 </body>
+
 </html>

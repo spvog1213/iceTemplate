@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+@import '../../../include/css/reset.css';
+@import '../../../include/css/normalize.css';
+@import '../../../include/css/font.css';
+@import 'menu.css';
+@import 'indexDesign.css';
+
+body {
+  background-color: #ffeec4;
+}
+
+.wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 720px;
+  font-family: NanumSquareB;
+  background-color: #FFF;
+  overflow: hidden;
+}
+
+.contentsFrame {
+  width: 100%;
+  height: 100%;
+  /* pointer-events: none; */
+}
+
+/* showMenu */
+button.showMenu {
+  opacity: 0;
+  position: absolute;
+  top: -50px;
+  right: 10px;
+  width: 26px;
+  height: 30px;
+  background: url(../images/topMenu_showMenu.png) center / auto 70% no-repeat;
+}
+
+/********************* learning tools *********************/
+/* blackScreen */
+.blackScreen {
+  display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	z-index: 100;
+}
+.blackScreen.on {
+  display: block;
+}
+.blackScreen .close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 17px;
+  background: #FFF url(../images/floatingMenu_close.png) center / auto 40% no-repeat;
+  cursor: pointer;
+}
+/**********************************************************/
+
+/************************* active *************************/
+/**********************************************************/

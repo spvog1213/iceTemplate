@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,21 @@
   <link rel="stylesheet" href="../include/css/comparison.css">
   <script src="../include/js/pageManager.js"></script>
 </head>
+<!-- class 및 attribute
+* comparison은 두 이미지를 비교하는 기능입니다.
+
+* class
+- js-comparison: comparison의 타겟이 되는 요소에 추가합니다.
+- js-comparisonLabel: comparison의 라벨을 설정합니다.
+- js-comparisonImgConatiner: comparison의 이미지를 감싸는 요소에 추가합니다.
+- js-comparisonImg: comparison의 이미지를 설정합니다.
+- js-comparisonDragBar: comparison의 드래그 바를 설정합니다.
+
+* attribute
+- data-comparison-idx: comparison의 인덱스를 설정합니다. (default 값은 0입니다. 입력하지 않아도 자동으로 인덱스가 설정됩니다.)
+- data-comparison-start: comparison의 시작 퍼센트를 설정합니다. (default 값은 50입니다.)
+-->
+
 <body>
   <div class="wrap js-scale">
     <main>
@@ -22,18 +38,21 @@
         <div class="js-slider sliderContainer" data-sld-idx="1">
           <ul class="sliderContentContainer">
             <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
-              <div class="js-comparison comparison" data-comparison-idx="0" data-comparison-start="30"> 
-                <!-- data-comparison-start 시작 퍼센트 없으면 기본값 50 -->
-                <!-- data-comparison-idx 안들어가도 자동으로 순서대로 숫자가 들어가긴함 -->
+              <div class="js-comparison comparison" data-comparison-idx="0" data-comparison-start="30">
+                <!-- 라벨 -->
                 <span class="js-comparisonLabel comparisonLabel leftLabel"></span>
                 <span class="js-comparisonLabel comparisonLabel rightLabel"></span>
+
                 <div class="js-comparisonImgConatiner comparisonImgConatiner">
+                  <!-- 좌측 이미지 -->
                   <div class="js-comparisonImg comparisonImg leftImgBox">
                     <img src="../include/images/comparison/img_1.jpg" alt="" />
                   </div>
+                  <!-- 우측 이미지 -->
                   <div class="js-comparisonImg comparisonImg rightImgBox">
                     <img src="../include/images/comparison/img_2.jpg" alt="" />
-                  </div> 
+                  </div>
+                  <!-- 드래그바 -->
                   <div class="js-comparisonDragBar comparisonDragBar">
                     <div></div>
                     <div></div>
@@ -60,14 +79,14 @@
               </div>
               <div class="js-comparisonImg comparisonImg rightImgBox">
                 <img src="../include/images/comparison/img_2.jpg" alt="" />
-              </div> 
+              </div>
               <div class="js-comparisonDragBar comparisonDragBar">
                 <div></div>
                 <div></div>
               </div>
             </div>
           </div> <!--// comparison -->
-          
+
           <button class="js-closePopBtn closePopBtn"></button>
         </div>
       </section>
@@ -77,18 +96,36 @@
     document.addEventListener('DOMContentLoaded', () => {
       loop(() => pageManager.popups).then(() => {
         pageManager.getPopupByIndex(1).callback = {
-          open: (POPUP, OPENBTN) =>{
+          open: (POPUP, OPENBTN) => {
             const openIdx = Number(OPENBTN.attr('data-comparison-idx'));
 
             if (openIdx == 0) pageManager.getComparisonByIndex(1).numberMove(70);
             else pageManager.getComparisonByIndex(1).numberMove(30);
+
+            // console.log('open');
           },
           close: (POPUP) => {
-            // console.log(POPUP);
+            // console.log('close');
+          }
+        };
+
+        pageManager.getComparisonByIndex(0).callback = { //data-comparison-idx = '0' 번째
+          start: (SCRATCH) =>{ //비교 시작
+            // console.log('start'); 
+          },
+          move: (SCRATCH) => { //비교 중
+            // console.log('move');
+          },
+          end: (SCRATCH) => { //비교 끝
+            // console.log('end');
+          },
+          reset: (SCRATCH) => { //리셋
+            // console.log('reset');
           }
         }
       });
     });
   </script>
 </body>
+
 </html>

@@ -1,0 +1,297 @@
+
+/************************** menu **************************/
+/* top */
+.topMenu {
+  display: flex;
+  align-items: center;
+  position: absolute;
+	top: 4px;
+	left: 10px;
+	right: 10px;
+	height: 30px;
+  font-family: GmarketSansM;
+	border-radius: 50px;
+	background: #FFF;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, .2);
+}
+.topMenu > * {
+  flex-shrink: 0;
+}
+.topMenu button.hover {transform: scale(.9);}
+/* top - indexBtn */
+button.index {
+  display: block;
+  position: relative;
+  width: 36px;
+  height: 100%;
+  background: url(../images/topMenu_index.png) center / auto 50% no-repeat;
+}
+/* top - navigation */
+.topMenu .navigation {
+  flex-shrink: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+  font-size: 14px;
+  /* outline: 1px solid tomato; */
+}
+.topMenu .navigation:before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+  border-left: 1px solid #CCC;
+}
+.topMenu .navigation > div {
+  position: relative;
+  padding: 0 5px;
+  /* margin: 0 4px; */
+  /* outline: 1px solid tomato; */
+}
+.topMenu .navigation > div:nth-child(1) {padding-left: 0;}
+.topMenu .navigation > div:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-right: 1px solid #CCC;
+}
+.topMenu .navigation > div.title:after {content: none;}
+.topMenu .navigation .step {
+	order: 1;
+	padding: 3px 7px 2px;
+  margin-left: 6px;
+	color: #FFF;
+	font-size: 12px;
+	border-radius: 20px;
+	background: coral;
+}
+.topMenu .navigation .step:after {
+  content: none;
+}
+.topMenu .navigation > div.hidden {
+  display: none;
+}
+
+/* top - textbook */
+.topMenu .textbook {
+  display: flex;
+  align-items: center;
+  padding-right: 6px;
+  margin-right: 10px;
+  color: #999;
+  font-size: 12px;
+  border-radius: 10px;
+  background-color: #EEE;
+  cursor: pointer;
+}
+.topMenu .textbook:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  background: url(../images/topMenu_book.png) center / auto 80% no-repeat;
+}
+.topMenu .textbook .page {
+  width: 40px;
+  padding: 2px 0;
+  margin-right: 4px;
+  color: #000;
+  text-align: center;
+}
+
+/* top - paging */
+.topMenu .paging {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 0;
+  font-size: 12px;
+  border-radius: 10px;
+  background-color: #EEE;
+}
+.topMenu .paging button {
+  width: 18px;
+  height: 18px;
+  margin: 0 2px;
+  background: center / contain no-repeat;
+}
+.topMenu .paging button.off {
+  opacity: .2;
+  pointer-events: none;
+}
+.topMenu .paging button.prev {
+  background-image: url(../images/topMenu_prev.png);
+}
+.topMenu .paging button.next {
+  background-image: url(../images/topMenu_next.png);
+}
+.topMenu .paging .number {
+  margin: 0 2px;
+  padding: 4px 8px 2px;
+}
+.topMenu .paging .current {
+  font-weight: bold;
+}
+.topMenu .paging .total {
+  color: #999;
+}
+.topMenu .paging .total:before {
+  content: '/';
+}
+
+/* top - hideMenu */
+.topMenu button.hideMenu {
+  display: block;
+  width: 26px;
+  height: 100%;
+  background: url(../images/topMenu_hideMenu.png) center / auto 70% no-repeat;
+}
+
+/* top - cursor */
+.topMenu button.cursor {
+  display: block;
+  width: 26px;
+  height: 100%;
+  background: url(../images/topMenu_cursor.png) center / auto 70% no-repeat;
+}
+
+/* top - home */
+.topMenu button.home {
+  display: block;
+  width: 26px;
+  height: 100%;
+  margin-right: 4px;
+  background: url(../images/topMenu_home.png) center / auto 70% no-repeat;
+}
+
+/* bottom */
+.bottomMenu {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  /* outline: 1px solid tomato; */
+  pointer-events: none;
+}
+
+/* floating */
+.floatingMenu {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  /* outline: 1px solid tomato; */
+}
+.floatingMenu > * {
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  margin-bottom: 6px;
+  border-radius: 14px;
+	box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, .2);
+  pointer-events: none;
+  overflow: hidden;
+}
+.floatingMenu > *:last-child {
+  margin: 0;
+}
+.floatingMenu button {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: #FFF center / auto 70% no-repeat;
+  pointer-events: auto;
+}
+.floatingMenu .on button:not(:last-child):after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 0px;
+  border-bottom: 1px solid #DDD;
+}
+.floatingMenu button.hover {
+  background-color: #fff73b;
+}
+.floatingMenu button.toggle,
+.floatingMenu > *.on button {
+  display: block;
+}
+.floatingMenu > *.on button.toggle {
+  background-image: url(../images/floatingMenu_close.png);
+  background-size: auto 40%;
+}
+
+/* floating - learningTools */
+.learningTools .toggle {background-image: url(../images/topMenu_learningTools.png);}
+.learningTools .draw {background-image: url(../images/learning_draw.png);}
+.learningTools .memo {background-image: url(../images/learning_memo.png);}
+.learningTools .blackScreen {background-image: url(../images/learning_blackScreen.png);}
+.learningTools .attention {background-image: url(../images/learning_attention.png);}
+
+/* floating - activeHelper */
+.activeHelper .toggle {background-image: url(../images/topMenu_activityHelper.png);}
+.activeHelper .board {background-image: url(../images/activity_board.png);}
+.activeHelper .timer {background-image: url(../images/activity_timer.png);}
+.activeHelper .sticker {background-image: url(../images/activity_sticker.png);}
+.activeHelper .group {background-image: url(../images/activity_group.png);}
+.activeHelper .score {background-image: url(../images/activity_score.png);}
+.activeHelper .penalty {background-image: url(../images/activity_penalty.png);}
+
+/* floating - specialContents */
+.specialContents .toggle {background-image: url(../images/topMenu_specialContents.png);}
+.specialContents .dictionary {background-image: url(../images/specialContents_dictionary.png);}
+.specialContents .games {
+  background-image: url(../images/specialContents_games.png);
+  background-size: auto 75%;
+}
+.specialContents .sings {
+  background-image: url(../images/specialContents_sings.png);
+  background-size: auto 60%;
+}
+/**********************************************************/
+
+
+/************************* active *************************/
+.hideMenu .topMenu {
+  animation: hideTopMenu .5s ease-in-out forwards;
+}
+@keyframes hideTopMenu {
+  100% {transform: translateY(-50px); opacity: 0;}
+}
+.hideMenu .bottomMenu {
+  animation: hideBottomMenu .5s ease-in-out forwards;
+}
+@keyframes hideBottomMenu {
+  100% {transform: translateY(+50px); opacity: 0;}
+}
+.hideMenu button.showMenu {
+  display: block;
+  animation: fadeinShowMenuButton .5s ease-in-out forwards;
+}
+@keyframes fadeinShowMenuButton {
+  100% {transform: translateY(+54px); opacity: 1;}
+}
+.showMenu .topMenu {
+  transform: translateY(-50px); opacity: 0;
+  animation: showTopMenu .5s ease-in-out forwards;
+}
+@keyframes showTopMenu {
+  100% {transform: translateY(0px); opacity: 1;}
+}
+.showMenu .bottomMenu {
+  transform: translateY(+50px); opacity: 0;
+  animation: showBottomMenu .5s ease-in-out forwards;
+}
+@keyframes showBottomMenu {
+  100% {transform: translateY(0px); opacity: 1;}
+}
+/**********************************************************/

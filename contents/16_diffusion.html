@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,16 +10,29 @@
   <link rel="stylesheet" href="../include/css/diffusion.css">
   <script src="../include/js/pageManager.js"></script>
 </head>
+<!-- class 및 attribute
+* 이미지를 확산시키는 기능입니다.
+
+* class
+- js-diffusionImage: diffusion(확산)의 타겟이 되는 요소에 추가합니다.
+
+* attribute
+- data-src: 이미지의 경로를 설정합니다.
+- data-spread: 확산의 모양을 설정합니다.
+- data-speed: 확산의 속도를 설정합니다. (default 값은 25입니다. 값이 클수록 빠르게 확산됩니다.)
+-->
+
 <body>
   <div class="wrap js-scale">
     <main>
       <section class="contents">
-        <canvas class="js-diffusionImage diffusionImage" data-src="./images/16_diffusion/16_diffusion_sample_gray.png"></canvas>
+        <canvas class="js-diffusionImage diffusionImage"
+          data-src="./images/16_diffusion/16_diffusion_sample_gray.png"></canvas>
       </section>
     </main>
   </div>
   <script>
-    // apng callback function
+    // diffusion callback function
     document.addEventListener('DOMContentLoaded', () => {
       const diffusionImage = initDiffusion(getEl('.js-diffusionImage')[0]);
       diffusionImage.callback = {
@@ -29,4 +43,5 @@
     });
   </script>
 </body>
+
 </html>

@@ -64,16 +64,19 @@
       loop(() => pageManager.scratches).then(() => {
         pageManager.getScratchByIndex(0).callback = { //data-scratch-idx = '0' 번째
           start: (SCRATCH) =>{  //스크래치는 눌렀을 때
-            console.log('start'); 
+            // console.log('start'); 
           },
           move: (SCRATCH) => { //지우개를 움직였을 때
-            console.log('move');
+            // console.log('move');
           },
           end: (SCRATCH) => { //스크래치에서 마우스를 떼었을 때
-            console.log('end');
+            // console.log('end');
           },
           finish: (SCRATCH) => { //스크래치가 사라질 때
-            console.log('finish');
+            // console.log('finish');
+          },
+          reset: (SCRATCH) => { //스크래치 리셋
+            // console.log('reset');
           }
         }
       });

@@ -1,3 +1,5 @@
+/* mp3 src */
+export const SRC_INCLUDE = '';
 
 /* classname - scale */
 export const CLA_SCALE = 'js-scale';

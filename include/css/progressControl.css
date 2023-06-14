@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+/* menu */
+.menuContainer > button[data-sld-cont="1"]:after {content: 'video';}
+.menuContainer > button[data-sld-cont="2"]:after {content: 'image(opacity)';}
+.menuContainer > button[data-sld-cont="3"]:after {content: 'image(src)';}
+.menuContainer > button[data-sld-cont="4"]:after {content: 'image(callback)';}
+
+/************************* custom *************************/
+.sliderContainer { background-color: #aaa; }
+
+.progressControlBox { position: absolute; top: 570px; left: 450px; width: 380px; background-color: #fff; padding: 20px 0px; border-radius: 20px; }
+.progressControl { width: 330px; }
+.progressControlBar { height: 6px; border-radius: 10px; background: linear-gradient(to right, tomato 0%, #CCC 0%); }
+.progressControlBar { display: flex; justify-content: space-around; align-items: center; }
+.progressMoveDiv { width: 4px; height: 4px; border-radius: 50%; background-color: red; opacity: 0.5; }
+.progressMoveDiv.inactive { background-color: transparent; }
+.progressControlDot::before { background: tomato; border-radius: 50%; top: calc(-20px / 2); left: calc(-20px / 2); width: 20px; height: 20px; }
+
+.progressControlContainer[data-ctrl-opt*="vertical"] .progressControlBox { top: 130px; left: 1210px; width: auto; padding: 0 20px; height: 380px; display: flex; align-items: center; }
+.progressControlContainer[data-ctrl-opt*="vertical"] .progressControl { width: auto; height: 330px; }
+.progressControlContainer[data-ctrl-opt*="vertical"] .progressControlBar { width: 6px; height: 100%;  background: linear-gradient(tomato 0%, #CCC 0%); flex-direction: column; }
+
+.opacityImg { opacity: 0; }
+.centerImg { width: 400px; margin: 90px auto; }
+
+.numText { text-align: center; background-color: #fff; width: 150px; padding: 10px 0; margin: 150px auto; border: 1px solid #000; }
+.numBox { display: flex; justify-content: space-around; width: 600px; margin: 0px auto; }
+.numBox > div { font-size: 30px; background-color: #fff; padding: 10px 0; width: 100px; text-align: center; border: 1px solid #000; cursor: pointer; }
+.numBox > div.on { background-color: #000; border: 1px solid #fff; color: #fff; pointer-events: none; }
+/**********************************************************/
+
+/************************* default ************************/
+.progressControl { margin: 0 auto; position: relative; }
+.progressControlDot { position: absolute; top: 50%; width: 1px; height: 1px; cursor: pointer; }
+.progressControlDot::before { content: ''; display: block; position: absolute; }
+
+.progressControlContainer[data-ctrl-opt*="vertical"] .progressControlDot { top: 0; left: 50%; }
+/**********************************************************/

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>progressControl</title>
+  <link rel="stylesheet" href="../include/css/style.css">
+  <link rel="stylesheet" href="../include/css/slider.css">
+  <link rel="stylesheet" href="../include/css/progressControl.css">
+  <script src="../include/js/pageManager.js"></script>
+</head>
+<!-- class 및 arrtibute
+* progressControl은 컨트롤을 통해 요소를 제어하는 기능입니다.
+
+* class
+- js-progressControlContainer: js-progressTarget을 감싸는 컨테이너에 class로 입력합니다. attribute로 data-ctrl-opt를 입력해 컨트롤 옵션을 설정할 수 있습니다. 
+- js-progressTarget: 컨트롤 대상 요소에 class로 입력합니다. (video, img)
+- js-progressControl: 컨트롤을 감싸는 요소에 class로 입력합니다. 자식 요소로 js-progressControlBar, js-progressControlDot을 가지고 있습니다. attribute로 data-ctrl-idx를 입력해 컨트롤 인덱스를 설정할 수 있습니다.
+- js-progressControlBar: 컨트롤 바에 class로 입력합니다.
+- js-progressControlDot: 컨트롤 닷에 class로 입력합니다.
+
+* attribute
+- data-ctrl-idx: 컨트롤 인덱스를 설정합니다. (입력하지 않아도 자동으로 인덱스가 설정됩니다.)
+- data-ctrl-opt: 컨트롤 옵션을 설정합니다. (video, opacity, changeSrc, changeDot, vertical, reverse)
+  (video: video 요소를 컨트롤합니다. video 요소를 컨트롤할 경우 js-progressTarget에 video 요소를 넣어주세요.)
+  (opacity: opacity를 컨트롤합니다. opacity를 컨트롤할 경우 js-progressTarget에 img 요소를 넣어주세요.)
+  (changeSrc: src를 변경합니다. src를 변경할 경우 js-progressTarget에 img 요소를 넣어주세요.)
+  (changeDot: 닷을 변경합니다.)
+  (vertical: progressControlContainer를 세로로 컨트롤합니다.) 
+  (reverse: progressControlBar를 역방향으로 컨트롤합니다.)
+- data-ctrl-start: progressControlDot의 시작 위치를 설정합니다.  (0 ~ 100)
+- data-src: changeSrc 옵션을 사용할 경우 이미지 경로를 입력합니다.
+- data-src-idx: changeSrc 옵션을 사용할 경우 이미지 인덱스를 설정합니다. (입력하지 않아도 자동으로 인덱스가 설정됩니다.)
+- data-src-type: changeSrc 옵션을 사용할 경우 이미지 타입을 설정합니다.
+- data-dot-num: changeSrc 옵션을 사용할 경우 닷의 개수를 설정합니다.
+ -->
+
+<body>
+  <div class="wrap js-scale">
+    <main>
+      <section class="menuContainer olive">
+        <button class="js-sliderBtn selected" data-sld-idx="1" data-sld-cont="1"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="2"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="3"></button>
+        <button class="js-sliderBtn" data-sld-idx="1" data-sld-cont="4"></button>
+      </section>
+      <section class="contents">
+        <div class="js-slider sliderContainer" data-sld-idx="1">
+          <ul class="sliderContentContainer">
+            <li class="js-sliderContent sliderContent selected" data-sld-cont="1">
+              <!-- data-ctrl-idx 안들어가도 자동으로 순서대로 숫자가 들어가긴함 -->
+              <!-- data-ctrl-start 시작 위치 -->
+              <div class="js-progressControlContainer progressControlContainer" data-ctrl-opt="video, vertical"
+                data-ctrl-idx="0" data-ctrl-start="50">
+                <video class="js-progressTarget progressTarget">
+                  <source src="../include/images/progressControl/video.mp4" type="video/mp4" />
+                </video>
+                <div class="progressControlBox">
+                  <div class="js-progressControl progressControl">
+                    <div class="js-progressControlBar progressControlBar"></div>
+                    <div class="js-progressControlDot progressControlDot"></div>
+                  </div> <!--// progressControl -->
+                </div> <!--// progressControlBox -->
+              </div> <!--// progressControlContainer -->
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="2">
+              <div class="js-progressControlContainer progressControlContainer" data-ctrl-opt="opacity"
+                data-ctrl-start="50">
+                <img src="../include/images/progressControl/src/img_1.png"
+                  class="js-progressTarget progressTarget centerImg opacityImg" />
+
+                <div class="progressControlBox">
+                  <div class="js-progressControl progressControl">
+                    <div class="js-progressControlBar progressControlBar"></div>
+                    <div class="js-progressControlDot progressControlDot"></div>
+                  </div> <!--// progressControl -->
+                </div> <!--// progressControlBox -->
+              </div> <!--// progressControlContainer -->
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="3">
+              <div class="js-progressControlContainer progressControlContainer" data-ctrl-opt="changeSrc"
+                data-dot-num="30" data-src="../include/images/progressControl/src/img_" data-src-type="png">
+                <img src="../include/images/progressControl/src/img_1.png"
+                  class="js-progressTarget progressTarget centerImg" />
+
+                <div class="progressControlBox">
+                  <div class="js-progressControl progressControl">
+                    <div class="js-progressControlBar progressControlBar"></div>
+                    <div class="js-progressControlDot progressControlDot"></div>
+                  </div> <!--// progressControl -->
+                </div> <!--// progressControlBox -->
+              </div> <!--// progressControlContainer -->
+            </li>
+            <li class="js-sliderContent sliderContent" data-sld-cont="4">
+              <div class="js-progressControlContainer progressControlContainer" data-ctrl-opt="changeDot"
+                data-dot-num="5">
+                <div class="js-numText numText">10</div>
+
+                <div class="js-numBox numBox">
+                  <div class="on">10</div>
+                  <div>15</div>
+                  <div>75</div>
+                  <div>152</div>
+                  <div>155</div>
+                </div> <!--// numBox -->
+
+                <div class="progressControlBox">
+                  <div class="js-progressControl progressControl">
+                    <div class="js-progressControlBar progressControlBar"></div>
+                    <div class="js-progressControlDot progressControlDot"></div>
+                  </div> <!--// progressControl -->
+                </div> <!--// progressControlBox -->
+              </div> <!--// progressControlContainer -->
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loop(() => pageManager.progressControls).then(() => {
+        pageManager.getProgressControlByIndex(1).callback = {
+          start: (CONTAINER) => {
+            // console.log('start');
+          },
+          move: (CONTAINER, POSITION, TARGET) => {
+            // console.log(POSITION, TARGET);
+          },
+          end: (CONTAINER) => {
+            // console.log('end');
+          },
+          reset: (CONTAINER) => {
+            // console.log('reset');
+          },
+        };
+
+        /* callback 이용 샘플 */
+        const numText = getEl('.numText')[0];
+        const numBox = getEl('.numBox > div');
+        pageManager.getProgressControlByIndex(3).callback = {
+          start: (CONTAINER) => {
+            // console.log('start');
+          },
+          move: (CONTAINER, POSITION, TARGET) => {
+            if (TARGET) changeText(Number(TARGET.attr('data-src-idx')) - 1);  // TARGET이 있을 경우 changeText 함수 실행
+          },
+          end: (CONTAINER) => {
+            // console.log('end');
+          },
+          reset: (CONTAINER) => {
+            changeText(0); 
+          },
+        };
+
+        numBox.forEach((item, index) => {
+          item.addEvent('click', function () { // item을 클릭하면
+            pageManager.getProgressControlByIndex(3).dotMove((index + 1)); // progressControl의 dotMove 함수를 실행
+            changeText(index); // changeText 함수 실행
+          });
+        });
+
+        // text 변경 함수 (targetNum: 변경할 text의 인덱스)
+        function changeText(targetNum) {
+          numBox.forEach((item) => item.removeClass('on')); // 모든 요소의 on 클래스 제거
+          numBox[targetNum].addClass('on'); // 선택한 요소에 on 클래스 추가
+          numText.DOM.innerText = numBox[targetNum].text; // 선택한 요소의 text를 numText에 적용
+        };
+        /* callback 이용 샘플 */
+      });
+    });
+  </script>
+</body>
+
+</html>

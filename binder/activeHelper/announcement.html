@@ -17,12 +17,13 @@
 			<p>발표 도우미</p>
 		</div>
 		<div class="top">
-			<button class="upload">학급 명단 불러오기</button>
+			<label for="upload_xlsx" class="upload">
+				학급 명단 불러오기
+			</label>
 			<button class="download">양식 내려받기</button>
-			<input type="file" class="upload_xlsx">
-			<script>
 
-			</script>
+			<input type="file" class="upload_xlsx" id="upload_xlsx">
+
 		</div>
 		<div class="tab">
 			<button class="tabBtn on">전체에서 뽑기</button>
@@ -34,30 +35,23 @@
 				<div class="selectBox">
 					<p>발표자 <input class="inputbox" type="text">명 뽑기 <button class="js-select select"></button></p>
 				</div>
-				<div class="boxWrap">
-
-				</div>
-
-
-
+				<div class="boxWrap"></div>
 
 
 			</div>
 			<div class="cont2">
 				<div class="selectBox">
-					<p>모둠마다 발표자 <input class="inputbox" type="text">명씩 뽑기 <button class="js-select select"></button></p>
+					<p>모둠마다 발표자 <input class="inputbox" type="text">명씩 뽑기 <button class="js-select select"></button></p>					
 				</div>
-				<div class="boxWrap">
-
-
-
-
-
-
-				</div>
+				<div class="boxWrap"></div>
 
 			</div>
 			<div class="cont3">
+				<div class="selectBox">
+					<p><input class="inputbox" type="text"> 개의 임시 모둠 만들기 <button class="js-select select"></button></p>
+					<p class="choice">모둠마다 발표자 <input class="inputbox" type="text">명씩 뽑기 <button class="js-select select"></button></p>
+				</div>
+				<div class="boxWrap"></div>
 
 			</div>
 		</div>

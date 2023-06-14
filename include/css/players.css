@@ -24,7 +24,7 @@
   margin: 0 20px;
 }
 .player[data-ply-type="audio"] .control {
-	width: 300px;
+	width: 400px;
   padding: 4px 10px;
   border-radius: 30px;
   background: #EEE;
@@ -89,6 +89,12 @@
 .player button.videoPlayButton.hover {
   opacity: 1;
 }
+.player button.volume {
+  background-image: url(../../include/images/player/control_vol.png);
+}
+.player button.volume.inactive {
+  background-image: url(../../include/images/player/control_vol_mute.png);
+}
 
 /* fullscreen */
 .isFullscreenMode .player button.zoom {
@@ -114,6 +120,17 @@
   background: linear-gradient(to right, tomato 0%, #CCC 0%);
 }
 .player .progressControl:before {
+  background: tomato;
+  border-radius: 50%;
+}
+
+/* volume */
+.player .volumeBar {
+  height: 6px;
+  border-radius: 10px;
+  background: linear-gradient(to right, tomato 100%, #CCC 100%);
+}
+.player .volumeControl:before {
   background: tomato;
   border-radius: 50%;
 }
@@ -290,6 +307,33 @@
   height: 16px;
 }
 
+/* volume */
+.player .volumeContainer {
+	width: 100px;
+  margin: 0 10px;
+  margin-left: 5px;
+}
+.player .volumeBar {
+  width: 100%;
+}
+.player .volumeControl {
+  position: absolute;
+  top: 50%;
+  width: 1px;
+  height: 1px;
+  left: 100%;
+}
+.player .volumeControl:before {
+  content: '';
+  display: block;
+  position: absolute;
+  /* 사이즈에 맞춰서 위치값 수정 필요 */
+  top: calc(-12px / 2);
+  left: calc(-12px / 2);
+  width: 12px;
+  height: 12px;
+}
+
 /* audio */
 .player[data-ply-type="audio"] button.zoom,
 .player[data-ply-type="audio"] button.script {display: none;}
@@ -300,7 +344,9 @@
 /* audio(mini) */
 .player[data-ply-type="audio"].mini .timer,
 .player[data-ply-type="audio"].mini .progress,
-.player[data-ply-type="audio"].mini button.stop {display: none;}
+.player[data-ply-type="audio"].mini button.stop,
+.player[data-ply-type="audio"].mini .volume,
+.player[data-ply-type="audio"].mini .volumeContainer {display: none;}
 
 /* video */
 .player .videoPosterImage {

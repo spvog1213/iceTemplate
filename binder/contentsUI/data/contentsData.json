@@ -1,0 +1,126 @@
+{
+  "grade": null,
+  "subject": "iceTemplate",
+  "subjectCode": "template",
+  "season": null,
+  "contents": [
+    {
+      "index": 1,
+      "title": "icecandy template",
+      "textbookPage": 8,
+      "src": "./contents/",
+      "active": true,
+      "chapters": [
+        {
+          "index": 1,
+          "title": "",
+          "textbookPage": 8,
+          "active": true,
+          "corners": [
+            {
+              "index": 1,
+              "title": "contents",
+              "textbookPage": 8,
+              "active": true,
+              "htmls": [
+                {
+                  "step": "도입",
+                  "type": "act",
+                  "title": "slider",
+                  "subbookPage": 8,
+                  "returnSubbookPage": 8,
+                  "textbookPage": 8,
+                  "returnTextbookPage": 8,
+                  "sound": "",
+                  "file": "01_sliders"
+                },
+                {
+                  "step": "도입",
+                  "type": "act",
+                  "title": "popup",
+                  "subbookPage": 9,
+                  "textbookPage": 9,
+                  "file": "02_popups"
+                },
+                {
+                  "step": "도입",
+                  "type": "act",
+                  "title": "player",
+                  "subbookPage": 10,
+                  "textbookPage": 10,
+                  "file": "03_players"
+                },
+                {
+                  "step": "도입",
+                  "type": "act",
+                  "title": "draw",
+                  "subbookPage": 11,
+                  "textbookPage": 11,
+                  "file": "05_draw"
+                },
+                {
+                  "step": "도입",
+                  "type": "act",
+                  "title": "timer",
+                  "subbookPage": 12,
+                  "textbookPage": 12,
+                  "file": "13_timer"
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "title": "quiz",
+              "textbookPage": 15,
+              "active": true,
+              "htmls": [
+                {
+                  "step": "도입",
+                  "type": "act",
+                  "title": "input",
+                  "textbookPage": 15,
+                  "file": "06_quiz_input"
+                },
+                {
+                  "step": "도입",
+                  "type": "act",
+                  "title": "select",
+                  "textbookPage": 16,
+                  "file": "07_quiz_select"
+                },
+                {
+                  "step": "도입",
+                  "type": "act",
+                  "title": "choice",
+                  "textbookPage": 17,
+                  "file": "08_quiz_choice"
+                },
+                {
+                  "step": "도입",
+                  "type": "act",
+                  "title": "toggle",
+                  "textbookPage": 18,
+                  "file": "09_quiz_toggle"
+                },
+                {
+                  "step": "도입",
+                  "type": "act",
+                  "title": "dragdrop",
+                  "textbookPage": 19,
+                  "file": "10_quiz_dragdrop"
+                },
+                {
+                  "step": "도입",
+                  "type": "act",
+                  "title": "dragline",
+                  "textbookPage": 20,
+                  "file": "11_quiz_dragline"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

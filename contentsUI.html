@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>contents UI</title>
+  <link rel="stylesheet" href="binder/contentsUI/css/index.css">
+  <script src="binder/contentsUI/js/index.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <iframe class="js-contentsFrame contentsFrame" src="" frameborder="0" allowfullscreen="true"></iframe>
+
+    <!-- top menu -->
+    <section class="js-topMenuBar topMenu">
+      <button class="js-indexBtn index"></button>
+      <div class="js-navigation navigation"></div>
+      <div class="js-textbook textbook">
+        <span class="js-textbookPage page">8</span>
+        <span>쪽</span>
+      </div>
+      <div class="js-paging paging" data-page-scope="chapter">
+        <button class="js-prevBtn prev"></button>
+        <div class="number">
+          <span class="js-current current">1</span>
+          <span class="js-total total">10</span>
+        </div>
+        <button class="js-nextBtn next"></button>
+      </div>
+      <button class="js-hideMenuBtn hideMenu"></button>
+      <button class="js-cursorBtn cursor"></button>
+      <button class="js-homeBtn home"></button>
+    </section>
+    <button class="js-showMenuBtn showMenu"></button>
+    <!-- top menu END -->
+    
+    <!-- bottom menu -->
+    <section class="js-bottomManuBar bottomMenu"></section>
+    <!-- bottom menu END -->
+
+    <!-- floating menu -->
+    <section class="floatingMenu">
+      <section class="js-learningTools learningTools">
+        <button class="toggle"></button>
+      </section>
+      <section class="js-activeHelper activeHelper">
+        <button class="toggle"></button>
+      </section>
+      <section class="js-specialContents specialContents">
+        <button class="toggle"></button>
+      </section>
+    </section>
+    <!-- floating menu END -->
+
+    <!-- index popup -->
+    <section class="js-indexPopup index">
+      <div class="indexBox">
+        <ul class="lesson">
+          <li>lesson Title 1</li>
+          <li>lesson Title 2</li>
+          <li>lesson Title 3</li>
+          <li>lesson Title 4</li>
+        </ul>
+      </div>
+      <button class="js-close close"></button>
+    </section>
+    <!-- index popup END -->
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+    });
+  </script>
+</body>
+</html>

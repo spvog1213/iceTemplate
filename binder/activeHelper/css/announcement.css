@@ -16,13 +16,13 @@ input[type="text"]:focus::placeholder { color: transparent; }
 
 .tab > button { background: #b9eeed; color: #3cc; width: 366px; height: 85px; margin-right: 24px; border-radius: 40px 40px 0 0; font-size: 30px; } 
 
-.content { position: absolute; top: 139px; width: 100%; height: 934px; /* background: #ebecf3; */ } 
+.content {position: absolute;top: 139px;width: 100%;height: 964px;/* background: #ebecf3; */} 
 
-.content > div { display: none; position: absolute; top: 158px; left: 40px; width: 1830px; height: 745px; border-radius: 30px; border: 3px solid #3cc; /* background: #fff; */ } 
+.content > div {display: none;position: absolute;top: 158px;left: 40px;width: 1830px;height: 800px;border-radius: 30px;border: 3px solid #3cc;/* background: #fff; */} 
 
 .content > div.on { display: block; } 
 
-.top { position: absolute; top: 60px; left: 490px; width: 420px; display: flex; justify-content: space-between; align-items: center; font-size: 25px; } 
+.top {position: absolute;top: 60px;left: 490px;width: 570px;display: flex;justify-content: space-between;align-items: center;font-size: 25px;} 
 
 #container { position: relative; width: 1920px; height: 1080px; } 
 
@@ -32,12 +32,9 @@ input[type="text"]:focus::placeholder { color: transparent; }
 .cont1 .box.on .number { background: #ffc000; } 
 .cont1 .box .name { width: 76%; text-align: center; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 35px; } 
 .cont1 .selectBox { /* background: #ECF1F9; */width: 100%; height: 112px; text-align: center; } 
-.cont1 .selectBox p { display: flex; align-items: center; justify-content: center; font-size: 43px; height: 100%; } 
+.cont1 .selectBox p {font-size: 43px;height: 100%;text-align: center;line-height: 112px;} 
 .select { background: #000; width: 50px; height: 50px; } 
-.cont1 .boxWrap { position: absolute; width: 1800px; height: 580px; top: 140px; left: 24px; } 
-
-
-
+.cont1 .boxWrap {position: absolute;width: 1800px;height: 654px;top: 140px;left: 24px;} 
 
 .cont2 .box { width: 320px; height: 80px;  margin: 0 40px 30px 0; background: #ededed; border-radius: 10px; border: 3px solid #a5a5a5; float: left; } 
 .cont2 .box.on { background: #fff2cc; border: 3px solid #ffc000; } 
@@ -45,13 +42,33 @@ input[type="text"]:focus::placeholder { color: transparent; }
 .cont2 .box.on .number { background: #ffc000; } 
 .cont2 .box .name { width: 76%; text-align: center; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 35px; } 
 .cont2 .selectBox {background: #ECF1F9;width: 100%;height: 112px;text-align: center;} 
-.cont2 .selectBox p { display: flex; align-items: center; justify-content: center; font-size: 43px; height: 100%; } 
+.cont2 .selectBox p {font-size: 43px;height: 100%;text-align: center;line-height: 112px;} 
 .select { background: #000; width: 50px; height: 50px; } 
-.cont2 .boxWrap {position: absolute;width: 1824px;height: 600px;top: 110px;overflow-y: scroll;} 
+.cont2 .boxWrap {position: absolute;width: 1824px;height: 684px;top: 110px;overflow-y: scroll;} 
 
-.cont2 .group{width: 100%;height: 124px;position: relative;}
-.cont2 .group .groupname{background: #e1e1ff;width: 25%;height: 100%;float: left;border-bottom: 6px dashed #fff;position: absolute;left: 0;text-align: center;}
+.cont2 .group{width: 100%;height: 137px;position: relative;}
+.cont2 .group .groupname{background: #e1e1ff;width: 25%;height: 100%;float: left;border-bottom: 6px dashed #fff;position: absolute;left: 0;display: flex; align-items: center;justify-content: center;}
 .cont2 .group .groupmember{width: 75%;height: 100%;position: absolute;border-bottom: 6px dashed #ccf;right: 0;}
 .cont2 .group .groupmember .box{display: none;}
 .cont2 .group .groupmember .box.on{display: block;}
 .cont2 .group .retryBtn{position: absolute;top: 50%;transform: translateY(-50%); right: 50px;width: 30px;height: 30px;background: #000;}
+.upload_xlsx{display: none;}
+.upload{cursor: pointer;}
+
+.cont3 .selectBox {background: #DAE3F3;width: 100%;height: 112px;text-align: center;} 
+.cont3 .selectBox p {font-size: 43px;height: 100%;text-align: center;line-height: 112px;width: 50%;float: left;} 
+.cont3 .selectBox p:nth-child(1){background: #ECF1F9;}
+.cont3 .boxWrap {position: absolute;width: 1824px;height: 684px;top: 110px;overflow-y: scroll;} 
+.cont3 .group{width: 100%;height: 171px;position: relative;}
+.cont3 .group .groupname{background: #e1e1ff;width: 25%;height: 100%;float: left;border-bottom: 6px dashed #fff;position: absolute;left: 0;display: flex; align-items: center;justify-content: center;}
+.cont3 .group .groupmember{width: 75%;height: 100%;position: absolute;border-bottom: 6px dashed #ccf;right: 0;overflow-y: auto;}
+
+.cont3 .box { width: 320px; height: 80px;  margin: 0 40px 30px 0; background: #ededed; border-radius: 10px; border: 3px solid #a5a5a5; float: left; } 
+.cont3 .box.on { background: #fff2cc; border: 3px solid #ffc000; } 
+.cont3 .box .number { width: 24%; height: 100%; background: #a5a5a5; color: #fff; align-items: center; display: flex; justify-content: center; font-size: 40px; float: left;} 
+.cont3 .box.on .number { background: #ffc000; } 
+.cont3 .box .name { width: 76%; text-align: center; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 35px; } 
+.cont3 .group .groupmember .box.on{display: block;}
+.cont3 .group .retryBtn{position: absolute;top: 50%;transform: translateY(-50%); right: 50px;width: 30px;height: 30px;background: #000;}
+.selectBox .choice{display: none;}
+.selectBox .choice.on{display: block;}

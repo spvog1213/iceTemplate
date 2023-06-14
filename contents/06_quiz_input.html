@@ -33,17 +33,18 @@
       <section class="contents">
         <!-- 퀴즈 속성
           class name
-          complete : 문제가 끝났을 때 붙습니다.
-          hideIcon : input이 활성화 되어 아이콘이 숨겨져 있을 경우
-          on : 버튼이 활성화 될 때 on 이 클래스에 붙습니다.
-          selected : select, choice에서 선택 중일 때 클래스에 붙습니다.
-          isAnswer : 오답과, 정답이 함께 보여야 할때 클래스에 붙습니다.
-          isDragging : 드래그 중일때 붙습니다.
-          dragged : 드래그를 했던 quizItem의 클래스에 붙습니다.
-          dropped : 드롭이 완료된 quizItem의 클래스에 붙습니다.
-          freeDrag : 위치가 자유로운 드래그 입니다.
-          nonEvent : 클릭 중일때 pointer-eventer : none 인 quizItem 입니다.
-          isClone : 복사 된 quizItem 입니다.
+          - complete : 문제가 끝났을 때 붙습니다.
+          - hideIcon : input이 활성화 되어 아이콘이 숨겨져 있을 경우
+          - on : 버튼이 활성화 될 때 on 이 클래스에 붙습니다.
+          - selected : select, choice에서 선택 중일 때 클래스에 붙습니다.
+          - isAnswer : 오답과, 정답이 함께 보여야 할때 클래스에 붙습니다.
+          //drag
+          - isDragging : 드래그 중일때 붙습니다.
+          - dragged : 드래그를 했던 quizItem의 클래스에 붙습니다.
+          - dropped : 드롭이 완료된 quizItem의 클래스에 붙습니다.
+          - freeDrag : 위치가 자유로운 드래그 입니다.
+          - nonEvent : 클릭 중일때 pointer-eventer : none 인 quizItem 입니다.
+          - isClone : 복사 된 quizItem 입니다.
 
           attribute name
           data-quiz-type: 퀴즈 타입(input, essay, select, choice, truefalse, dragdrop, dragline)
@@ -61,6 +62,7 @@
            - saveUserAnswer: 사용자 답 초기화 안함
            - autoChangeButton: 전체 정답을 완료 한 경우 자동으로 다시하기 버튼으로 변경
            - multiChoice: 정답이 복수일 때
+           - itemButton: 개별 정답 버튼을 생성
            //drag 
            - multiDrop: 한 dropItem에 여러개의 dragItem 드랍 가능
            - copyDrag: 정답인 경우 무제한 드래그
@@ -136,9 +138,9 @@
         pageManager.findQuizByName('inputQuiz').callback = { //data-quiz-name : inputQuiz에 콜백 설정
           correct: (QUIZ) => {console.log('correct')}, //정답을 맞췄을 경우 console에서 correct가 적힌다.
           incorrect: (QUIZ) => {console.log('incorrect')}, //오답일 경우 console에서 incorrect가 적힌다.
-          finish: (QUIZ) => {console.log('finish')}, //모두 오답이 되어 예시답을 보일 경우 console에서 finish가 적힌다.
+          finish: (QUIZ) => {console.log('finish')}, //try를 끝내거나, 정답을 맞춰 예시답을 보일 경우 console에서 finish가 적힌다.
           redo: (QUIZ) => {console.log('redo')}, //다시 풀기위해 redo버튼이 숨겨졌을 경우 console에서 redo가 적힌다.
-          reset: (QUIZ) => {console.log('reset')}, //다시 풀기 버튼을 눌렀을 경우  console에서 reset가 적힌다. 
+          reset: (QUIZ) => {console.log('reset')}, //다시 풀기 버튼을 눌렀을 경우 console에서 reset가 적힌다. 
           itemCheck: (QUIZ, item) => {console.log('itemCheck', item)} // 개별 정답을 실행한 경우 동작 
         }
         pageManager.findQuizByIndex(1).callback = { //Quiz중 [1]번째(0,1,2..)의 콜백설정
